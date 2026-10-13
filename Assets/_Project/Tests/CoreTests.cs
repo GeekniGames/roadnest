@@ -1,0 +1,176 @@
+using System.Collections.Generic;
+using NUnit.Framework;
+using Roadnest.Core;
+using UnityEditor;
+using UnityEngine;
+
+namespace Roadnest.Tests
+{
+    public class SeededRandomTests
+    {
+        [Test]
+        public void SameSeed_SameSequence()
+        {
+            var a = new SeededRandom(123);
+            var b = new SeededRandom(123);
+            for (int i = 0; i < 100; i++) Assert.AreEqual(a.Next(), b.Next());
+        }
+
+        [Test]
+        public void Derive_SameInput_SameStream()
+        {
+            var a = SeededRandom.Derive(7, 3, 2, RngPurpose.Outcome);
+            var b = SeededRandom.Derive(7, 3, 2, RngPurpose.Outcome);
+            Assert.AreEqual(a.Next(), b.Next());
+        }
+
+        [Test]
+        public void Derive_DifferentSlot_DifferentStream()
+        {
+            var a = SeededRandom.Derive(7, 3, 1, RngPurpose.Outcome);
+            var b = SeededRandom.Derive(7, 3, 2, RngPurpose.Outcome);
+            Assert.AreNotEqual(a.Next(), b.Next());
+        }
+
+        [Test]
+        public void Range_StaysInBounds()
+        {
+            var r = new SeededRandom(99);
+            for (int i = 0; i < 10000; i++)
+            {
+                int v = r.Range(0, 100);
+                Assert.IsTrue(v >= 0 && v < 100);
+            }
+        }
+    }
+
+    public class EventTableTests
+    {
+        const string JsonPath = "Assets/_Project/04_Data/Events/events.json";
+
+        static EventTable LoadSample(List<string> errors)
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<TextAsset>(JsonPath);
+            Assert.IsNotNull(asset, "events.json을 찾을 수 없음: " + JsonPath);
+            return EventTable.FromJson(asset.text, errors);
+        }
+
+        static bool Contains(SlotCandidate[] list, string id)
+        {
+            for (int i = 0; i < list.Length; i++)
+                if (list[i].Def.Id == id) return true;
+            return false;
+        }
+
+        static bool HasError(List<string> errors, string part)
+        {
+            for (int i = 0; i < errors.Count; i++)
+                if (errors[i].Contains(part)) return true;
+            return false;
+        }
+
+        static EventTableDto MakeDto()
+        {
+            return new EventTableDto
+            {
+                version = 1,
+                events = new[]
+                {
+                    new EventDto
+                    {
+                        id = "EVT_T", titleKey = "t", textKey = "x", trigger = "telegraphed",
+                        modes = new[] { "depart" },
+                        slots = new[] { new SlotWeightDto { slot = "Minor", weight = 10 } },
+                        choices = new[] { MakeChoice("A"), MakeChoice("B") }
+                    }
+                }
+            };
+        }
+
+        static ChoiceDto MakeChoice(string id)
+        {
+            return new ChoiceDto
+            {
+                id = id,
+                textKey = id,
+                outcomes = new[] { new OutcomeDto { kind = "rest", textKey = "o" } }
+            };
+        }
+
+        [Test]
+        public void Sample_LoadsWithoutErrors()
+        {
+            var errors = new List<string>();
+            var table = LoadSample(errors);
+            Assert.IsNotNull(table, string.Join("\n", errors));
+            Assert.AreEqual(0, errors.Count);
+            Assert.AreEqual(2, table.Events.Length);
+        }
+
+        [Test]
+        public void Candidates_FilteredByModeAndSlot()
+        {
+            var table = LoadSample(new List<string>());
+            Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Depart, SlotType.Minor), "EVT_FALLEN_TREE"));
+            Assert.IsFalse(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_FALLEN_TREE"));
+            Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_TRADER"));
+            Assert.AreEqual(0, table.GetCandidates(MoveMode.Settle, SlotType.Danger).Length);
+        }
+
+        [Test]
+        public void Outcomes_RestIsResolvedToRemainder()
+        {
+            var table = LoadSample(new List<string>());
+            EventDef def;
+            Assert.IsTrue(table.TryGetEvent("EVT_FALLEN_TREE", out def));
+            OutcomeDef[] o = def.Choices[0].Outcomes;
+            Assert.AreEqual(60, o[0].Percent);
+            Assert.AreEqual(40, o[1].Percent);
+            Assert.AreEqual(100, o[1].CumulativeEnd);
+        }
+
+        [Test]
+        public void Invalid_UnknownStat_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].cost = new[] { new EffectDto { stat = "gold", amount = -1 } };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "gold"));
+        }
+
+        [Test]
+        public void Invalid_PercentOver100_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].outcomes = new[]
+            {
+                new OutcomeDto { kind = "fixed", percent = 60, textKey = "a" },
+                new OutcomeDto { kind = "fixed", percent = 60, textKey = "b" }
+            };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "100"));
+        }
+
+        [Test]
+        public void Invalid_DuplicateId_Fails()
+        {
+            var dto = MakeDto();
+            dto.events = new[] { dto.events[0], dto.events[0] };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "중복"));
+        }
+
+        [Test]
+        public void Invalid_HpAllRequirement_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].requirements = new[] { new RequirementDto { stat = "hp_all", op = "gte", value = 1 } };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "hp_all"));
+        }
+    }
+}
