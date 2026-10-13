@@ -42,6 +42,17 @@ namespace Roadnest.Tests
                 Assert.IsTrue(v >= 0 && v < 100);
             }
         }
+
+        [Test]
+        public void RangeLong_StaysInBounds()
+        {
+            var r = new SeededRandom(5);
+            for (int i = 0; i < 10000; i++)
+            {
+                long v = r.RangeLong(0, 1234567);
+                Assert.IsTrue(v >= 0 && v < 1234567);
+            }
+        }
     }
 
     public class EventTableTests
@@ -74,16 +85,34 @@ namespace Roadnest.Tests
             return new EventTableDto
             {
                 version = 1,
-                events = new[]
-                {
-                    new EventDto
-                    {
-                        id = "EVT_T", titleKey = "t", textKey = "x", trigger = "telegraphed",
-                        modes = new[] { "depart" },
-                        slots = new[] { new SlotWeightDto { slot = "Minor", weight = 10 } },
-                        choices = new[] { MakeChoice("A"), MakeChoice("B") }
-                    }
-                }
+                fallback = "EVT_FB",
+                events = new[] { MakeEvent("EVT_T"), MakeFallback() }
+            };
+        }
+
+        static EventDto MakeEvent(string id)
+        {
+            return new EventDto
+            {
+                id = id,
+                titleKey = "t",
+                textKey = "x",
+                trigger = "telegraphed",
+                modes = new[] { "depart" },
+                slots = new[] { new SlotWeightDto { slot = "Minor", weight = 10 } },
+                choices = new[] { MakeChoice("A"), MakeChoice("B") }
+            };
+        }
+
+        static EventDto MakeFallback()
+        {
+            return new EventDto
+            {
+                id = "EVT_FB",
+                titleKey = "t",
+                textKey = "x",
+                trigger = "telegraphed",
+                choices = new[] { MakeChoice("FA"), MakeChoice("FB") }
             };
         }
 
@@ -104,7 +133,7 @@ namespace Roadnest.Tests
             var table = LoadSample(errors);
             Assert.IsNotNull(table, string.Join("\n", errors));
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(2, table.Events.Length);
+            Assert.AreEqual(4, table.Events.Length);
         }
 
         [Test]
@@ -114,7 +143,18 @@ namespace Roadnest.Tests
             Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Depart, SlotType.Minor), "EVT_FALLEN_TREE"));
             Assert.IsFalse(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_FALLEN_TREE"));
             Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_TRADER"));
-            Assert.AreEqual(0, table.GetCandidates(MoveMode.Settle, SlotType.Danger).Length);
+            Assert.AreEqual(0, table.GetCandidates(MoveMode.Settle, SlotType.MaintenanceRecovery).Length);
+        }
+
+        [Test]
+        public void Sample_WeightModsTagsAndFallbackParsed()
+        {
+            var table = LoadSample(new List<string>());
+            EventDef def;
+            Assert.IsTrue(table.TryGetEvent("EVT_ZOMBIE_RAID", out def));
+            Assert.AreEqual(WeightMods.SettleStreak | WeightMods.Day, def.Mods);
+            Assert.GreaterOrEqual(table.TagId("zombie_raid"), 0);
+            Assert.AreEqual("EVT_QUIET_DAY", table.Fallback.Id);
         }
 
         [Test]
@@ -171,6 +211,36 @@ namespace Roadnest.Tests
             var errors = new List<string>();
             Assert.IsNull(EventTable.Build(dto, errors));
             Assert.IsTrue(HasError(errors, "hp_all"));
+        }
+
+        [Test]
+        public void Invalid_MissingFallback_Fails()
+        {
+            var dto = MakeDto();
+            dto.fallback = null;
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "fallback"));
+        }
+
+        [Test]
+        public void Invalid_UnknownFallback_Fails()
+        {
+            var dto = MakeDto();
+            dto.fallback = "EVT_NOPE";
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "EVT_NOPE"));
+        }
+
+        [Test]
+        public void Invalid_UnknownWeightMod_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].weightMods = new[] { "luck" };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "luck"));
         }
     }
 }

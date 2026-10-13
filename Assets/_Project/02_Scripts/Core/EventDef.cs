@@ -72,14 +72,15 @@ namespace Roadnest.Core
         public readonly TriggerType Trigger;
         public readonly int DayMin;
         public readonly int DayMax;
+        public readonly WeightMods Mods;
         public readonly int[] TagIds;
         public readonly ChoiceDef[] Choices;
 
         public EventDef(int index, string id, string titleKey, string textKey, TriggerType trigger,
-                        int dayMin, int dayMax, int[] tagIds, ChoiceDef[] choices)
+                        int dayMin, int dayMax, WeightMods mods, int[] tagIds, ChoiceDef[] choices)
         {
             Index = index; Id = id; TitleKey = titleKey; TextKey = textKey; Trigger = trigger;
-            DayMin = dayMin; DayMax = dayMax; TagIds = tagIds; Choices = choices;
+            DayMin = dayMin; DayMax = dayMax; Mods = mods; TagIds = tagIds; Choices = choices;
         }
 
         public bool IsInDayRange(int day) => day >= DayMin && (DayMax == 0 || day <= DayMax);

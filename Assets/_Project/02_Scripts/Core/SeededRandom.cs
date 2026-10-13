@@ -40,6 +40,15 @@ namespace Roadnest.Core
             return minInclusive + (int)(((Next() >> 32) * (ulong)span) >> 32);
         }
 
+        // 큰 범위용. 범위가 2^64에 비해 매우 작아 나머지 연산의 쏠림은 무시할 수준
+        // For large spans; modulo bias is negligible versus 2^64
+        public long RangeLong(long minInclusive, long maxExclusive)
+        {
+            long span = maxExclusive - minInclusive;
+            if (span <= 1) return minInclusive;
+            return minInclusive + (long)(Next() % (ulong)span);
+        }
+
         public bool Chance(int percent) => Range(0, 100) < percent;
 
         static ulong Mix(ulong x)

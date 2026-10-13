@@ -3,7 +3,7 @@ using System;
 namespace Roadnest.Core
 {
     // 필드 이름은 JSON 키와 정확히 같아야 한다 / field names must match JSON keys exactly
-    [Serializable] public class EventTableDto { public int version; public EventDto[] events; }
+    [Serializable] public class EventTableDto { public int version; public string fallback; public EventDto[] events; }
 
     [Serializable]
     public class EventDto
@@ -17,6 +17,7 @@ namespace Roadnest.Core
         public int dayMin;              // 0 = 제한 없음 / no limit
         public int dayMax;              // 0 = 제한 없음 / no limit
         public string[] tags;
+        public string[] weightMods;     // settle_streak | day
         public ChoiceDto[] choices;
     }
 

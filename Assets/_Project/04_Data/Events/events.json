@@ -1,5 +1,6 @@
 {
   "version": 1,
+  "fallback": "EVT_QUIET_DAY",
   "events": [
     {
       "id": "EVT_FALLEN_TREE",
@@ -124,6 +125,130 @@
             {
               "kind": "rest",
               "textKey": "evt-trader-c2-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ZOMBIE_RAID",
+      "titleKey": "evt-zombie-raid-title",
+      "textKey": "evt-zombie-raid-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Night",
+          "weight": 6
+        },
+        {
+          "slot": "Major",
+          "weight": 4
+        }
+      ],
+      "weightMods": [ "settle_streak", "day" ],
+      "tags": [ "zombie_raid" ],
+      "choices": [
+        {
+          "id": "EVT_ZOMBIE_RAID_C1",
+          "textKey": "evt-zombie-raid-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-zombie-raid-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-raid-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -30
+                },
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ZOMBIE_RAID_C2",
+          "textKey": "evt-zombie-raid-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-zombie-raid-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-raid-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_QUIET_DAY",
+      "titleKey": "evt-quiet-day-title",
+      "textKey": "evt-quiet-day-text",
+      "trigger": "telegraphed",
+      "choices": [
+        {
+          "id": "EVT_QUIET_DAY_C1",
+          "textKey": "evt-quiet-day-c1",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_QUIET_DAY_C2",
+          "textKey": "evt-quiet-day-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c2-o1"
             }
           ]
         }

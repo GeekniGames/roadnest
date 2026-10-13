@@ -22,15 +22,16 @@ namespace Roadnest.Core
         static readonly int SlotCount = Enum.GetValues(typeof(SlotType)).Length;
 
         public EventDef[] Events { get; }
+        public EventDef Fallback { get; }
 
         readonly SlotCandidate[][] _candidates;
         readonly Dictionary<string, int> _tagIds;
         readonly Dictionary<string, EventDef> _byId;
 
-        EventTable(EventDef[] events, SlotCandidate[][] candidates,
+        EventTable(EventDef[] events, EventDef fallback, SlotCandidate[][] candidates,
                    Dictionary<string, int> tagIds, Dictionary<string, EventDef> byId)
         {
-            Events = events; _candidates = candidates; _tagIds = tagIds; _byId = byId;
+            Events = events; Fallback = fallback; _candidates = candidates; _tagIds = tagIds; _byId = byId;
         }
 
         public SlotCandidate[] GetCandidates(MoveMode mode, SlotType slot)
@@ -90,8 +91,14 @@ namespace Roadnest.Core
                 EventDef def = BuildEvent(e, defs.Count, tagIds, errors);
                 defs.Add(def);
                 byId.Add(e.id, def);
-                AddCandidates(e, def, buckets, errors);
+                AddCandidates(e, def, e.id == dto.fallback, buckets, errors);
             }
+
+            EventDef fallback = null;
+            if (string.IsNullOrEmpty(dto.fallback))
+                errors.Add("fallback 이벤트 ID가 없음 / missing fallback event id");
+            else if (!byId.TryGetValue(dto.fallback, out fallback))
+                errors.Add("fallback 이벤트를 찾을 수 없음 '" + dto.fallback + "' / fallback event not found");
 
             if (errors.Count > errorStart) return null;
 
@@ -99,7 +106,7 @@ namespace Roadnest.Core
             for (int i = 0; i < buckets.Length; i++)
                 candidates[i] = buckets[i] == null ? Array.Empty<SlotCandidate>() : buckets[i].ToArray();
 
-            return new EventTable(defs.ToArray(), candidates, tagIds, byId);
+            return new EventTable(defs.ToArray(), fallback, candidates, tagIds, byId);
         }
 
         static int BucketIndex(MoveMode mode, SlotType slot) => (int)mode * SlotCount + (int)slot;
@@ -117,6 +124,8 @@ namespace Roadnest.Core
 
             if (e.dayMin < 0 || e.dayMax < 0 || (e.dayMax != 0 && e.dayMax < e.dayMin))
                 errors.Add(id + ": dayMin/dayMax 범위 오류 / invalid day range");
+
+            WeightMods mods = ParseWeightMods(e.weightMods, id, errors);
 
             int tagCount = Len(e.tags);
             int[] tagArr = tagCount == 0 ? Array.Empty<int>() : new int[tagCount];
@@ -147,7 +156,25 @@ namespace Roadnest.Core
             if (visible < 2 || visible > 3)
                 errors.Add(id + ": 보이는 선택지는 2~3개여야 함 (현재 " + visible + ") / visible choices must be 2-3");
 
-            return new EventDef(index, id, e.titleKey, e.textKey, trigger, e.dayMin, e.dayMax, tagArr, choices);
+            return new EventDef(index, id, e.titleKey, e.textKey, trigger, e.dayMin, e.dayMax, mods, tagArr, choices);
+        }
+
+        static WeightMods ParseWeightMods(string[] src, string id, List<string> errors)
+        {
+            WeightMods mods = WeightMods.None;
+            int n = Len(src);
+            for (int i = 0; i < n; i++)
+            {
+                switch (src[i])
+                {
+                    case "settle_streak": mods |= WeightMods.SettleStreak; break;
+                    case "day": mods |= WeightMods.Day; break;
+                    default:
+                        errors.Add(id + ": 알 수 없는 weightMods '" + src[i] + "' / unknown weightMods");
+                        break;
+                }
+            }
+            return mods;
         }
 
         static ChoiceDef BuildChoice(ChoiceDto c, string eventId, int index, List<string> errors)
@@ -247,21 +274,26 @@ namespace Roadnest.Core
                 CompareOp op;
                 if (!TryParseStat(src[i].stat, out stat))
                     errors.Add(where + ".requirements[" + i + "]: 알 수 없는 stat '" + src[i].stat + "' / unknown stat");
-                if (!TryParseOp(src[i].op, out op))
-                    errors.Add(where + ".requirements[" + i + "]: 알 수 없는 op '" + src[i].op + "' / unknown op");
                 if (stat == StatType.HpAll)
                     errors.Add(where + ".requirements[" + i + "]: hp_all은 조건에 쓸 수 없음 / hp_all is not allowed in requirements");
+                if (!TryParseOp(src[i].op, out op))
+                    errors.Add(where + ".requirements[" + i + "]: 알 수 없는 op '" + src[i].op + "' / unknown op");
                 arr[i] = new Requirement(stat, op, src[i].value);
             }
             return arr;
         }
 
-        static void AddCandidates(EventDto e, EventDef def, List<SlotCandidate>[] buckets, List<string> errors)
+        // 폴백 이벤트는 mode/slot 없이도 허용 / the fallback event may omit modes and slots
+        static void AddCandidates(EventDto e, EventDef def, bool isFallback,
+                                  List<SlotCandidate>[] buckets, List<string> errors)
         {
             int modeCount = Len(e.modes);
             int slotCount = Len(e.slots);
-            if (modeCount == 0) errors.Add(e.id + ": modes 없음 / missing modes");
-            if (slotCount == 0) errors.Add(e.id + ": slots 없음 / missing slots");
+            if (!isFallback)
+            {
+                if (modeCount == 0) errors.Add(e.id + ": modes 없음 / missing modes");
+                if (slotCount == 0) errors.Add(e.id + ": slots 없음 / missing slots");
+            }
 
             for (int m = 0; m < modeCount; m++)
             {

@@ -20,4 +20,7 @@ namespace Roadnest.Core
     public enum RngPurpose : byte { EventPick = 1, Outcome = 2, Misc = 3 }
 
     public enum EndReason : byte { None, AllDead, VehicleDestroyed }
+
+    [System.Flags]
+    public enum WeightMods : byte { None = 0, SettleStreak = 1, Day = 2 }
 }
