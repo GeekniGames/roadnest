@@ -1,0 +1,175 @@
+# ROADNEST
+
+**한국어** | [English](#english)
+
+움직이는 집(카라반)을 몰고 도로를 달리며 선택과 자원 관리로 생존하는 2D 모바일 로그라이크.
+Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
+
+> 개발 중 (솔로 프로젝트). 현재는 코어 로직과 이벤트 UI까지 구현되어 있습니다.
+
+![gameplay](docs/gameplay.gif)
+
+## 한눈에 보기
+
+| 항목 | 내용 |
+|---|---|
+| 엔진 | Unity 6000.4.7f1, 2D URP |
+| 언어 | C# |
+| 라이브러리 | DOTween, TextMeshPro, NUnit (EditMode 테스트) |
+| 목표 플랫폼 | Android / iOS (세로 고정) |
+
+## 구현된 것
+
+**게임 코어 (Unity 비의존 순수 C#, `Roadnest.Core` 어셈블리)**
+- 하루 진행 상태 머신 `DayFlow`: 모드 선택(출발/정착) → 이벤트 슬롯 → 분배 → 다음 날
+- 선택지 처리 `ChoiceResolver`: 조건/비용 검사 → 확률 굴림 → 효과 적용
+- 시드 기반 결정적 난수: 같은 시드면 같은 결과 (재현, 디버깅, 테스트에 사용)
+- 가중치 기반 이벤트 선택: 슬롯 종류, 연속 정착 횟수, 일차에 따른 보정
+
+**데이터 주도 이벤트**
+- 이벤트는 `events.json`에 정의하고, 로드 시점에 전부 검증합니다(선택지 수, 확률 합, 비용 중복, 폴백 이벤트 등). 잘못된 데이터는 한/영 오류 메시지와 함께 즉시 실패합니다.
+- 코드 수정 없이 이벤트 추가 가능
+
+**UI / 연출**
+- 이벤트 패널: 일반 선택지 최대 4개 + 특수 선택지 1개, 소모/성공/실패 영역별 최대 3줄 효과 표시, 선택 불가 카드 표시
+- 주행 연출: 다층 패럴랙스 스크롤, 시동 떨림, 바퀴 프레임, 배기가스
+- 이벤트 진입 연출: 랜덤 대기 후 정지, 예고형 이벤트는 차 앞 느낌표 표시, 돌발형은 바로 진입
+- 연출은 DOTween을 사용하고, 씬의 Update는 한 곳에서만 돌립니다.
+
+## 설계 원칙
+
+- **코어와 화면 분리**: 로직은 엔진 없이 테스트 가능하고, 화면은 코어 상태를 읽어 그리기만 합니다.
+- **GC 최소화**: 자주 호출되는 경로에서 LINQ, 문자열 보간, 임시 배열/리스트 할당을 쓰지 않고, TMP 포맷 문자열은 미리 만들어 둡니다.
+- **데이터 검증 우선**: 실행 중 오류보다 로드 시점 실패를 선호합니다.
+
+## 테스트
+
+Unity Test Runner (EditMode)에서 실행합니다. 현재 76개.
+
+- 코어 규칙, 이벤트 로딩/검증, 선택지 처리, 이벤트 선택, 하루 진행 흐름 단위 테스트
+- **봇 시뮬레이션**: 무작위 봇이 여러 시드로 수천 판을 자동 플레이해 (1) 진행 불가(데드락) 없음 (2) 같은 시드 = 같은 결과를 확인합니다.
+  - 실행 규모: [ 시드 수 ] 시드 x [ 판 수 ] 판
+  - 결과: [ 평균 생존 일수 / 종료 사유 비율 등 ]
+  - 주의: 현재 샘플 이벤트가 4개이고 회복/자원 획득 수단이 없어서, 이 수치는 **밸런스 근거가 아니라 로직 안정성 검증용**입니다.
+
+## 로드맵
+
+- [x] 코어 로직, 이벤트 데이터/검증, 테스트, 봇 시뮬레이션
+- [x] 이벤트 패널 UI, 주행/이벤트 진입 연출
+- [ ] HUD 확장 (내구도, 캐릭터별 HP)
+- [ ] 식량/물 분배 패널
+- [ ] 게임 오버 / 재시작
+- [ ] 이벤트 확장 (20~30개), 로컬라이징(Unity Localization)
+- [ ] 실기기 빌드, 프로파일링 결과, 서버 연동
+
+## 폴더 구조
+
+```
+Assets/_Project/
+  01_Scenes/    씬
+  02_Scripts/
+    Core/       순수 C# 게임 로직
+    Data/       데이터 로딩
+    Map/        주행 연출, 씬 진입점
+    Caravan/    차량 연출
+    Sound/      오디오
+    UI/         UI 패널
+  03_Arts/      아트 리소스
+  04_Data/      events.json 등 데이터
+```
+
+## 실행 방법
+
+1. Unity 6000.4.7f1 이상으로 프로젝트를 엽니다.
+2. DOTween을 설치합니다. (라이선스상 저장소에 포함하지 않았다면 별도 설치)
+3. `01_Scenes`의 메인 씬을 열고 Play 합니다.
+
+---
+
+<a name="english"></a>
+# ROADNEST (English)
+
+[한국어](#roadnest) | **English**
+
+A 2D mobile roguelike about surviving on the road in a moving home (a caravan) through choices and resource management.
+Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
+
+> Work in progress (solo project). The core logic and the event UI are implemented so far.
+
+<!-- Put the gameplay GIF here -->
+<!-- ![gameplay](docs/gameplay.gif) -->
+
+## At a Glance
+
+| Item | Detail |
+|---|---|
+| Engine | Unity 6000.4.7f1, 2D URP |
+| Language | C# |
+| Libraries | DOTween, TextMeshPro, NUnit (EditMode tests) |
+| Target | Android / iOS (portrait only) |
+
+## What's Implemented
+
+**Game core (engine-independent pure C#, `Roadnest.Core` assembly)**
+- `DayFlow` state machine: pick mode (depart / settle) → event slots → distribution → next day
+- `ChoiceResolver`: requirement and cost checks → probability roll → apply effects
+- Deterministic seeded RNG: the same seed gives the same result (used for replay, debugging and tests)
+- Weighted event selection with modifiers by slot type, consecutive settles and day number
+
+**Data-driven events**
+- Events are defined in `events.json` and fully validated at load time (choice counts, probability totals, duplicate costs, fallback event, etc.). Bad data fails immediately with bilingual (KR/EN) error messages.
+- New events need no code changes.
+
+**UI / presentation**
+- Event panel: up to 4 normal choices plus 1 special choice, up to 3 effect rows each for cost / success / failure, and a locked state for unaffordable choices
+- Driving presentation: multi-layer parallax scrolling, ignition shake, wheel frames, exhaust puffs
+- Event entry: random wait, then the car stops; telegraphed events show an exclamation mark above the car, sudden events open right away
+- Animations use DOTween, and the scene runs a single Update loop.
+
+## Design Principles
+
+- **Core / view separation**: logic is testable without the engine; the view only reads core state and draws it.
+- **Minimal GC**: no LINQ, string interpolation or temporary arrays/lists on hot paths; TMP format strings are prebuilt.
+- **Validate data first**: fail at load time rather than at runtime.
+
+## Testing
+
+Run from the Unity Test Runner (EditMode). 76 tests at the moment.
+
+- Unit tests for core rules, event loading/validation, choice resolution, event selection and the day flow
+- **Bot simulation**: a random bot auto-plays thousands of runs across many seeds to confirm (1) no deadlocks (2) same seed = same result.
+  - Scale: [ number of seeds ] seeds x [ runs ] runs
+  - Results: [ average days survived / end-reason ratios, etc. ]
+  - Note: with only 4 sample events and no healing or resource sources yet, these numbers verify **logic stability, not game balance**.
+
+## Roadmap
+
+- [x] Core logic, event data and validation, tests, bot simulation
+- [x] Event panel UI, driving and event entry presentation
+- [ ] HUD expansion (durability, per-character HP)
+- [ ] Food / water distribution panel
+- [ ] Game over / restart
+- [ ] More events (20-30), localization (Unity Localization)
+- [ ] Device build, profiling results, backend integration
+
+## Project Layout
+
+```
+Assets/_Project/
+  01_Scenes/    scenes
+  02_Scripts/
+    Core/       pure C# game logic
+    Data/       data loading
+    Map/        road presentation, scene entry point
+    Caravan/    caravan visuals
+    Sound/      audio
+    UI/         UI panels
+  03_Arts/      art resources
+  04_Data/      data such as events.json
+```
+
+## Getting Started
+
+1. Open the project with Unity 6000.4.7f1 or later.
+2. Install DOTween (separately, if it is not included in the repo for license reasons).
+3. Open the main scene in `01_Scenes` and press Play.
