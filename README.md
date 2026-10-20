@@ -34,6 +34,8 @@ Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
 - 이벤트 패널: 일반 선택지 최대 4개 + 특수 선택지 1개, 소모/성공/실패 영역별 최대 3줄 효과 표시, 선택 불가 카드 표시
 - 주행 연출: 다층 패럴랙스 스크롤, 시동 떨림, 바퀴 프레임, 배기가스
 - 이벤트 진입 연출: 랜덤 대기 후 정지, 예고형 이벤트는 차 앞 느낌표 표시, 돌발형은 바로 진입
+- 결과 화면: 성공/실패 표시와 보상 줄(최대 3줄), 확인 버튼을 누르면 자원 변화 연출
+- 내구도 바: 값이 바뀌면 부드럽게 따라가고, 낮아지면 색이 바뀌며 깜빡임
 - 연출은 DOTween을 사용하고, 씬의 Update는 한 곳에서만 돌립니다.
 
 ## 설계 원칙
@@ -56,7 +58,9 @@ Unity Test Runner (EditMode)에서 실행합니다. 현재 76개.
 
 - [x] 코어 로직, 이벤트 데이터/검증, 테스트, 봇 시뮬레이션
 - [x] 이벤트 패널 UI, 주행/이벤트 진입 연출
-- [ ] HUD 확장 (내구도, 캐릭터별 HP)
+- [x] HUD 확장 (내구도, 캐릭터별 HP)
+- [x] 결과 화면(성공/실패 표시, 보상 줄)과 내구도 바
+- [ ] HUD 확장 (캐릭터별 HP)
 - [ ] 식량/물 분배 패널
 - [ ] 게임 오버 / 재시작
 - [ ] 이벤트 확장 (20~30개), 로컬라이징(Unity Localization)
@@ -124,6 +128,8 @@ Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
 - Event panel: up to 4 normal choices plus 1 special choice, up to 3 effect rows each for cost / success / failure, and a locked state for unaffordable choices
 - Driving presentation: multi-layer parallax scrolling, ignition shake, wheel frames, exhaust puffs
 - Event entry: random wait, then the car stops; telegraphed events show an exclamation mark above the car, sudden events open right away
+- Result view: success / fail banner and reward rows (up to 3); resource changes animate when you press Done
+- Durability bar: follows value changes smoothly, and changes color and blinks when low
 - Animations use DOTween, and the scene runs a single Update loop.
 
 ## Design Principles
@@ -146,7 +152,9 @@ Run from the Unity Test Runner (EditMode). 76 tests at the moment.
 
 - [x] Core logic, event data and validation, tests, bot simulation
 - [x] Event panel UI, driving and event entry presentation
-- [ ] HUD expansion (durability, per-character HP)
+- [x] HUD expansion (durability, per-character HP)
+- [x] Result view (success / fail banner, reward rows) and a durability bar
+- [ ] HUD expansion (per-character HP)
 - [ ] Food / water distribution panel
 - [ ] Game over / restart
 - [ ] More events (20-30), localization (Unity Localization)
