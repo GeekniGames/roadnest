@@ -50,15 +50,17 @@ namespace Roadnest.Core
     {
         public readonly string Id;
         public readonly string TextKey;
+        public readonly string IconKey;     // 없으면 null 또는 빈 문자열 / null or empty when absent
         public readonly bool Hidden;
+        public readonly bool Special;
         public readonly Requirement[] Requirements;
         public readonly Effect[] Cost;
         public readonly OutcomeDef[] Outcomes;
 
-        public ChoiceDef(string id, string textKey, bool hidden, Requirement[] requirements,
-                         Effect[] cost, OutcomeDef[] outcomes)
+        public ChoiceDef(string id, string textKey, string iconKey, bool hidden, Requirement[] requirements,
+                         Effect[] cost, OutcomeDef[] outcomes, bool special = false)
         {
-            Id = id; TextKey = textKey; Hidden = hidden;
+            Id = id; TextKey = textKey; IconKey = iconKey; Hidden = hidden; Special = special;
             Requirements = requirements; Cost = cost; Outcomes = outcomes;
         }
     }

@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using Roadnest.Core;
 using UnityEngine;
-using DG.Tweening;
 
 /// <summary>
-/// 주행 연출 진입점. 씬 전체에서 Update는 여기 하나뿐.
-/// Entry point of the driving scene. The only Update in the scene.
+/// 주행 연출 진입점이자 코어(DayFlow)와 화면을 잇는 곳. 씬 전체에서 Update는 여기 하나뿐.
+/// Entry point of the driving scene and the bridge between the core (DayFlow) and the view. The only Update in the scene.
 /// </summary>
 public class RoadSceneController : MonoBehaviour
 {
@@ -16,32 +17,70 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] DayBanner dayBanner;
     [SerializeField] GameConfig config;
     [SerializeField] ResourceHud resourceHud;
+    [SerializeField] DurabilityHud durabilityHud;
     [SerializeField] ChoicePanel choicePanel;
+    [SerializeField] EventPanel eventPanel;
     [SerializeField] ChoiceSlotData departChoice;
     [SerializeField] ChoiceSlotData settleChoice;
+    [SerializeField] TextAsset eventsJson;
+    [SerializeField] int fixedSeed;                     // 0이면 매 판 랜덤 / 0 = random every run
     [SerializeField] float ignitionPuffDelay = 0.35f;   // 시동 시작 후 배기가스까지 / delay from ignition start to the puff
-    [SerializeField] float panelDelay = 0.7f;   // 시동 후 패널 등장까지 텀 / pause before the panel appears
+    [SerializeField] float panelDelay = 0.7f;           // 시동 후 패널 등장까지 텀 / pause before the panel appears
+    [SerializeField] float waitMin = 5f;                // 이벤트 전 랜덤 대기 / random wait before an event
+    [SerializeField] float waitMax = 10f;
 
     ChoiceSlotData[] _choices;
     readonly bool[] _enabled = new bool[2];
     Action<int> _onPicked;
+    Action<int> _onEventPicked;
+    Action _onResultContinue;
+    DayFlow _flow;
+    TweenCallback _onWaitDone;
+    Action _showEvent;
+    bool _moving;
 
     public ResourceStore Store { get; private set; }
 
-    int _day = 1;
+
 
     void Awake()
     {
-        Store = new ResourceStore(config.resourceCap);
-        Store.Reset(config.startFuel, config.startFood, config.startWater);
+        RunRules rules = config.ToRules();
+        Store = new ResourceStore(rules.ResourceCap);
+        RunState run = RunState.CreateDefault(rules, Store);
+
+        var errors = new List<string>();
+        EventTable table = EventTable.FromJson(eventsJson.text, errors);
+        if (table == null)
+        {
+            for (int i = 0; i < errors.Count; i++) Debug.LogError(errors[i]);
+            enabled = false;
+            return;
+        }
+
+        ulong seed = fixedSeed != 0 ? (ulong)fixedSeed : (ulong)DateTime.UtcNow.Ticks;
+        _flow = new DayFlow(run, table, seed);
+#if UNITY_EDITOR
+        Debug.Log("[Roadnest] seed = " + seed);
+#endif
+
         resourceHud.Bind(Store);
+        durabilityHud.Bind(run.Durability, rules.MaxDurability);
 
         _choices = new[] { departChoice, settleChoice };
         _onPicked = OnPicked;
-        departChoice.cost.amount = config.departFuelCost;   // 문구의 {amount}와 실제 소모량을 일치시킴 / keep text and cost in sync
+        _onEventPicked = OnEventPicked;
+        _onResultContinue = OnResultContinue;
+        _onWaitDone = OnWaitDone;
+        _showEvent = ShowEvent;
+        departChoice.cost.amount = rules.DepartFuelCost;   // 문구의 {amount}와 실제 소모량을 일치시킴 / keep text and cost in sync
     }
 
-    void Start() => dayBanner.Show(_day, OnBannerDone);
+    void Start()
+    {
+        if (_flow == null) return;
+        dayBanner.Show(_flow.Run.Day, OnBannerDone);
+    }
 
     void Update()
     {
@@ -53,6 +92,7 @@ public class RoadSceneController : MonoBehaviour
 
     public void StartDay()
     {
+        _moving = true;
         scroll.StartMoving();
         caravan.StartMoving();
         exhaust.StartEmitting();
@@ -61,6 +101,7 @@ public class RoadSceneController : MonoBehaviour
 
     public void StopCar()
     {
+        _moving = false;
         scroll.StopMoving();
         caravan.StopMoving();
         exhaust.StopEmitting();
@@ -89,23 +130,87 @@ public class RoadSceneController : MonoBehaviour
 
     void ShowChoices()
     {
-        _enabled[0] = Store.Has(ResourceType.Fuel, config.departFuelCost);
+        _enabled[0] = _flow.CanDepart;
         _enabled[1] = true;
-        choicePanel.Show(_day, _choices, 2, _enabled, _onPicked);
+        choicePanel.Show(_flow.Run.Day, _choices, 2, _enabled, _onPicked);
     }
 
-    // 0 = 이동, 1 = 정착 / 0 = depart, 1 = settle
+    // 0 = 출발, 1 = 정착 / 0 = depart, 1 = settle
     void OnPicked(int index)
     {
-        if (index == 0)
+        bool depart = index == 0;
+        if (!_flow.ChooseMode(depart ? MoveMode.Depart : MoveMode.Settle))
         {
-            Store.TryConsume(ResourceType.Fuel, config.departFuelCost);
-            StartDay();
+            ShowChoices();
+            return;
         }
+
+        durabilityHud.Show(_flow.Run.Durability);   // 출발 -5 / 정착 +3 반영 / reflect the depart/settle change
+
+        if (depart) StartDay();
+        else ParkCar();
+
+        // 기존: if (_flow.Phase == DayPhase.Event) ShowEvent(); else HandleFlowEnd();
+        if (_flow.Phase == DayPhase.Event) BeginWait();
+        else HandleFlowEnd();
+    }
+
+    void ShowEvent() => eventPanel.ShowEvent(_flow, _onEventPicked);
+
+    // 다음 이벤트까지 랜덤 대기 / random wait until the next event
+    void BeginWait()
+    {
+        float t = UnityEngine.Random.Range(waitMin, waitMax);
+        DOVirtual.DelayedCall(t, _onWaitDone).SetLink(gameObject);
+    }
+
+    // 주행 중이면 멈추고, 예고형은 느낌표 후 패널, 돌발형은 바로 패널
+    // Stop if driving; telegraphed shows "!" then the panel, sudden goes straight to the panel
+    void OnWaitDone()
+    {
+        if (_moving) StopCar();
+        if (_flow.CurrentEvent.Trigger == TriggerType.Telegraphed) caravan.ShowAlert(_showEvent);
+        else ShowEvent();
+    }
+
+    void OnEventPicked(int choiceIndex)
+    {
+        EventDef ev = _flow.CurrentEvent;
+        resourceHud.Hold();     // 확인 누를 때까지 자원 표시를 멈춤 / freeze the HUD until Done
+        ChoiceResult result = _flow.Choose(choiceIndex);
+        if (!result.Success)
+        {
+            resourceHud.Release();
+            ShowEvent();
+            return;
+        }
+        resourceHud.ShowCost(ev.Choices[choiceIndex].Cost);   // 비용은 즉시, 보상은 확인 때 / cost now, rewards on Done
+        durabilityHud.ShowCost(ev.Choices[choiceIndex].Cost);
+        eventPanel.ShowResult(ev, result, _flow.Run, _onResultContinue);
+    }
+
+    void OnResultContinue()
+    {
+        resourceHud.Release();  // 이때 자원 변화 연출 / resource feedback plays here
+        durabilityHud.Show(_flow.Run.Durability);   // 보상 반영 / apply rewards
+        if (_flow.Phase != DayPhase.Event) { HandleFlowEnd(); return; }
+
+        eventPanel.Hide();
+        if (_flow.Mode == MoveMode.Depart) StartDay();
+        BeginWait();
+    }
+
+    // 임시: 분배 패널(3-3)과 게임오버 패널(3-4)이 생기면 교체 / temporary, replaced by the 3-3 and 3-4 panels
+    void HandleFlowEnd()
+    {
+        eventPanel.Hide();
+        if (_moving) StopCar();
+#if UNITY_EDITOR
+        if (_flow.Phase == DayPhase.Distribution)
+            Debug.Log("[Roadnest] 분배 단계 도달 / reached distribution");
         else
-        {
-            ParkCar();
-        }
+            Debug.Log("[Roadnest] 런 종료 / run over: " + _flow.Run.EndReason + ", Day " + _flow.Run.Day);
+#endif
     }
 
 #if UNITY_EDITOR

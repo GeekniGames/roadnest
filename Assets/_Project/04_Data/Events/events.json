@@ -1,7 +1,170 @@
 {
   "version": 1,
   "fallback": "EVT_QUIET_DAY",
+  "daySlots": [
+    {
+      "mode": "depart",
+      "slots": [ "Minor", "ResourceExplore", "Danger", "Minor", "Major" ]
+    },
+    {
+      "mode": "settle",
+      "slots": [ "Minor", "MaintenanceRecovery", "NearbyExplore", "Danger", "Night" ]
+    }
+  ],
   "events": [
+    {
+      "id": "EVT_UI_TEST",
+      "titleKey": "evt-ui-test-title",
+      "textKey": "evt-ui-test-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 100
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_UI_TEST_C1",
+          "textKey": "evt-ui-test-c1",
+          "iconKey": "icon-test",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-ui-test-c1-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_UI_TEST_C2",
+          "textKey": "evt-ui-test-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-ui-test-c2-o1",
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 2
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                },
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-ui-test-c2-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_UI_TEST_C3",
+          "textKey": "evt-ui-test-c3",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            },
+            {
+              "stat": "food",
+              "amount": -1
+            },
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-ui-test-c3-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-ui-test-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_UI_TEST_C4",
+          "textKey": "evt-ui-test-c4",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -99
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-ui-test-c4-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_UI_TEST_S1",
+          "textKey": "evt-ui-test-s1",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-ui-test-s1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "EVT_FALLEN_TREE",
       "titleKey": "evt-fallen-tree-title",

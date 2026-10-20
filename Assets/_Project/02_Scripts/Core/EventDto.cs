@@ -3,7 +3,8 @@ using System;
 namespace Roadnest.Core
 {
     // 필드 이름은 JSON 키와 정확히 같아야 한다 / field names must match JSON keys exactly
-    [Serializable] public class EventTableDto { public int version; public string fallback; public EventDto[] events; }
+    [Serializable] public class DaySlotsDto { public string mode; public string[] slots; }
+    [Serializable] public class EventTableDto { public int version; public string fallback; public DaySlotsDto[] daySlots; public EventDto[] events; }
 
     [Serializable]
     public class EventDto
@@ -28,6 +29,8 @@ namespace Roadnest.Core
     {
         public string id;
         public string textKey;
+        public string iconKey;
+        public bool special;
         public bool hidden;
         public RequirementDto[] requirements;
         public EffectDto[] cost;        // 선택하면 항상 지불 / always paid when chosen

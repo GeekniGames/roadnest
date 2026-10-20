@@ -27,15 +27,19 @@ namespace Roadnest.Core
         readonly SlotCandidate[][] _candidates;
         readonly Dictionary<string, int> _tagIds;
         readonly Dictionary<string, EventDef> _byId;
+        readonly SlotType[][] _daySlots;
 
         EventTable(EventDef[] events, EventDef fallback, SlotCandidate[][] candidates,
-                   Dictionary<string, int> tagIds, Dictionary<string, EventDef> byId)
+                   Dictionary<string, int> tagIds, Dictionary<string, EventDef> byId, SlotType[][] daySlots)
         {
             Events = events; Fallback = fallback; _candidates = candidates; _tagIds = tagIds; _byId = byId;
+            _daySlots = daySlots;
         }
 
         public SlotCandidate[] GetCandidates(MoveMode mode, SlotType slot)
             => _candidates[BucketIndex(mode, slot)];
+
+        public SlotType[] GetDaySlots(MoveMode mode) => _daySlots[(int)mode];
 
         public int TagId(string tag) => _tagIds.TryGetValue(tag, out int id) ? id : -1;
 
@@ -100,13 +104,54 @@ namespace Roadnest.Core
             else if (!byId.TryGetValue(dto.fallback, out fallback))
                 errors.Add("fallback 이벤트를 찾을 수 없음 '" + dto.fallback + "' / fallback event not found");
 
+            SlotType[][] daySlots = ParseDaySlots(dto.daySlots, errors);
             if (errors.Count > errorStart) return null;
 
             var candidates = new SlotCandidate[buckets.Length][];
             for (int i = 0; i < buckets.Length; i++)
                 candidates[i] = buckets[i] == null ? Array.Empty<SlotCandidate>() : buckets[i].ToArray();
 
-            return new EventTable(defs.ToArray(), fallback, candidates, tagIds, byId);
+            return new EventTable(defs.ToArray(), fallback, candidates, tagIds, byId, daySlots);
+        }
+
+        // 모드마다 슬롯 목록이 하나씩 있어야 한다 / every mode needs exactly one slot list
+        static SlotType[][] ParseDaySlots(DaySlotsDto[] src, List<string> errors)
+        {
+            var result = new SlotType[ModeCount][];
+            int n = Len(src);
+            for (int i = 0; i < n; i++)
+            {
+                MoveMode mode;
+                if (!TryParseEnum(src[i].mode, out mode))
+                {
+                    errors.Add("daySlots[" + i + "]: mode 값 오류 '" + src[i].mode + "' / invalid mode");
+                    continue;
+                }
+                if (result[(int)mode] != null)
+                {
+                    errors.Add("daySlots: mode 중복 '" + src[i].mode + "' / duplicate mode");
+                    continue;
+                }
+
+                int count = Len(src[i].slots);
+                if (count == 0)
+                {
+                    errors.Add("daySlots[" + i + "]: slots가 비어 있음 / slots is empty");
+                    continue;
+                }
+
+                var arr = new SlotType[count];
+                for (int s = 0; s < count; s++)
+                {
+                    if (!TryParseEnum(src[i].slots[s], out arr[s]))
+                        errors.Add("daySlots[" + i + "].slots[" + s + "]: 알 수 없는 슬롯 '" + src[i].slots[s] + "' / unknown slot");
+                }
+                result[(int)mode] = arr;
+            }
+
+            for (int m = 0; m < ModeCount; m++)
+                if (result[m] == null) errors.Add("daySlots: " + (MoveMode)m + " 누락 / missing mode");
+            return result;
         }
 
         static int BucketIndex(MoveMode mode, SlotType slot) => (int)mode * SlotCount + (int)slot;
@@ -147,14 +192,31 @@ namespace Roadnest.Core
 
             int choiceCount = Len(e.choices);
             var choices = new ChoiceDef[choiceCount];
+            int normal = 0;
+            int special = 0;
             int visible = 0;
+            int free = 0;
             for (int c = 0; c < choiceCount; c++)
             {
-                choices[c] = BuildChoice(e.choices[c], id, c, errors);
-                if (!choices[c].Hidden) visible++;
+                ChoiceDef ch = BuildChoice(e.choices[c], id, c, errors);
+                choices[c] = ch;
+                if (ch.Special) { special++; continue; }
+                normal++;
+                if (ch.Hidden) continue;
+                visible++;
+                if (ch.Cost.Length == 0 && ch.Requirements.Length == 0) free++;
             }
-            if (visible < 2 || visible > 3)
-                errors.Add(id + ": 보이는 선택지는 2~3개여야 함 (현재 " + visible + ") / visible choices must be 2-3");
+            if (visible < 2 || visible > EventLimits.MaxNormalChoices)
+                errors.Add(id + ": 보이는 선택지는 2~" + EventLimits.MaxNormalChoices + "개여야 함 (현재 " + visible + ") / visible choices (excluding special) must be 2-" + EventLimits.MaxNormalChoices);
+            // 항상 고를 수 있는 선택지가 없으면 플레이어가 멈춘다. 특별 선택지는 조건부라 제외 / without an always-pickable choice the player gets stuck. special choices are conditional and do not count
+            if (free == 0)
+                errors.Add(id + ": 비용·조건 없는 보이는 선택지가 1개 이상 필요 / needs at least one visible choice with no cost or requirements (free choice)");
+            if (normal > EventLimits.MaxNormalChoices)
+                errors.Add(id + ": 일반 선택지는 최대 " + EventLimits.MaxNormalChoices + "개 (현재 " + normal + ") / at most " + EventLimits.MaxNormalChoices + " normal choices");
+            if (special > EventLimits.MaxSpecialChoices)
+                errors.Add(id + ": special 선택지는 최대 " + EventLimits.MaxSpecialChoices + "개 (현재 " + special + ") / at most " + EventLimits.MaxSpecialChoices + " special choices");
+            if (choiceCount > EventLimits.MaxChoices)
+                errors.Add(id + ": 선택지는 최대 " + EventLimits.MaxChoices + "개 (현재 " + choiceCount + ") / at most " + EventLimits.MaxChoices + " choices");
 
             return new EventDef(index, id, e.titleKey, e.textKey, trigger, e.dayMin, e.dayMax, mods, tagArr, choices);
         }
@@ -185,14 +247,17 @@ namespace Roadnest.Core
 
             Requirement[] reqs = BuildRequirements(c.requirements, where, errors);
             Effect[] cost = BuildEffects(c.cost, where + ".cost", errors);
+            if (cost.Length > EventLimits.MaxCostEffects)
+                errors.Add(where + ".cost: 비용은 최대 " + EventLimits.MaxCostEffects + "개 / at most " + EventLimits.MaxCostEffects + " cost effect");
             for (int i = 0; i < cost.Length; i++)
             {
-                if (cost[i].Amount >= 0)
-                    errors.Add(where + ".cost[" + i + "]: 비용은 음수여야 함 / cost must be negative");
+                for (int j = 0; j < i; j++)
+                    if (cost[i].Stat == cost[j].Stat)
+                        errors.Add(where + ".cost[" + i + "]: 같은 stat 중복 / duplicate stat in cost");
             }
 
             OutcomeDef[] outcomes = BuildOutcomes(c.outcomes, where, errors);
-            return new ChoiceDef(c.id, c.textKey, c.hidden, reqs, cost, outcomes);
+            return new ChoiceDef(c.id, c.textKey, c.iconKey, c.hidden, reqs, cost, outcomes, c.special);
         }
 
         static OutcomeDef[] BuildOutcomes(OutcomeDto[] src, string where, List<string> errors)
@@ -203,6 +268,9 @@ namespace Roadnest.Core
                 errors.Add(where + ": outcomes 없음 / no outcomes");
                 return Array.Empty<OutcomeDef>();
             }
+
+            if (n > EventLimits.MaxOutcomes)
+                errors.Add(where + ": 결과는 최대 " + EventLimits.MaxOutcomes + "개 (현재 " + n + ") / at most " + EventLimits.MaxOutcomes + " outcomes");
 
             var kinds = new ProbKind[n];
             int sumFixed = 0;
@@ -239,6 +307,8 @@ namespace Roadnest.Core
                 int pct = kinds[i] == ProbKind.Rest ? 100 - sumFixed : src[i].percent;
                 cumulative += pct;
                 Effect[] fx = BuildEffects(src[i].effects, where + ".outcomes[" + i + "].effects", errors);
+                if (fx.Length > EventLimits.MaxOutcomeEffects)
+                    errors.Add(where + ".outcomes[" + i + "].effects: 효과는 최대 " + EventLimits.MaxOutcomeEffects + "개 / at most " + EventLimits.MaxOutcomeEffects + " effects per outcome");
                 result[i] = new OutcomeDef(kinds[i], pct, cumulative, src[i].textKey, fx);
             }
             return result;

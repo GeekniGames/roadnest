@@ -1,0 +1,896 @@
+fileFormatVersion: 2
+guid: d77dc5c2dc1c7f543b27a360ee3378b1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5038095718807434442
+    second: EventResultColor_0
+  - first:
+      213: -5949174125327262357
+    second: EventResultColor_1
+  - first:
+      213: 1382091377137046116
+    second: EventResultColor_2
+  - first:
+      213: -8721523017178252873
+    second: EventResultColor_3
+  - first:
+      213: -215762803064235435
+    second: EventResultColor_4
+  - first:
+      213: 3811617693871646776
+    second: EventResultColor_5
+  - first:
+      213: 7431685282282236744
+    second: EventResultColor_6
+  - first:
+      213: 3631423902660055090
+    second: EventResultColor_7
+  - first:
+      213: 5503058312738389747
+    second: EventResultColor_8
+  - first:
+      213: -6602268838242595620
+    second: EventResultColor_9
+  - first:
+      213: 4900759793556150600
+    second: EventResultColor_10
+  - first:
+      213: 2729569708385020704
+    second: EventResultColor_11
+  - first:
+      213: 5497904558545009982
+    second: EventResultColor_12
+  - first:
+      213: -1167937859179955371
+    second: EventResultColor_13
+  - first:
+      213: -6782374211872728796
+    second: EventResultColor_14
+  - first:
+      213: -159892789361015972
+    second: EventResultColor_15
+  - first:
+      213: 9131951927275850
+    second: EventResultColor_16
+  - first:
+      213: 2687395650272298550
+    second: EventResultColor_17
+  - first:
+      213: 7715766348916532795
+    second: EventResultColor_18
+  - first:
+      213: 4456996460484384190
+    second: EventResultColor_19
+  - first:
+      213: 3081512437613255341
+    second: EventResultColor_20
+  - first:
+      213: -4122354644578158489
+    second: EventResultColor_21
+  - first:
+      213: -6221200800966936445
+    second: EventResultColor_22
+  - first:
+      213: 4038841758870966968
+    second: EventResultColor_23
+  - first:
+      213: 2438236983853117738
+    second: EventResultColor_24
+  - first:
+      213: -3729602129130229987
+    second: EventResultColor_25
+  - first:
+      213: 3953992005995476370
+    second: EventResultColor_26
+  - first:
+      213: 6713175924846618013
+    second: EventResultColor_27
+  - first:
+      213: -1936473380724989771
+    second: EventResultColor_28
+  - first:
+      213: -6276303494597678484
+    second: EventResultColor_29
+  - first:
+      213: -3459624565625062947
+    second: EventResultColor_30
+  - first:
+      213: -4589677896127474178
+    second: EventResultColor_31
+  - first:
+      213: 7615370637199615787
+    second: EventResultColor_32
+  - first:
+      213: -1181276585786552062
+    second: EventResultColor_33
+  - first:
+      213: -9163121711052589581
+    second: EventResultColor_34
+  - first:
+      213: -6443030361562083988
+    second: EventResultColor_35
+  - first:
+      213: 6949291945649498513
+    second: EventResultColor_36
+  - first:
+      213: 7458694554732434433
+    second: EventResultColor_37
+  - first:
+      213: 525357676677874473
+    second: EventResultColor_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EventResultColor_0
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 710
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac4feeffc59eae540800000000000000
+      internalID: 5038095718807434442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_1
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 710
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d5ce037a9407da0800000000000000
+      internalID: -5949174125327262357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_2
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 693
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462526de8cc2e2310800000000000000
+      internalID: 1382091377137046116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 693
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b972b4460de6f680800000000000000
+      internalID: -8721523017178252873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_4
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 693
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a1d9fafd4710df0800000000000000
+      internalID: -215762803064235435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_5
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 681
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83820d6091695e430800000000000000
+      internalID: 3811617693871646776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_6
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 677
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b6ee4b366a22760800000000000000
+      internalID: 7431685282282236744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_7
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 598
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2305ae2acc8656230800000000000000
+      internalID: 3631423902660055090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_8
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 203
+        width: 1982
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe3805016ace5c40800000000000000
+      internalID: 5503058312738389747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_9
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 195
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc4be0d8770064a0800000000000000
+      internalID: -6602268838242595620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_10
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 195
+        width: 21
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8495e60211ff20440800000000000000
+      internalID: 4900759793556150600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_11
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 195
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ba4f9103161e520800000000000000
+      internalID: 2729569708385020704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_12
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 195
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d731d111b7c4c40800000000000000
+      internalID: 5497904558545009982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_13
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 129
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b39df74b6aacfe0800000000000000
+      internalID: -1167937859179955371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_14
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 129
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4295e8fb69a20e1a0800000000000000
+      internalID: -6782374211872728796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_15
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 108
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c538dffea52f7cdf0800000000000000
+      internalID: -159892789361015972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a413bbe3671702000800000000000000
+      internalID: 9131951927275850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_17
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63609610b1c8b4520800000000000000
+      internalID: 2687395650272298550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_18
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 112
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36251d4d98e31b60800000000000000
+      internalID: 7715766348916532795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 100
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb55858aaae6add30800000000000000
+      internalID: 4456996460484384190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_20
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 87
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daad2e64c3bb3ca20800000000000000
+      internalID: 3081512437613255341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_21
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 100
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768bcbbba447ac6c0800000000000000
+      internalID: -4122354644578158489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_22
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 100
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3887df535dad9a9a0800000000000000
+      internalID: -6221200800966936445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_23
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 83
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b294855e29dc0830800000000000000
+      internalID: 4038841758870966968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_24
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 100
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21f8c45e9b56d120800000000000000
+      internalID: 2438236983853117738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_25
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 83
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fe6a3bf9acd3cc0800000000000000
+      internalID: -3729602129130229987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EventResultColor_26
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 83
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2953812c7c66fd630800000000000000
+      internalID: 3953992005995476370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d4df551548ef4b443b71c8d02a3c7dee
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      EventResultColor_0: 5038095718807434442
+      EventResultColor_1: -5949174125327262357
+      EventResultColor_10: 4900759793556150600
+      EventResultColor_11: 2729569708385020704
+      EventResultColor_12: 5497904558545009982
+      EventResultColor_13: -1167937859179955371
+      EventResultColor_14: -6782374211872728796
+      EventResultColor_15: -159892789361015972
+      EventResultColor_16: 9131951927275850
+      EventResultColor_17: 2687395650272298550
+      EventResultColor_18: 7715766348916532795
+      EventResultColor_19: 4456996460484384190
+      EventResultColor_2: 1382091377137046116
+      EventResultColor_20: 3081512437613255341
+      EventResultColor_21: -4122354644578158489
+      EventResultColor_22: -6221200800966936445
+      EventResultColor_23: 4038841758870966968
+      EventResultColor_24: 2438236983853117738
+      EventResultColor_25: -3729602129130229987
+      EventResultColor_26: 3953992005995476370
+      EventResultColor_3: -8721523017178252873
+      EventResultColor_4: -215762803064235435
+      EventResultColor_5: 3811617693871646776
+      EventResultColor_6: 7431685282282236744
+      EventResultColor_7: 3631423902660055090
+      EventResultColor_8: 5503058312738389747
+      EventResultColor_9: -6602268838242595620
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

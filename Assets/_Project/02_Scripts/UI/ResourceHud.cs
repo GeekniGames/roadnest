@@ -25,6 +25,9 @@ public class ResourceHud : MonoBehaviour
     Color[] _baseColor;
     Vector3[] _punch;
     bool _ready;
+    int[] _shown;       // 화면에 보이는 값 / values currently displayed
+    bool _held;
+
 
     void Awake() => Init();
 
@@ -35,6 +38,7 @@ public class ResourceHud : MonoBehaviour
         _ready = true;
         _baseColor = new Color[ResourceStore.Count];
         _punch = new Vector3[ResourceStore.Count];
+        _shown = new int[ResourceStore.Count];
         for (int i = 0; i < ResourceStore.Count; i++)
         {
             _baseColor[i] = labels[i].color;
@@ -47,8 +51,12 @@ public class ResourceHud : MonoBehaviour
         Init();
         Unbind();
         _store = store;
+        _held = false;
         for (int i = 0; i < ResourceStore.Count; i++)
-            labels[i].SetText("{0}", store.Get((ResourceType)i));
+        {
+            _shown[i] = store.Get((ResourceType)i);
+            labels[i].SetText("{0}", _shown[i]);
+        }
         store.Changed += OnChanged;
     }
 
@@ -60,14 +68,48 @@ public class ResourceHud : MonoBehaviour
 
     void OnDestroy() => Unbind();
 
+    // 결과 화면 동안 표시를 멈췄다가 Release에서 한꺼번에 반영
+    // Freeze the display during the result view, apply everything on Release
+    public void Hold() => _held = true;
+
+    // 선택 즉시 비용만 먼저 반영 / apply only the cost right away on pick
+    public void ShowCost(Effect[] cost)
+    {
+        for (int i = 0; i < cost.Length; i++)
+        {
+            int s = (int)cost[i].Stat;
+            if (s >= ResourceStore.Count) continue;   // 자원이 아닌 비용은 HUD에 칸이 없음 / non-resource costs have no HUD slot
+            int v = _shown[s] + cost[i].Amount;
+            Show(s, v < 0 ? 0 : v);
+        }
+    }
+
+    public void Release()
+    {
+        _held = false;
+        if (_store == null) return;
+        for (int i = 0; i < ResourceStore.Count; i++)
+        {
+            int v = _store.Get((ResourceType)i);
+            if (v != _shown[i]) Show(i, v);
+        }
+    }
+
     void OnChanged(ResourceType t, int oldValue, int newValue)
     {
-        int i = (int)t;
+        if (_held) return;
+        Show((int)t, newValue);
+    }
+
+    void Show(int i, int newValue)
+    {
+        int old = _shown[i];
+        _shown[i] = newValue;
         labels[i].SetText("{0}", newValue);
 
         icons[i].DOKill(true);
         labels[i].DOKill();
-        labels[i].color = newValue > oldValue ? gainColor : lossColor;
+        labels[i].color = newValue > old ? gainColor : lossColor;
         labels[i].DOColor(_baseColor[i], flashTime).SetLink(labels[i].gameObject);
         icons[i].DOPunchScale(_punch[i], punchTime, 1, 0f).SetLink(icons[i].gameObject);
     }

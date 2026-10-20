@@ -86,6 +86,7 @@ namespace Roadnest.Tests
             {
                 version = 1,
                 fallback = "EVT_FB",
+                daySlots = TestData.DaySlots(),
                 events = new[] { MakeEvent("EVT_T"), MakeFallback() }
             };
         }
@@ -133,7 +134,7 @@ namespace Roadnest.Tests
             var table = LoadSample(errors);
             Assert.IsNotNull(table, string.Join("\n", errors));
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(4, table.Events.Length);
+            Assert.AreEqual(5, table.Events.Length);
         }
 
         [Test]
@@ -241,6 +242,192 @@ namespace Roadnest.Tests
             var errors = new List<string>();
             Assert.IsNull(EventTable.Build(dto, errors));
             Assert.IsTrue(HasError(errors, "luck"));
+        }
+
+        [Test]
+        public void Sample_DaySlotsParsed()
+        {
+            var table = LoadSample(new List<string>());
+            SlotType[] depart = table.GetDaySlots(MoveMode.Depart);
+            SlotType[] settle = table.GetDaySlots(MoveMode.Settle);
+            Assert.AreEqual(5, depart.Length);
+            Assert.AreEqual(SlotType.Danger, depart[2]);
+            Assert.AreEqual(SlotType.Night, settle[4]);
+        }
+
+        [Test]
+        public void Invalid_MissingDaySlotsMode_Fails()
+        {
+            var dto = MakeDto();
+            dto.daySlots = new[] { dto.daySlots[0] };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "Settle"));
+        }
+
+        [Test]
+        public void Invalid_UnknownDaySlot_Fails()
+        {
+            var dto = MakeDto();
+            dto.daySlots[0].slots = new[] { "Boss" };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "Boss"));
+        }
+
+        [Test]
+        public void Invalid_NoFreeChoice_Fails()
+        {
+            var dto = MakeDto();
+            for (int i = 0; i < dto.events[0].choices.Length; i++)
+                dto.events[0].choices[i].cost = new[] { new EffectDto { stat = "fuel", amount = -1 } };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "free choice"));
+        }
+
+        [Test]
+        public void Invalid_TooManyChoices_Fails()
+        {
+            var dto = MakeDto();
+            var many = new ChoiceDto[EventLimits.MaxChoices + 1];
+            for (int i = 0; i < many.Length; i++) many[i] = MakeChoice("C" + i);
+            dto.events[0].choices = many;
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "at most " + EventLimits.MaxChoices + " choices"));
+        }
+
+        [Test]
+        public void Invalid_TooManyOutcomes_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].outcomes = new[]
+            {
+                new OutcomeDto { kind = "fixed", percent = 30, textKey = "a" },
+                new OutcomeDto { kind = "fixed", percent = 30, textKey = "b" },
+                new OutcomeDto { kind = "rest", textKey = "c" }
+            };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "at most " + EventLimits.MaxOutcomes + " outcomes"));
+        }
+
+        [Test]
+        public void Invalid_TooManyOutcomeEffects_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].outcomes = new[]
+            {
+                new OutcomeDto
+                {
+                    kind = "rest", textKey = "o",
+                    effects = new[]
+                    {
+                        new EffectDto { stat = "fuel", amount = -1 },
+                        new EffectDto { stat = "food", amount = -1 },
+                        new EffectDto { stat = "water", amount = -1 },
+                        new EffectDto { stat = "durability", amount = -1 }
+                    }
+                }
+            };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "effects per outcome"));
+        }
+
+        [Test]
+        public void Invalid_TooManyCostEffects_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].cost = new[]
+            {
+                new EffectDto { stat = "fuel", amount = -1 },
+                new EffectDto { stat = "food", amount = -1 },
+                new EffectDto { stat = "water", amount = -1 },
+                new EffectDto { stat = "durability", amount = -1 }
+            };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "cost effect"));
+        }
+
+        // 일반 n개 + 특별 m개 선택지를 만든다 / builds n normal + m special choices
+        static ChoiceDto[] MakeChoices(int normal, int special)
+        {
+            var list = new ChoiceDto[normal + special];
+            for (int i = 0; i < normal; i++) list[i] = MakeChoice("N" + i);
+            for (int i = 0; i < special; i++)
+            {
+                ChoiceDto s = MakeChoice("S" + i);
+                s.special = true;
+                list[normal + i] = s;
+            }
+            return list;
+        }
+
+        [Test]
+        public void Special_FourNormalPlusOneSpecial_Loads()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices = MakeChoices(EventLimits.MaxNormalChoices, EventLimits.MaxSpecialChoices);
+            dto.events[0].choices[EventLimits.MaxNormalChoices].iconKey = "icon-special";
+            var errors = new List<string>();
+            var table = EventTable.Build(dto, errors);
+            Assert.IsNotNull(table, string.Join("\n", errors));
+            ChoiceDef sp = table.Events[0].Choices[EventLimits.MaxNormalChoices];
+            Assert.IsTrue(sp.Special);
+            Assert.AreEqual("icon-special", sp.IconKey);
+            Assert.IsFalse(table.Events[0].Choices[0].Special);
+        }
+
+        [Test]
+        public void Invalid_TwoSpecialChoices_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices = MakeChoices(2, EventLimits.MaxSpecialChoices + 1);
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "special choices"));
+        }
+
+        [Test]
+        public void Invalid_FiveNormalChoices_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices = MakeChoices(EventLimits.MaxNormalChoices + 1, 0);
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "normal choices"));
+        }
+
+        // 특별 선택지는 무료여도 '항상 고를 수 있는 선택지'로 치지 않는다
+        // a free special choice does not count as an always-pickable choice
+        [Test]
+        public void Invalid_OnlySpecialIsFree_Fails()
+        {
+            var dto = MakeDto();
+            ChoiceDto[] choices = MakeChoices(2, 1);
+            for (int i = 0; i < 2; i++)
+                choices[i].cost = new[] { new EffectDto { stat = "fuel", amount = -1 } };
+            dto.events[0].choices = choices;
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "free choice"));
+        }
+
+        [Test]
+        public void Invalid_DuplicateCostStat_Fails()
+        {
+            var dto = MakeDto();
+            dto.events[0].choices[0].cost = new[]
+            {
+                new EffectDto { stat = "fuel", amount = -1 },
+                new EffectDto { stat = "fuel", amount = -2 }
+            };
+            var errors = new List<string>();
+            Assert.IsNull(EventTable.Build(dto, errors));
+            Assert.IsTrue(HasError(errors, "duplicate stat"));
         }
     }
 }

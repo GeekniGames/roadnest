@@ -28,6 +28,16 @@ public class CaravanVisual : MonoBehaviour
     [SerializeField] Sprite[] wheelFrames;
     [SerializeField] float maxWheelFps = 12f;   // 최고속도에서 초당 프레임 전환 수 / frame changes per sec at max speed
 
+    [Header("경고 / Alert")]
+    [SerializeField] Transform alertMark;       // 차 앞 느낌표(자식 오브젝트) / "!" sprite, child of the car
+    [SerializeField] float alertPopTime = 0.25f;
+    [SerializeField] float alertHoldTime = 0.9f;
+
+    Vector3 _alertScale;
+    Sequence _alertSeq;
+    Action _alertDone;
+    TweenCallback _onAlertEnd;
+
     float _wheelTime;
     int _wheelIndex;
 
@@ -41,6 +51,9 @@ public class CaravanVisual : MonoBehaviour
         _rest = body.localPosition;
         _startIdle = StartIdle;
         _onIgnitionEnd = OnIgnitionEnd;
+        _alertScale = alertMark.localScale;
+        alertMark.gameObject.SetActive(false);
+        _onAlertEnd = OnAlertEnd;
     }
 
     // 시동 걸림: 큰 떨림 후 아이들 떨림으로 전환, 끝나면 콜백
@@ -79,6 +92,28 @@ public class CaravanVisual : MonoBehaviour
                      .SetEase(Ease.OutSine)
                      .SetLink(gameObject)
                      .OnComplete(_startIdle);
+    }
+
+    // 느낌표가 튀어나오고 잠시 유지된 뒤 콜백 / "!" pops in, holds, then callback
+    public void ShowAlert(Action onDone)
+    {
+        _alertDone = onDone;
+        if (_alertSeq != null && _alertSeq.IsActive()) _alertSeq.Kill();
+
+        alertMark.localScale = Vector3.zero;
+        alertMark.gameObject.SetActive(true);
+        _alertSeq = DOTween.Sequence().SetLink(gameObject);
+        _alertSeq.Append(alertMark.DOScale(_alertScale, alertPopTime).SetEase(Ease.OutBack));
+        _alertSeq.AppendInterval(alertHoldTime);
+        _alertSeq.OnComplete(_onAlertEnd);
+    }
+
+    void OnAlertEnd()
+    {
+        alertMark.gameObject.SetActive(false);
+        Action cb = _alertDone;
+        _alertDone = null;
+        cb?.Invoke();
     }
 
     // 속도에 비례해 바퀴 프레임 교체 / swap wheel frames in proportion to speed

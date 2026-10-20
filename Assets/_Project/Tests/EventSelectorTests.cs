@@ -43,7 +43,7 @@ namespace Roadnest.Tests
                 trigger = "telegraphed",
                 choices = new[] { Choice("FB_A"), Choice("FB_B") }
             });
-            var dto = new EventTableDto { version = 1, fallback = "EVT_FB", events = all.ToArray() };
+            var dto = new EventTableDto { version = 1, fallback = "EVT_FB", daySlots = TestData.DaySlots(), events = all.ToArray() };
             var errors = new List<string>();
             var table = EventTable.Build(dto, errors);
             Assert.IsNotNull(table, string.Join("\n", errors));

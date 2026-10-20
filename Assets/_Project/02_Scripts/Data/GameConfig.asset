@@ -16,3 +16,13 @@ MonoBehaviour:
   startFood: 5
   startWater: 5
   resourceCap: 99
+  departFuelCost: 1
+  maxDurability: 100
+  departDurabilityLoss: 5
+  settleDurabilityGain: 3
+  repairAmount: 10
+  settleRepairAmount: 15
+  maxCharacterHp: 100
+  hpLossMissingOne: 15
+  hpLossMissingBoth: 35
+  eventsPerDay: 5

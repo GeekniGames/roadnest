@@ -40,6 +40,19 @@ namespace Roadnest.Core
 
         public void AdvanceDay() => Day++;
 
+        // 출발이면 연속 정착 0, 정착이면 +1 / depart resets the settle streak, settle adds 1
+        public void RegisterMove(MoveMode mode) => ConsecutiveSettles = mode == MoveMode.Settle ? ConsecutiveSettles + 1 : 0;
+
+        // 캐릭터 한 명의 HP 감소. 죽은 캐릭터는 무시 / damage one character; dead ones ignored
+        public void DamageCharacter(int index, int amount)
+        {
+            CharacterState c = Characters[index];
+            if (!c.IsAlive) return;
+            c.Hp = Clamp(c.Hp - amount, 0, c.MaxHp);
+            RecountAlive();
+            if (AliveCount == 0) End(EndReason.AllDead);
+        }
+
         // 효과는 전부 적용하고, 종료 사유는 가장 먼저 발생한 것만 기록 / all effects apply; first end reason wins
         public void Apply(Effect e)
         {
