@@ -137,6 +137,19 @@ namespace Roadnest.Core
         public bool GetRation(int charIndex, ResourceType type)
             => type == ResourceType.Food ? _food[charIndex] : _water[charIndex];
 
+        // 현재 분배 상태 기준으로 이 캐릭터가 확정 시 잃을 HP. 미리보기와 확정이 같은 값을 쓴다
+        // HP this character would lose on confirm with the current rations; preview and confirm share it
+        public int GetHpLoss(int charIndex)
+        {
+            if (Phase != DayPhase.Distribution || (uint)charIndex >= (uint)_food.Length) return 0;
+            if (!Run.Characters[charIndex].IsAlive) return 0;
+
+            bool f = _food[charIndex], w = _water[charIndex];
+            if (f && w) return 0;
+            RunRules rules = Run.Rules;
+            return (!f && !w) ? rules.HpLossMissingBoth : rules.HpLossMissingOne;
+        }
+
         // 분배 확정 → 소비 → HP 감소 → 생존 확인 → 수리 → Day+1
         // Confirm: consume → HP loss → survival check → repair → Day+1
         public bool ConfirmDistribution()
@@ -149,10 +162,8 @@ namespace Roadnest.Core
 
             for (int i = 0; i < Run.Characters.Length; i++)
             {
-                if (!Run.Characters[i].IsAlive) continue;
-                bool f = _food[i], w = _water[i];
-                if (f && w) continue;
-                Run.DamageCharacter(i, (!f && !w) ? rules.HpLossMissingBoth : rules.HpLossMissingOne);
+                int loss = GetHpLoss(i);
+                if (loss > 0) Run.DamageCharacter(i, loss);
             }
 
             Array.Clear(_food, 0, _food.Length);

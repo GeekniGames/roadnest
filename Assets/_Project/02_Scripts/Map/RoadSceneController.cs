@@ -20,6 +20,7 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] DurabilityHud durabilityHud;
     [SerializeField] ChoicePanel choicePanel;
     [SerializeField] EventPanel eventPanel;
+    [SerializeField] DistributionPanel distributionPanel;
     [SerializeField] ChoiceSlotData departChoice;
     [SerializeField] ChoiceSlotData settleChoice;
     [SerializeField] TextAsset eventsJson;
@@ -37,6 +38,8 @@ public class RoadSceneController : MonoBehaviour
     DayFlow _flow;
     TweenCallback _onWaitDone;
     Action _showEvent;
+    Action _onDistributionConfirm;
+    Action _onNextDayBanner;
     bool _moving;
 
     public ResourceStore Store { get; private set; }
@@ -73,6 +76,8 @@ public class RoadSceneController : MonoBehaviour
         _onResultContinue = OnResultContinue;
         _onWaitDone = OnWaitDone;
         _showEvent = ShowEvent;
+        _onDistributionConfirm = OnDistributionConfirm;
+        _onNextDayBanner = ShowChoices;
         departChoice.cost.amount = rules.DepartFuelCost;   // 문구의 {amount}와 실제 소모량을 일치시킴 / keep text and cost in sync
     }
 
@@ -200,17 +205,35 @@ public class RoadSceneController : MonoBehaviour
         BeginWait();
     }
 
-    // 임시: 분배 패널(3-3)과 게임오버 패널(3-4)이 생기면 교체 / temporary, replaced by the 3-3 and 3-4 panels
+    // 분배 단계면 분배 패널, 아니면 런 종료(게임오버 패널은 3-4에서)
+    // Distribution phase opens the panel; otherwise the run is over (game over panel comes in 3-4)
     void HandleFlowEnd()
     {
         eventPanel.Hide();
         if (_moving) StopCar();
-#if UNITY_EDITOR
+
         if (_flow.Phase == DayPhase.Distribution)
-            Debug.Log("[Roadnest] 분배 단계 도달 / reached distribution");
-        else
-            Debug.Log("[Roadnest] 런 종료 / run over: " + _flow.Run.EndReason + ", Day " + _flow.Run.Day);
+        {
+            distributionPanel.Show(_flow, _onDistributionConfirm);
+            return;
+        }
+#if UNITY_EDITOR
+        Debug.Log("[Roadnest] 런 종료 / run over: " + _flow.Run.EndReason + ", Day " + _flow.Run.Day);
 #endif
+    }
+
+    // 확정 -> 자원 HUD 연출(Store 변화) -> 내구도 수리 반영 -> 다음 날 배너 -> 출발/정착 선택
+    // Confirm -> resource HUD feedback (store change) -> durability repair -> next-day banner -> depart/settle
+    void OnDistributionConfirm()
+    {
+        _flow.ConfirmDistribution();
+        distributionPanel.Hide();
+        durabilityHud.Show(_flow.Run.Durability);
+
+        if (_flow.Phase == DayPhase.Over) { HandleFlowEnd(); return; }
+
+        // 다음 날 배너 앞에 연출을 넣을 자리 / room for a presentation before the banner
+        dayBanner.Show(_flow.Run.Day, _onNextDayBanner);
     }
 
 #if UNITY_EDITOR

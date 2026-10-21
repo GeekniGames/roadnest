@@ -42,7 +42,7 @@ namespace Roadnest.Tests
         {
             var s = Make();
             s.Apply(Fx(StatType.HpAll, -40));
-            Assert.AreEqual(2, s.AliveCount);
+            Assert.AreEqual(1, s.AliveCount);
             s.Apply(Fx(StatType.HpAll, -100));
             Assert.AreEqual(0, s.AliveCount);
             Assert.AreEqual(EndReason.AllDead, s.EndReason);
@@ -106,6 +106,12 @@ namespace Roadnest.Tests
             s.Apply(Fx(StatType.HpAll, 100));
             Assert.AreEqual(50, chars[0].Hp);
             Assert.AreEqual(150, chars[1].Hp);
+        }
+
+        [Test]
+        public void CreateDefault_StartsWithOneCharacter()
+        {
+            Assert.AreEqual(1, Make().Characters.Length);
         }
     }
 }

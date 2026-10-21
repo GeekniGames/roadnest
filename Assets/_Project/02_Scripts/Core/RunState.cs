@@ -27,14 +27,10 @@ namespace Roadnest.Core
             RecountAlive();
         }
 
-        // 임시 시작 캐릭터 2명. 나중에 데이터로 교체 / temporary starting pair, to be data-driven later
+        // 임시 시작 캐릭터 1명. 나중에 데이터로 교체 / temporary single starting character, to be data-driven later
         public static RunState CreateDefault(RunRules rules, ResourceStore resources)
         {
-            var chars = new[]
-            {
-                new CharacterState("char_mechanic", "mechanic", rules.MaxCharacterHp),
-                new CharacterState("char_survivor", null, rules.MaxCharacterHp)
-            };
+            var chars = new[] { new CharacterState("char_mechanic", "mechanic", rules.MaxCharacterHp) };
             return new RunState(rules, resources, chars);
         }
 

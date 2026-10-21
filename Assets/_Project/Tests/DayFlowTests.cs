@@ -28,7 +28,7 @@ namespace Roadnest.Tests
         };
 
         // 폴백 이벤트만 있는 테이블: 모든 슬롯이 폴백으로 채워진다 / fallback-only table: every slot becomes the fallback
-        static DayFlow NewFlow(ChoiceDto[] choices = null, RunRules rules = null)
+        static DayFlow NewFlow(ChoiceDto[] choices = null, RunRules rules = null, int characters = 2)
         {
             rules = rules ?? new RunRules();
             var dto = new EventTableDto
@@ -48,7 +48,9 @@ namespace Roadnest.Tests
             var errors = new System.Collections.Generic.List<string>();
             var table = EventTable.Build(dto, errors);
             Assert.IsNotNull(table, string.Join("\n", errors));
-            var run = RunState.CreateDefault(rules, new ResourceStore(rules.ResourceCap));
+            var chars = new CharacterState[characters];
+            for (int i = 0; i < characters; i++) chars[i] = new CharacterState("c" + i, null, rules.MaxCharacterHp);
+            var run = new RunState(rules, new ResourceStore(rules.ResourceCap), chars);
             return new DayFlow(run, table, 1);
         }
 
@@ -221,6 +223,39 @@ namespace Roadnest.Tests
         public void Constructor_SlotCountMismatch_Throws()
         {
             Assert.Throws<ArgumentException>(() => NewFlow(null, new RunRules { EventsPerDay = 4 }));
+        }
+
+        [Test]
+        public void HpLoss_Preview_FollowsRations_AndMatchesConfirm()
+        {
+            var f = NewFlow();
+            ToDistribution(f, MoveMode.Depart);
+            Assert.AreEqual(35, f.GetHpLoss(0));    // 아무것도 안 줌 / nothing given
+            f.SetRation(0, ResourceType.Food, true);
+            Assert.AreEqual(15, f.GetHpLoss(0));
+            f.SetRation(0, ResourceType.Water, true);
+            Assert.AreEqual(0, f.GetHpLoss(0));
+
+            int expected = f.GetHpLoss(1);          // 1번은 그대로 -35 / char 1 stays at -35
+            int before = f.Run.Characters[1].Hp;
+            Assert.IsTrue(f.ConfirmDistribution());
+            Assert.AreEqual(before - expected, f.Run.Characters[1].Hp);
+        }
+
+        [Test]
+        public void HpLoss_OutsideDistribution_IsZero()
+        {
+            var f = NewFlow();
+            Assert.AreEqual(0, f.GetHpLoss(0));
+        }
+
+        [Test]
+        public void HpLoss_DeadCharacter_IsZero()
+        {
+            var f = NewFlow();
+            ToDistribution(f, MoveMode.Depart);
+            f.Run.Characters[0].Hp = 0;
+            Assert.AreEqual(0, f.GetHpLoss(0));
         }
     }
 }
