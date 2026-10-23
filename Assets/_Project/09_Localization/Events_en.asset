@@ -1,0 +1,667 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Events_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 0f9addddcd3975348b4e5b7436143f0d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 944534712320
+    m_Localized: Move on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944568266752
+    m_Localized: Nothing happened.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461056
+    m_Localized: Fallen Tree
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461057
+    m_Localized: A thick tree blocks the road. The path is too narrow to go around.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461058
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461059
+    m_Localized: You shoved the tree aside. The bumper got scraped.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461060
+    m_Localized: The tree crashed onto the hull. Everyone was thrown around.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461061
+    m_Localized: Burn fuel to detour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461062
+    m_Localized: You took the long way around, unharmed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461063
+    m_Localized: Wandering Trader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461064
+    m_Localized: A trader with a loaded cart waves from the roadside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461065
+    m_Localized: Trade food for fuel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461066
+    m_Localized: The trader handed over fuel cans with a nod.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461067
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461068
+    m_Localized: The trader shrugged and pulled his cart on.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461069
+    m_Localized: Zombie Raid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461070
+    m_Localized: Zombies pour onto the road from both sides.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461071
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461072
+    m_Localized: You cleared them out, barely. Everyone is wounded.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461073
+    m_Localized: You were overrun. Even the hull took a beating.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461074
+    m_Localized: Floor it and flee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461075
+    m_Localized: You outran the horde.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461076
+    m_Localized: A few latched onto the car as you fled.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461077
+    m_Localized: A Quiet Day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461078
+    m_Localized: Nothing happened today. Only the wind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461079
+    m_Localized: Tinker with the car
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461080
+    m_Localized: You tightened loose bolts. The engine runs better.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461081
+    m_Localized: Just rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461082
+    m_Localized: Nothing happened. That was the greatest luxury.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461083
+    m_Localized: Abandoned Gas Station
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461084
+    m_Localized: A few pumps still stand under a rusted sign. Tire tracks crisscross
+      the lot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461085
+    m_Localized: Open the underground tank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461086
+    m_Localized: You scooped what pooled at the bottom into cans.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461087
+    m_Localized: Something lunged out from under the lid.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461088
+    m_Localized: Raid only the store's fridge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461089
+    m_Localized: One lukewarm bottle was left.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461090
+    m_Localized: Dry Well
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461091
+    m_Localized: An old well stands in the middle of a dead village. The pulley still
+      turns.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461092
+    m_Localized: Lower the rope and draw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461093
+    m_Localized: There was still water down deep.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461094
+    m_Localized: The rope snapped and tore up a hand.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461095
+    m_Localized: Boil and filter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461096
+    m_Localized: Not clear, but drinkable.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461097
+    m_Localized: Something got past the filter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461098
+    m_Localized: Ruined Farm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461099
+    m_Localized: A garden still grows green beside a collapsed barn. No owner in
+      sight.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461100
+    m_Localized: Search the storehouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461101
+    m_Localized: A crate of cans behind the wall.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461102
+    m_Localized: You disturbed a hive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461103
+    m_Localized: Check only the garden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461104
+    m_Localized: A few unripe vegetables.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461105
+    m_Localized: Follow the clucking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461106
+    m_Localized: The eggs were still warm.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461107
+    m_Localized: Startled hens leapt onto the windshield.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461108
+    m_Localized: Vending Machine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461109
+    m_Localized: A vending machine glows in the middle of the road, the only light
+      left in the world. 'Cheering for your delicious tomorrow.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461110
+    m_Localized: Kick it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461111
+    m_Localized: Thunk. Everything dropped. Tomorrow tastes good.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461112
+    m_Localized: It toppled onto a foot. The slogan stayed cheerful.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461113
+    m_Localized: Haul it onto the car
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461114
+    m_Localized: Still lit in the trunk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461115
+    m_Localized: The suspension screamed under the weight.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461116
+    m_Localized: Positivity Broadcast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461117
+    m_Localized: The static clears into a bright voice. 'Did you survive today, everyone?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461118
+    m_Localized: Listen to the end
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461119
+    m_Localized: Oddly uplifting. It ended with a water purifier ad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461120
+    m_Localized: You snacked along and ate an emergency ration.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461121
+    m_Localized: Fiddle with the dial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461122
+    m_Localized: Caught a distress broadcast. There were fuel cans at the spot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461123
+    m_Localized: The antenna snapped.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461124
+    m_Localized: Switch it off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461125
+    m_Localized: Abandoned Clinic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461126
+    m_Localized: A building with a half-faded cross. The door is open; inside is
+      quiet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655360
+    m_Localized: Search the supply room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655361
+    m_Localized: Bandages and antibiotics remained.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655362
+    m_Localized: The pills were long expired.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655363
+    m_Localized: Rest a night in a bed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655364
+    m_Localized: First real sleep in ages.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655365
+    m_Localized: Scrapyard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655366
+    m_Localized: Cars stacked like hills. Maybe some parts are still good.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655367
+    m_Localized: Strip parts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655368
+    m_Localized: Found a part that fits.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655369
+    m_Localized: Sliced a hand on rusted sheet metal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655370
+    m_Localized: Burn fuel for a tune-up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655371
+    m_Localized: The engine sounds smoother.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655372
+    m_Localized: Should have left it alone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655373
+    m_Localized: Campfire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655374
+    m_Localized: The night air bites. Dry branches litter the roadside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655375
+    m_Localized: Light a fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655376
+    m_Localized: Warmth settled into tired bodies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655377
+    m_Localized: Something approached the smoke. You doused it fast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655378
+    m_Localized: Tough it out without fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655379
+    m_Localized: Cold, but you held.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655380
+    m_Localized: The cold got in deep.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655381
+    m_Localized: Highwaymen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655382
+    m_Localized: Gun barrels rise from behind a truck blocking the road. 'Hand it
+      all over.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655383
+    m_Localized: Ram through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655384
+    m_Localized: Bullets scraped the hull, but you broke through.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655385
+    m_Localized: Tires and glass hit. Everyone's hurt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655386
+    m_Localized: Hand over food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655387
+    m_Localized: They stepped aside in silence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655388
+    m_Localized: Torch a fuel trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655389
+    m_Localized: Flames split the road; you slipped through.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655390
+    m_Localized: The fire licked back at the car.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655391
+    m_Localized: Sandstorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655392
+    m_Localized: The horizon rises brown. It's coming fast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655393
+    m_Localized: Drive straight through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655394
+    m_Localized: Sand scoured the paint, but you passed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655395
+    m_Localized: Blind, you slammed into a ditch.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655396
+    m_Localized: Park and wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655397
+    m_Localized: The wind died after two hours.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655398
+    m_Localized: Burn fuel to detour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655399
+    m_Localized: Long way, but safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655400
+    m_Localized: The detour was rougher.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655401
+    m_Localized: Eternal Traffic Jam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655402
+    m_Localized: Hundreds of cars sit still. The skeleton in the lead car still has
+      its blinker on.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655403
+    m_Localized: Push cars aside one by one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655404
+    m_Localized: A picnic lunch in a trunk. Nobody asked about the date.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655405
+    m_Localized: The last car didn't go quietly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655406
+    m_Localized: Take the shoulder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655407
+    m_Localized: The blinker yielded to you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655408
+    m_Localized: A flat. The shoulder wasn't a shoulder.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655409
+    m_Localized: Rifle through the cars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655410
+    m_Localized: Snacks everyone left behind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655411
+    m_Localized: Something in the trunk was awake.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655412
+    m_Localized: The Great Migration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655413
+    m_Localized: It takes seconds to realize the thing blanketing the horizon is
+      not people.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655414
+    m_Localized: Floor it and break through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655415
+    m_Localized: You stopped counting the impacts.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655416
+    m_Localized: The car was lifted and dropped again and again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655417
+    m_Localized: Stop and hold your breath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655418
+    m_Localized: The mass passed, eventually.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655419
+    m_Localized: A window broke.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655420
+    m_Localized: Light a fuel can and throw
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655421
+    m_Localized: Flames turned them aside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655422
+    m_Localized: Sparks fell on the roof.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655423
+    m_Localized: Brace where you are
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655424
+    m_Localized: The hull crumpled and everyone curled into a corner.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655425
+    m_Localized: All that remained in their wake was a half-wrecked car.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655426
+    m_Localized: Knock at Midnight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655427
+    m_Localized: Two a.m. Three polite knocks on the car door.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655428
+    m_Localized: Open the door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655429
+    m_Localized: A traveler shared supplies and left.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655430
+    m_Localized: It wasn't a person at the door.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655431
+    m_Localized: Ask its name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655432
+    m_Localized: The knocking stopped. Footsteps faded.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655433
+    m_Localized: No answer, only the glass rattling.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655434
+    m_Localized: Start the engine to scare it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655435
+    m_Localized: The shadow backed off from the engine noise.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655436
+    m_Localized: Stranded Stranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655437
+    m_Localized: A man at the roadside with both hands raised. 'Just a sip of water.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655438
+    m_Localized: Share water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655439
+    m_Localized: He produced a hidden stash and bowed his head.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655440
+    m_Localized: Thanks was said; a ration vanished.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655441
+    m_Localized: Refuse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655442
+    m_Localized: You watched him shrink in the mirror.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655443
+    m_Localized: Take what he has
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655444
+    m_Localized: He didn't resist. Nobody spoke.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655445
+    m_Localized: He was not alone.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -74,7 +74,7 @@ public class ResultView
         bannerText.SetText(fail ? failLabel : successLabel);
 
         OutcomeDef o = r.Outcome;
-        desc.SetText(o.TextKey);
+        desc.SetText(EventText.Get(o.TextKey));
 
         Effect[] fx = o.Effects;
         for (int i = 0; i < rows.Length; i++)

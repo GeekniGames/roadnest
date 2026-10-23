@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Roadnest.Core;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 주행 연출 진입점이자 코어(DayFlow)와 화면을 잇는 곳. 씬 전체에서 Update는 여기 하나뿐.
@@ -18,9 +19,12 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] GameConfig config;
     [SerializeField] ResourceHud resourceHud;
     [SerializeField] DurabilityHud durabilityHud;
+    [SerializeField] CharactorHud charactorHud;
     [SerializeField] ChoicePanel choicePanel;
     [SerializeField] EventPanel eventPanel;
     [SerializeField] DistributionPanel distributionPanel;
+    [SerializeField] GameOverPanel gameOverPanel;
+    [SerializeField] float gameOverDelay = 0.8f;
     [SerializeField] ChoiceSlotData departChoice;
     [SerializeField] ChoiceSlotData settleChoice;
     [SerializeField] TextAsset eventsJson;
@@ -40,6 +44,8 @@ public class RoadSceneController : MonoBehaviour
     Action _showEvent;
     Action _onDistributionConfirm;
     Action _onNextDayBanner;
+    Action _onRestart;
+    TweenCallback _onGameOver;
     bool _moving;
 
     public ResourceStore Store { get; private set; }
@@ -69,6 +75,7 @@ public class RoadSceneController : MonoBehaviour
 
         resourceHud.Bind(Store);
         durabilityHud.Bind(run.Durability, rules.MaxDurability);
+        charactorHud.Bind(run.Characters);
 
         _choices = new[] { departChoice, settleChoice };
         _onPicked = OnPicked;
@@ -78,6 +85,8 @@ public class RoadSceneController : MonoBehaviour
         _showEvent = ShowEvent;
         _onDistributionConfirm = OnDistributionConfirm;
         _onNextDayBanner = ShowChoices;
+        _onRestart = OnRestart;
+        _onGameOver = ShowGameOver;
         departChoice.cost.amount = rules.DepartFuelCost;   // 문구의 {amount}와 실제 소모량을 일치시킴 / keep text and cost in sync
     }
 
@@ -191,6 +200,7 @@ public class RoadSceneController : MonoBehaviour
         }
         resourceHud.ShowCost(ev.Choices[choiceIndex].Cost);   // 비용은 즉시, 보상은 확인 때 / cost now, rewards on Done
         durabilityHud.ShowCost(ev.Choices[choiceIndex].Cost);
+        charactorHud.ShowCost(ev.Choices[choiceIndex].Cost);
         eventPanel.ShowResult(ev, result, _flow.Run, _onResultContinue);
     }
 
@@ -198,6 +208,7 @@ public class RoadSceneController : MonoBehaviour
     {
         resourceHud.Release();  // 이때 자원 변화 연출 / resource feedback plays here
         durabilityHud.Show(_flow.Run.Durability);   // 보상 반영 / apply rewards
+        charactorHud.Show(_flow.Run.Characters);
         if (_flow.Phase != DayPhase.Event) { HandleFlowEnd(); return; }
 
         eventPanel.Hide();
@@ -217,10 +228,13 @@ public class RoadSceneController : MonoBehaviour
             distributionPanel.Show(_flow, _onDistributionConfirm);
             return;
         }
-#if UNITY_EDITOR
-        Debug.Log("[Roadnest] 런 종료 / run over: " + _flow.Run.EndReason + ", Day " + _flow.Run.Day);
-#endif
+
+        DOVirtual.DelayedCall(gameOverDelay, _onGameOver).SetLink(gameObject);
     }
+
+    void ShowGameOver() => gameOverPanel.Show(_flow.Run.EndReason, _flow.Run.Day, _onRestart);
+
+    void OnRestart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     // 확정 -> 자원 HUD 연출(Store 변화) -> 내구도 수리 반영 -> 다음 날 배너 -> 출발/정착 선택
     // Confirm -> resource HUD feedback (store change) -> durability repair -> next-day banner -> depart/settle
@@ -229,6 +243,7 @@ public class RoadSceneController : MonoBehaviour
         _flow.ConfirmDistribution();
         distributionPanel.Hide();
         durabilityHud.Show(_flow.Run.Durability);
+        charactorHud.Show(_flow.Run.Characters);
 
         if (_flow.Phase == DayPhase.Over) { HandleFlowEnd(); return; }
 

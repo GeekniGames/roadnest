@@ -1,0 +1,664 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Events Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Events
+  m_TableCollectionNameGuidString: 0f9addddcd3975348b4e5b7436143f0d
+  m_Entries:
+  - m_Id: 944534712320
+    m_Key: common-pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944568266752
+    m_Key: common-nothing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461056
+    m_Key: evt-fallen-tree-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461057
+    m_Key: evt-fallen-tree-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461058
+    m_Key: evt-fallen-tree-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461059
+    m_Key: evt-fallen-tree-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461060
+    m_Key: evt-fallen-tree-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461061
+    m_Key: evt-fallen-tree-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461062
+    m_Key: evt-fallen-tree-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461063
+    m_Key: evt-trader-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461064
+    m_Key: evt-trader-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461065
+    m_Key: evt-trader-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461066
+    m_Key: evt-trader-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461067
+    m_Key: evt-trader-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461068
+    m_Key: evt-trader-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461069
+    m_Key: evt-zombie-raid-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461070
+    m_Key: evt-zombie-raid-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461071
+    m_Key: evt-zombie-raid-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461072
+    m_Key: evt-zombie-raid-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461073
+    m_Key: evt-zombie-raid-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461074
+    m_Key: evt-zombie-raid-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461075
+    m_Key: evt-zombie-raid-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461076
+    m_Key: evt-zombie-raid-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461077
+    m_Key: evt-quiet-day-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461078
+    m_Key: evt-quiet-day-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461079
+    m_Key: evt-quiet-day-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461080
+    m_Key: evt-quiet-day-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461081
+    m_Key: evt-quiet-day-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461082
+    m_Key: evt-quiet-day-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461083
+    m_Key: evt-gas-station-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461084
+    m_Key: evt-gas-station-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461085
+    m_Key: evt-gas-station-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461086
+    m_Key: evt-gas-station-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461087
+    m_Key: evt-gas-station-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461088
+    m_Key: evt-gas-station-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461089
+    m_Key: evt-gas-station-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461090
+    m_Key: evt-dry-well-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461091
+    m_Key: evt-dry-well-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461092
+    m_Key: evt-dry-well-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461093
+    m_Key: evt-dry-well-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461094
+    m_Key: evt-dry-well-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461095
+    m_Key: evt-dry-well-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461096
+    m_Key: evt-dry-well-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461097
+    m_Key: evt-dry-well-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461098
+    m_Key: evt-farm-ruins-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461099
+    m_Key: evt-farm-ruins-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461100
+    m_Key: evt-farm-ruins-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461101
+    m_Key: evt-farm-ruins-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461102
+    m_Key: evt-farm-ruins-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461103
+    m_Key: evt-farm-ruins-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461104
+    m_Key: evt-farm-ruins-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461105
+    m_Key: evt-farm-ruins-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461106
+    m_Key: evt-farm-ruins-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461107
+    m_Key: evt-farm-ruins-c3-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461108
+    m_Key: evt-vending-machine-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461109
+    m_Key: evt-vending-machine-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461110
+    m_Key: evt-vending-machine-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461111
+    m_Key: evt-vending-machine-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461112
+    m_Key: evt-vending-machine-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461113
+    m_Key: evt-vending-machine-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461114
+    m_Key: evt-vending-machine-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461115
+    m_Key: evt-vending-machine-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461116
+    m_Key: evt-radio-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461117
+    m_Key: evt-radio-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461118
+    m_Key: evt-radio-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461119
+    m_Key: evt-radio-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461120
+    m_Key: evt-radio-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461121
+    m_Key: evt-radio-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461122
+    m_Key: evt-radio-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461123
+    m_Key: evt-radio-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461124
+    m_Key: evt-radio-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461125
+    m_Key: evt-clinic-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944572461126
+    m_Key: evt-clinic-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655360
+    m_Key: evt-clinic-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655361
+    m_Key: evt-clinic-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655362
+    m_Key: evt-clinic-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655363
+    m_Key: evt-clinic-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655364
+    m_Key: evt-clinic-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655365
+    m_Key: evt-junkyard-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655366
+    m_Key: evt-junkyard-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655367
+    m_Key: evt-junkyard-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655368
+    m_Key: evt-junkyard-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655369
+    m_Key: evt-junkyard-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655370
+    m_Key: evt-junkyard-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655371
+    m_Key: evt-junkyard-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655372
+    m_Key: evt-junkyard-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655373
+    m_Key: evt-campfire-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655374
+    m_Key: evt-campfire-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655375
+    m_Key: evt-campfire-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655376
+    m_Key: evt-campfire-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655377
+    m_Key: evt-campfire-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655378
+    m_Key: evt-campfire-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655379
+    m_Key: evt-campfire-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655380
+    m_Key: evt-campfire-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655381
+    m_Key: evt-bandits-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655382
+    m_Key: evt-bandits-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655383
+    m_Key: evt-bandits-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655384
+    m_Key: evt-bandits-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655385
+    m_Key: evt-bandits-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655386
+    m_Key: evt-bandits-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655387
+    m_Key: evt-bandits-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655388
+    m_Key: evt-bandits-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655389
+    m_Key: evt-bandits-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655390
+    m_Key: evt-bandits-c3-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655391
+    m_Key: evt-sandstorm-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655392
+    m_Key: evt-sandstorm-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655393
+    m_Key: evt-sandstorm-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655394
+    m_Key: evt-sandstorm-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655395
+    m_Key: evt-sandstorm-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655396
+    m_Key: evt-sandstorm-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655397
+    m_Key: evt-sandstorm-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655398
+    m_Key: evt-sandstorm-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655399
+    m_Key: evt-sandstorm-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655400
+    m_Key: evt-sandstorm-c3-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655401
+    m_Key: evt-traffic-jam-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655402
+    m_Key: evt-traffic-jam-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655403
+    m_Key: evt-traffic-jam-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655404
+    m_Key: evt-traffic-jam-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655405
+    m_Key: evt-traffic-jam-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655406
+    m_Key: evt-traffic-jam-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655407
+    m_Key: evt-traffic-jam-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655408
+    m_Key: evt-traffic-jam-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655409
+    m_Key: evt-traffic-jam-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655410
+    m_Key: evt-traffic-jam-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655411
+    m_Key: evt-traffic-jam-c3-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655412
+    m_Key: evt-zombie-horde-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655413
+    m_Key: evt-zombie-horde-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655414
+    m_Key: evt-zombie-horde-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655415
+    m_Key: evt-zombie-horde-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655416
+    m_Key: evt-zombie-horde-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655417
+    m_Key: evt-zombie-horde-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655418
+    m_Key: evt-zombie-horde-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655419
+    m_Key: evt-zombie-horde-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655420
+    m_Key: evt-zombie-horde-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655421
+    m_Key: evt-zombie-horde-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655422
+    m_Key: evt-zombie-horde-c3-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655423
+    m_Key: evt-zombie-horde-c4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655424
+    m_Key: evt-zombie-horde-c4-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655425
+    m_Key: evt-zombie-horde-c4-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655426
+    m_Key: evt-night-knock-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655427
+    m_Key: evt-night-knock-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655428
+    m_Key: evt-night-knock-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655429
+    m_Key: evt-night-knock-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655430
+    m_Key: evt-night-knock-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655431
+    m_Key: evt-night-knock-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655432
+    m_Key: evt-night-knock-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655433
+    m_Key: evt-night-knock-c2-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655434
+    m_Key: evt-night-knock-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655435
+    m_Key: evt-night-knock-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655436
+    m_Key: evt-stranger-title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655437
+    m_Key: evt-stranger-text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655438
+    m_Key: evt-stranger-c1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655439
+    m_Key: evt-stranger-c1-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655440
+    m_Key: evt-stranger-c1-o2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655441
+    m_Key: evt-stranger-c2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655442
+    m_Key: evt-stranger-c2-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655443
+    m_Key: evt-stranger-c3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655444
+    m_Key: evt-stranger-c3-o1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 944576655445
+    m_Key: evt-stranger-c3-o2
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1032266029274234961
+  references:
+    version: 2
+    RefIds:
+    - rid: 1032266029274234961
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1792764823804

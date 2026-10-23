@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: f9bcc4c875b8a5841b0f9b8cb9ea7745
   m_SerializeEntries:
+  - m_GUID: 0f9addddcd3975348b4e5b7436143f0d
+    m_Address: Assets/_Project/09_Localization/Events Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5207f2a103ec2974db82e678816c0159
+    m_Address: Assets/_Project/09_Localization/GameOver Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e272e6634d88944b810669dcd192f28
     m_Address: Assets/_Project/09_Localization/UI Shared Data.asset
     m_ReadOnly: 1

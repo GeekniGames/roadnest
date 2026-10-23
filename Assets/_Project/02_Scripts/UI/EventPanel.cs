@@ -62,9 +62,9 @@ public class EventPanel : MonoBehaviour
         _onPick = onPick;
         _onContinue = null;
 
-        titleText.SetText(def.TitleKey);
+        titleText.SetText(EventText.Get(def.TitleKey));
         if (dayText != null) dayText.SetText("DAY {0}", flow.Run.Day);
-        bodyText.SetText(def.TextKey);
+        bodyText.SetText(EventText.Get(def.TextKey));
         BindStatus(flow.Run);
 
         result.Hide();
@@ -110,7 +110,7 @@ public class EventPanel : MonoBehaviour
         _onPick = null;
         _onContinue = onContinue;
 
-        titleText.SetText(ev.TitleKey);
+        titleText.SetText(EventText.Get(ev.TitleKey));
 
         slotScroll.gameObject.SetActive(false);
         result.Show(r);

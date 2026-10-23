@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameOver Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: GameOver
+  m_TableCollectionNameGuidString: 5207f2a103ec2974db82e678816c0159
+  m_Entries:
+  - m_Id: 138624364544
+    m_Key: gameover_vehicle_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321567322112
+    m_Key: gameover_vehicle_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627021705216
+    m_Key: gameover_alldead_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 717643837440
+    m_Key: gameover_alldead_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 828872585216
+    m_Key: gameover_main_button
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1032266029274234956
+  references:
+    version: 2
+    RefIds:
+    - rid: 1032266029274234956
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1792761931816

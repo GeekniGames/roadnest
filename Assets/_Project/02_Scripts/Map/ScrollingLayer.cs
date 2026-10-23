@@ -12,6 +12,8 @@ public class ScrollingLayer : MonoBehaviour
     [SerializeField] float speedRatio = 1f;            // 시차 비율 / parallax ratio
     [SerializeField] float slope = 0.506f;             // 이미지 기울기(세로/가로) / image slope (dy/dx)
 
+
+
     Transform[] _copies;
     Vector3 _origin;
     Vector3 _period;       // 로컬 기준 한 주기 / one period, local space
@@ -34,6 +36,10 @@ public class ScrollingLayer : MonoBehaviour
 
         Apply();
     }
+
+
+    // 월드 기준 이동 방향(도로 반대쪽 위) / world-space movement direction
+    public Vector2 WorldDirection => transform.TransformDirection(-_period).normalized;
 
     // 월드 거리만큼 도로 반대 방향(왼쪽 위)으로 이동 / moves toward upper-left by world distance
     public void Advance(float worldDistance)

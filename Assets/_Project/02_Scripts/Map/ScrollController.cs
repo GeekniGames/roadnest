@@ -9,6 +9,7 @@ using UnityEngine;
 public class ScrollController : MonoBehaviour
 {
     [SerializeField] ScrollingLayer[] layers;
+    [SerializeField] ScrollingGround ground;
     [SerializeField] float maxSpeed = 7.5f;   // 유닛/초 (참조 120px/s @PPU16) / units per second
     [SerializeField] float accelTime = 1f;
     [SerializeField] float decelTime = 1f;
@@ -39,6 +40,7 @@ public class ScrollController : MonoBehaviour
         float d = _speed * dt;
         for (int i = 0; i < layers.Length; i++)
             layers[i].Advance(d);
+        if (ground != null) ground.Advance(d);
     }
 
     void TweenSpeed(float target, float time)

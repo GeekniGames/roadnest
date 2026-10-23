@@ -58,36 +58,25 @@ public class EventSlotView : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        title.SetText(c.TextKey);
+        title.SetText(EventText.Get(c.TextKey));
         _display.SetChoiceIcon(slotIcon, c.IconKey);
-        BindArea(cost, c.Cost, _display.noCostLabel);
+
+        BindArea(cost, c.Cost);
 
         OutcomeDef[] o = c.Outcomes;
         rate.SetText("{0}%", o[0].Percent);
-        BindArea(success, o[0].Effects, _display.noChangeLabel);
-
-        bool hasFail = o.Length > 1;
-        fail.root.SetActive(hasFail);
-        if (hasFail) BindArea(fail, o[1].Effects, _display.noChangeLabel);
+        BindArea(success, o[0].Effects);
+        BindArea(fail, o.Length > 1 ? o[1].Effects : Array.Empty<Effect>());   // 실패가 없어도 영역 제목은 유지 / keep the area header even without a fail outcome
 
         group.alpha = enabled ? 1f : _display.lockedAlpha;
         button.interactable = enabled;
     }
 
-    // 효과가 없으면 첫 줄에 안내 문구만 보여준다 / with no effects, the first row shows only the label
-    void BindArea(EffectArea a, Effect[] fx, string emptyLabel)
+    // 효과가 없으면 값 줄을 모두 끈다. 영역 제목은 그대로 둔다
+    // With no effects every value row is hidden; the area header stays
+    void BindArea(EffectArea a, Effect[] fx)
     {
         EffectRow[] rows = a.rows;
-        if (fx.Length == 0)
-        {
-            EffectRow first = rows[0];
-            first.root.SetActive(true);
-            first.icon.gameObject.SetActive(false);
-            first.value.SetText(emptyLabel);
-            for (int i = 1; i < rows.Length; i++) rows[i].root.SetActive(false);
-            return;
-        }
-
         for (int i = 0; i < rows.Length; i++)
         {
             bool on = i < fx.Length;

@@ -21,6 +21,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ko
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9efdefb72a70a5d4c89dd73d7d6dc0f4
+    m_Address: GameOver_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aebf8359b41985140beaef3d4ce8c3bc
+    m_Address: Events_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 198deb955e3ea314cb58a8b0c22df7a3, type: 2}
   m_SchemaSet:

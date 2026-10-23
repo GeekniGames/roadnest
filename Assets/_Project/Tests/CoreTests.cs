@@ -134,7 +134,7 @@ namespace Roadnest.Tests
             var table = LoadSample(errors);
             Assert.IsNotNull(table, string.Join("\n", errors));
             Assert.AreEqual(0, errors.Count);
-            Assert.AreEqual(5, table.Events.Length);
+            Assert.AreEqual(18, table.Events.Length);
         }
 
         [Test]
