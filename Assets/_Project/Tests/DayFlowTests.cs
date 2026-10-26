@@ -72,9 +72,16 @@ namespace Roadnest.Tests
 
         static void PlayDay(DayFlow f, MoveMode mode)
         {
+            ToMaintenance(f, mode);
+            Assert.IsTrue(f.Maintain(MaintenanceChoice.Repair));
+        }
+
+        static void ToMaintenance(DayFlow f, MoveMode mode)
+        {
             ToDistribution(f, mode);
             GiveAll(f);
             Assert.IsTrue(f.ConfirmDistribution());
+            Assert.AreEqual(DayPhase.Maintenance, f.Phase);
         }
 
         [Test]
@@ -256,6 +263,68 @@ namespace Roadnest.Tests
             ToDistribution(f, MoveMode.Depart);
             f.Run.Characters[0].Hp = 0;
             Assert.AreEqual(0, f.GetHpLoss(0));
+        }
+
+        [Test]
+        public void Confirm_EntersMaintenance_NoAutoRepair_DayNotAdvanced()
+        {
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
+            ToMaintenance(f, MoveMode.Depart);
+            Assert.AreEqual(1, f.Run.Day);
+            Assert.AreEqual(65, f.Run.Durability); // 70 - 5
+        }
+
+        [Test]
+        public void Maintain_Repair_AddsRepairAndAdvancesDay()
+        {
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
+            ToMaintenance(f, MoveMode.Depart);
+            Assert.IsTrue(f.Maintain(MaintenanceChoice.Repair));
+            Assert.AreEqual(75, f.Run.Durability);
+            Assert.AreEqual(2, f.Run.Day);
+            Assert.AreEqual(DayPhase.ChooseMode, f.Phase);
+        }
+
+        [Test]
+        public void Maintain_Pass_SkipsRepairButAdvancesDay()
+        {
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
+            ToMaintenance(f, MoveMode.Depart);
+            Assert.IsTrue(f.Maintain(MaintenanceChoice.Pass));
+            Assert.AreEqual(65, f.Run.Durability);
+            Assert.AreEqual(2, f.Run.Day);
+        }
+
+        [Test]
+        public void Maintain_Craft_IsRejectedWhileLocked()
+        {
+            var f = NewFlow();
+            ToMaintenance(f, MoveMode.Depart);
+            Assert.IsFalse(f.CanCraft);
+            Assert.IsFalse(f.Maintain(MaintenanceChoice.Craft));
+            Assert.AreEqual(DayPhase.Maintenance, f.Phase);
+            Assert.AreEqual(1, f.Run.Day);
+        }
+
+        [Test]
+        public void Maintain_OutsideMaintenancePhase_IsRejected()
+        {
+            var f = NewFlow();
+            Assert.IsFalse(f.Maintain(MaintenanceChoice.Repair));
+        }
+
+        [Test]
+        public void Maintain_Repair_IsRejectedWhenRepairAmountIsZero()
+        {
+            var f = NewFlow(null, new RunRules { RepairAmount = 0 });
+            ToMaintenance(f, MoveMode.Depart);
+            Assert.IsFalse(f.CanRepair);
+            Assert.IsFalse(f.Maintain(MaintenanceChoice.Repair));
+            Assert.AreEqual(DayPhase.Maintenance, f.Phase);
+            Assert.IsTrue(f.Maintain(MaintenanceChoice.Pass));
         }
     }
 }

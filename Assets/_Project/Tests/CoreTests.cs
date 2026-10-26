@@ -144,7 +144,7 @@ namespace Roadnest.Tests
             Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Depart, SlotType.Minor), "EVT_FALLEN_TREE"));
             Assert.IsFalse(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_FALLEN_TREE"));
             Assert.IsTrue(Contains(table.GetCandidates(MoveMode.Settle, SlotType.Minor), "EVT_TRADER"));
-            Assert.AreEqual(0, table.GetCandidates(MoveMode.Settle, SlotType.MaintenanceRecovery).Length);
+            Assert.Greater(table.GetCandidates(MoveMode.Settle, SlotType.MaintenanceRecovery).Length, 0);
         }
 
         [Test]

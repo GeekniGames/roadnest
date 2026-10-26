@@ -2,7 +2,8 @@ using System;
 
 namespace Roadnest.Core
 {
-    public enum DayPhase : byte { ChooseMode, Event, Distribution, Over }
+    public enum DayPhase : byte { ChooseMode, Event, Distribution, Maintenance, Over }
+    public enum MaintenanceChoice : byte { Repair, Craft, Pass }
 
     /// <summary>
     /// 하루 진행 상태 머신: 모드 선택 → 이벤트 슬롯 → 분배/정산 → 다음 날. 화면과 무관한 순수 C#.
@@ -26,6 +27,14 @@ namespace Roadnest.Core
         public int SlotCount => _slots.Length;
         public EventDef CurrentEvent { get; private set; }
         public bool CanDepart => Run.Resources.Get(ResourceType.Fuel) >= Run.Rules.DepartFuelCost;
+
+        // 아이템 시스템 연결 전까지 제작은 잠금 / craft stays locked until the item system lands
+        public bool CanCraft => false;
+
+        // 이번 날 수리량. 0이면 수리 불가 (아이템 연결 전)
+        // Repair amount for today; 0 means repair is locked (until items exist)
+        public int RepairAmount => Mode == MoveMode.Settle ? Run.Rules.SettleRepairAmount : Run.Rules.RepairAmount;
+        public bool CanRepair => RepairAmount > 0;
 
         public DayFlow(RunState run, EventTable table, ulong runSeed)
         {
@@ -150,12 +159,11 @@ namespace Roadnest.Core
             return (!f && !w) ? rules.HpLossMissingBoth : rules.HpLossMissingOne;
         }
 
-        // 분배 확정 → 소비 → HP 감소 → 생존 확인 → 수리 → Day+1
-        // Confirm: consume → HP loss → survival check → repair → Day+1
+        // 분배 확정 → 소비 → HP 감소 → 생존 확인 → 정비 단계
+        // Confirm: consume → HP loss → survival check → maintenance phase
         public bool ConfirmDistribution()
         {
             if (Phase != DayPhase.Distribution) return false;
-            RunRules rules = Run.Rules;
 
             if (_foodGiven > 0) Run.Apply(new Effect(StatType.Food, -_foodGiven));
             if (_waterGiven > 0) Run.Apply(new Effect(StatType.Water, -_waterGiven));
@@ -171,11 +179,22 @@ namespace Roadnest.Core
             _foodGiven = 0;
             _waterGiven = 0;
 
-            // 종료 시 Day 유지, 수리 없음 / on game over: keep Day, skip repair
+            // 종료 시 Day 유지, 정비 없음 / on game over: keep Day, skip maintenance
             if (Run.IsOver) { Phase = DayPhase.Over; return true; }
 
-            int repair = Mode == MoveMode.Settle ? rules.SettleRepairAmount : rules.RepairAmount;
-            Run.Apply(new Effect(StatType.Durability, repair));
+            Phase = DayPhase.Maintenance;
+            return true;
+        }
+
+        public bool Maintain(MaintenanceChoice choice)
+        {
+            if (Phase != DayPhase.Maintenance) return false;
+            if (choice == MaintenanceChoice.Craft && !CanCraft) return false;
+            if (choice == MaintenanceChoice.Repair && !CanRepair) return false;
+
+            if (choice == MaintenanceChoice.Repair)
+                Run.Apply(new Effect(StatType.Durability, RepairAmount));
+
             Run.AdvanceDay();
             Phase = DayPhase.ChooseMode;
             return true;

@@ -23,8 +23,8 @@ public class GameConfig : ScriptableObject
     [Min(1)] public int maxDurability = 100;
     [Min(0)] public int departDurabilityLoss = 5;
     [Min(0)] public int settleDurabilityGain = 3;
-    [Min(0)] public int repairAmount = 10;
-    [Min(0)] public int settleRepairAmount = 15;
+    [Min(0)] public int repairAmount = 0;
+    [Min(0)] public int settleRepairAmount = 5;
 
     [Header("캐릭터 / Characters")]
     [Min(1)] public int maxCharacterHp = 100;

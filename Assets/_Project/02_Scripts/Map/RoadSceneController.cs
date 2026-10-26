@@ -23,6 +23,7 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] ChoicePanel choicePanel;
     [SerializeField] EventPanel eventPanel;
     [SerializeField] DistributionPanel distributionPanel;
+    [SerializeField] FixOrCraftPanel fixOrCraftPanel;
     [SerializeField] GameOverPanel gameOverPanel;
     [SerializeField] float gameOverDelay = 0.8f;
     [SerializeField] ChoiceSlotData departChoice;
@@ -43,6 +44,7 @@ public class RoadSceneController : MonoBehaviour
     TweenCallback _onWaitDone;
     Action _showEvent;
     Action _onDistributionConfirm;
+    Action<MaintenanceChoice> _onMaintenancePicked;
     Action _onNextDayBanner;
     Action _onRestart;
     TweenCallback _onGameOver;
@@ -84,6 +86,7 @@ public class RoadSceneController : MonoBehaviour
         _onWaitDone = OnWaitDone;
         _showEvent = ShowEvent;
         _onDistributionConfirm = OnDistributionConfirm;
+        _onMaintenancePicked = OnMaintenancePicked;
         _onNextDayBanner = ShowChoices;
         _onRestart = OnRestart;
         _onGameOver = ShowGameOver;
@@ -236,16 +239,31 @@ public class RoadSceneController : MonoBehaviour
 
     void OnRestart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-    // 확정 -> 자원 HUD 연출(Store 변화) -> 내구도 수리 반영 -> 다음 날 배너 -> 출발/정착 선택
-    // Confirm -> resource HUD feedback (store change) -> durability repair -> next-day banner -> depart/settle
+    // 확정 -> 자원/HP 반영 -> 정비 선택 패널 (게임오버면 종료 처리)
+    // Confirm -> apply resources/HP -> maintenance panel (game over goes to the end flow)
     void OnDistributionConfirm()
     {
         _flow.ConfirmDistribution();
         distributionPanel.Hide();
-        durabilityHud.Show(_flow.Run.Durability);
         charactorHud.Show(_flow.Run.Characters);
 
         if (_flow.Phase == DayPhase.Over) { HandleFlowEnd(); return; }
+
+        fixOrCraftPanel.Show(_flow, _onMaintenancePicked);
+    }
+
+    // 정비 선택 -> 내구도 반영 -> 다음 날 배너 -> 출발/정착 선택
+    // Maintenance pick -> durability -> next-day banner -> depart/settle
+    void OnMaintenancePicked(MaintenanceChoice choice)
+    {
+        if (!_flow.Maintain(choice))
+        {
+            fixOrCraftPanel.Show(_flow, _onMaintenancePicked);
+            return;
+        }
+
+        fixOrCraftPanel.Hide();
+        durabilityHud.Show(_flow.Run.Durability);
 
         // 다음 날 배너 앞에 연출을 넣을 자리 / room for a presentation before the banner
         dayBanner.Show(_flow.Run.Day, _onNextDayBanner);

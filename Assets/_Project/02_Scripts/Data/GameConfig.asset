@@ -20,8 +20,8 @@ MonoBehaviour:
   maxDurability: 100
   departDurabilityLoss: 5
   settleDurabilityGain: 3
-  repairAmount: 10
-  settleRepairAmount: 15
+  repairAmount: 0
+  settleRepairAmount: 5
   maxCharacterHp: 100
   hpLossMissingOne: 15
   hpLossMissingBoth: 35

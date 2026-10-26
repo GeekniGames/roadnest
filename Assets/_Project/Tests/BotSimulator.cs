@@ -87,10 +87,14 @@ namespace Roadnest.Tests
                     if (pick < 0) return new BotRunResult(run.Day - 1, EndReason.None, true, false);
                     flow.Choose(pick);
                 }
-                else
+                else if (flow.Phase == DayPhase.Distribution)
                 {
                     GiveRations(flow);
                     flow.ConfirmDistribution();
+                }
+                else
+                {
+                    if (!flow.Maintain(MaintenanceChoice.Repair)) flow.Maintain(MaintenanceChoice.Pass);
                 }
             }
             return new BotRunResult(run.Day - 1, run.EndReason, false, false);
