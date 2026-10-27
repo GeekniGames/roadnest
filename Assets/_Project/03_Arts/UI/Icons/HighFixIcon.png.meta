@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 9f743ea0107051641bbbc7e54fc455e0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3350564465673794532
+    second: HighFixIcon_0
+  - first:
+      213: 2173621071805218706
+    second: HighFixIcon_1
+  - first:
+      213: 1774636393215579882
+    second: HighFixIcon_2
+  - first:
+      213: 5868204093358588516
+    second: HighFixIcon_3
+  - first:
+      213: 7767985863004726423
+    second: HighFixIcon_4
+  - first:
+      213: -2681150631813113873
+    second: HighFixIcon_5
+  - first:
+      213: -3161535403605933819
+    second: HighFixIcon_6
+  - first:
+      213: 3735075961920626610
+    second: HighFixIcon_7
+  - first:
+      213: -5485219633872966890
+    second: HighFixIcon_8
+  - first:
+      213: 2519999981622914309
+    second: HighFixIcon_9
+  - first:
+      213: 509247290481158872
+    second: HighFixIcon_10
+  - first:
+      213: 4252338773720560677
+    second: HighFixIcon_11
+  - first:
+      213: 1762243283473663087
+    second: HighFixIcon_12
+  - first:
+      213: -3020476641828633066
+    second: HighFixIcon_13
+  - first:
+      213: 4830256657283396818
+    second: HighFixIcon_14
+  - first:
+      213: 2092407201501719789
+    second: HighFixIcon_15
+  - first:
+      213: 8495830937598946146
+    second: HighFixIcon_16
+  - first:
+      213: 3874671202344733035
+    second: HighFixIcon_17
+  - first:
+      213: -598853771517119172
+    second: HighFixIcon_18
+  - first:
+      213: -4448970687046554331
+    second: HighFixIcon_19
+  - first:
+      213: 558805583625534171
+    second: HighFixIcon_20
+  - first:
+      213: 3079758899595071863
+    second: HighFixIcon_21
+  - first:
+      213: 5650958607534692107
+    second: HighFixIcon_22
+  - first:
+      213: -4427130240349272658
+    second: HighFixIcon_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HighFixIcon_0
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1175
+        width: 231
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3788521a89f7e20800000000000000
+      internalID: 3350564465673794532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_1
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1138
+        width: 121
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ff04539d04a2e10800000000000000
+      internalID: 2173621071805218706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_2
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1156
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae6581fa566c0a810800000000000000
+      internalID: 1774636393215579882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_3
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1152
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462c126288c007150800000000000000
+      internalID: 5868204093358588516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_4
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1142
+        width: 21
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79427a06cfd6dcb60800000000000000
+      internalID: 7767985863004726423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_5
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1154
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe71779a4b3aacad0800000000000000
+      internalID: -2681150631813113873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_6
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1130
+        width: 14
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5014f3b0d48ff14d0800000000000000
+      internalID: -3161535403605933819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_7
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1124
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf116f4cc7a5d330800000000000000
+      internalID: 3735075961920626610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_8
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1137
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61be0001ec590e3b0800000000000000
+      internalID: -5485219633872966890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_9
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1136
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50def9ab1a6d8f220800000000000000
+      internalID: 2519999981622914309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_10
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1114
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8daa5fb66b5311700800000000000000
+      internalID: 509247290481158872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_11
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1140
+        width: 66
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524fb38b597530b30800000000000000
+      internalID: 4252338773720560677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1241
+        height: 1138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f640447fdeeb47810800000000000000
+      internalID: 1762243283473663087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_13
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1110
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61680775f7c1516d0800000000000000
+      internalID: -3020476641828633066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_14
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1108
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4b75786d4880340800000000000000
+      internalID: 4830256657283396818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_15
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1098
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: decaaf28349b90d10800000000000000
+      internalID: 2092407201501719789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_16
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1086
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26beb53993147e570800000000000000
+      internalID: 8495830937598946146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_17
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 39
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69813dfde895c530800000000000000
+      internalID: 3874671202344733035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 55
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35b15ceaa170b7f0800000000000000
+      internalID: -598853771517119172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_19
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 54
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52de6765bb41242c0800000000000000
+      internalID: -4448970687046554331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_20
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 53
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda3186b7b641c700800000000000000
+      internalID: 558805583625534171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 31
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7715634e6608dba20800000000000000
+      internalID: 3079758899595071863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_22
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 23
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b079a8ad9ec3c6e40800000000000000
+      internalID: 5650958607534692107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HighFixIcon_23
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 15
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea58799908caf82c0800000000000000
+      internalID: -4427130240349272658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HighFixIcon_0: 3350564465673794532
+      HighFixIcon_1: 2173621071805218706
+      HighFixIcon_10: 509247290481158872
+      HighFixIcon_11: 4252338773720560677
+      HighFixIcon_12: 1762243283473663087
+      HighFixIcon_13: -3020476641828633066
+      HighFixIcon_14: 4830256657283396818
+      HighFixIcon_15: 2092407201501719789
+      HighFixIcon_16: 8495830937598946146
+      HighFixIcon_17: 3874671202344733035
+      HighFixIcon_18: -598853771517119172
+      HighFixIcon_19: -4448970687046554331
+      HighFixIcon_2: 1774636393215579882
+      HighFixIcon_20: 558805583625534171
+      HighFixIcon_21: 3079758899595071863
+      HighFixIcon_22: 5650958607534692107
+      HighFixIcon_23: -4427130240349272658
+      HighFixIcon_3: 5868204093358588516
+      HighFixIcon_4: 7767985863004726423
+      HighFixIcon_5: -2681150631813113873
+      HighFixIcon_6: -3161535403605933819
+      HighFixIcon_7: 3735075961920626610
+      HighFixIcon_8: -5485219633872966890
+      HighFixIcon_9: 2519999981622914309
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -22,9 +22,10 @@ public class GameConfig : ScriptableObject
     [Header("내구도 / Durability")]
     [Min(1)] public int maxDurability = 100;
     [Min(0)] public int departDurabilityLoss = 5;
-    [Min(0)] public int settleDurabilityGain = 3;
-    [Min(0)] public int repairAmount = 0;
-    [Min(0)] public int settleRepairAmount = 5;
+    [Min(0)] public int settleDurabilityGain = 5;
+    [Min(0)] public int repairToolAmount = 3;
+    [Min(0)] public int repairKitLowAmount = 10;
+    [Min(0)] public int repairKitHighAmount = 25;
 
     [Header("캐릭터 / Characters")]
     [Min(1)] public int maxCharacterHp = 100;
@@ -48,8 +49,9 @@ public class GameConfig : ScriptableObject
             MaxDurability = maxDurability,
             DepartDurabilityLoss = departDurabilityLoss,
             SettleDurabilityGain = settleDurabilityGain,
-            RepairAmount = repairAmount,
-            SettleRepairAmount = settleRepairAmount,
+            RepairToolAmount = repairToolAmount,
+            RepairKitLowAmount = repairKitLowAmount,
+            RepairKitHighAmount = repairKitHighAmount,
             MaxCharacterHp = maxCharacterHp,
             HpLossMissingOne = hpLossMissingOne,
             HpLossMissingBoth = hpLossMissingBoth,

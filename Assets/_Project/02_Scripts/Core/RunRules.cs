@@ -12,14 +12,26 @@ namespace Roadnest.Core
 
         public int MaxDurability = 100;         // 시작값 = 최대값 / start = max
         public int DepartDurabilityLoss = 5;
-        public int SettleDurabilityGain = 3;
-        public int RepairAmount = 10;
-        public int SettleRepairAmount = 15;
+        public int SettleDurabilityGain = 5;    // 정착 선택 즉시 수리 / repair applied the moment settle is picked
+        public int RepairToolAmount = 3;        // 수리 아이템별 수리량 / repair amount per item
+        public int RepairKitLowAmount = 10;
+        public int RepairKitHighAmount = 25;
 
         public int MaxCharacterHp = 100;        // 시작값 = 최대값 / start = max
         public int HpLossMissingOne = 15;
         public int HpLossMissingBoth = 35;
 
         public int EventsPerDay = 5;
+
+
+        public int GetRepairAmount(ItemType item)
+        {
+            switch (item)
+            {
+                case ItemType.RepairTool: return RepairToolAmount;
+                case ItemType.RepairKitLow: return RepairKitLowAmount;
+                default: return RepairKitHighAmount;
+            }
+        }
     }
 }

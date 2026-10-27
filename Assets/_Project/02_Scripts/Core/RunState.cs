@@ -8,6 +8,7 @@ namespace Roadnest.Core
     {
         public readonly RunRules Rules;
         public readonly ResourceStore Resources;
+        public readonly ItemStore Items;
         public readonly CharacterState[] Characters;
 
         public int Day { get; private set; } = 1;
@@ -21,6 +22,7 @@ namespace Roadnest.Core
         {
             Rules = rules;
             Resources = resources;
+            Items = new ItemStore(rules.ResourceCap);
             Characters = characters;
             Resources.Reset(rules.StartFuel, rules.StartFood, rules.StartWater);
             Durability = rules.MaxDurability;

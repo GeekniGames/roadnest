@@ -19,7 +19,7 @@ MonoBehaviour:
   departFuelCost: 1
   maxDurability: 100
   departDurabilityLoss: 5
-  settleDurabilityGain: 3
+  settleDurabilityGain: 5
   repairAmount: 0
   settleRepairAmount: 5
   maxCharacterHp: 100

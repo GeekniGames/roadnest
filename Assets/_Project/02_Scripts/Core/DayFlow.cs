@@ -31,10 +31,13 @@ namespace Roadnest.Core
         // 아이템 시스템 연결 전까지 제작은 잠금 / craft stays locked until the item system lands
         public bool CanCraft => false;
 
-        // 이번 날 수리량. 0이면 수리 불가 (아이템 연결 전)
-        // Repair amount for today; 0 means repair is locked (until items exist)
-        public int RepairAmount => Mode == MoveMode.Settle ? Run.Rules.SettleRepairAmount : Run.Rules.RepairAmount;
-        public bool CanRepair => RepairAmount > 0;
+        // 수리 칸 진입 조건: 수리 아이템이 하나라도 있고 내구도가 가득 차지 않음
+        // Repair entry rule: at least one repair item and durability not full
+        public bool CanRepair => Run.Durability < Run.Rules.MaxDurability && Run.Items.HasAny();
+
+        // 슬롯별 사용 가능 여부 / per-slot availability
+        public bool CanUseRepair(ItemType item)
+            => Phase == DayPhase.Maintenance && Run.Durability < Run.Rules.MaxDurability && Run.Items.Get(item) > 0;
 
         public DayFlow(RunState run, EventTable table, ulong runSeed)
         {
@@ -186,18 +189,33 @@ namespace Roadnest.Core
             return true;
         }
 
+        // 제작/넘어가기 후 Day+1. 수리는 Repair(item)로 한다
+        // Craft/pass, then Day+1. Repair goes through Repair(item)
         public bool Maintain(MaintenanceChoice choice)
         {
             if (Phase != DayPhase.Maintenance) return false;
+            if (choice == MaintenanceChoice.Repair) return false;
             if (choice == MaintenanceChoice.Craft && !CanCraft) return false;
-            if (choice == MaintenanceChoice.Repair && !CanRepair) return false;
 
-            if (choice == MaintenanceChoice.Repair)
-                Run.Apply(new Effect(StatType.Durability, RepairAmount));
+            EndDay();
+            return true;
+        }
 
+        // 아이템 1개를 쓰고 수리한 뒤 Day+1 / use one item, repair, then Day+1
+        public bool Repair(ItemType item)
+        {
+            if (!CanUseRepair(item)) return false;
+
+            Run.Items.TryUse(item);
+            Run.Apply(new Effect(StatType.Durability, Run.Rules.GetRepairAmount(item)));
+            EndDay();
+            return true;
+        }
+
+        void EndDay()
+        {
             Run.AdvanceDay();
             Phase = DayPhase.ChooseMode;
-            return true;
         }
 
         EventDef PickCurrent()

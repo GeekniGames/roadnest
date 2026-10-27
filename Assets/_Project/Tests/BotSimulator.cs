@@ -94,7 +94,7 @@ namespace Roadnest.Tests
                 }
                 else
                 {
-                    if (!flow.Maintain(MaintenanceChoice.Repair)) flow.Maintain(MaintenanceChoice.Pass);
+                    flow.Maintain(MaintenanceChoice.Pass);
                 }
             }
             return new BotRunResult(run.Day - 1, run.EndReason, false, false);

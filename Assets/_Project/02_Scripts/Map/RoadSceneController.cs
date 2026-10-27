@@ -24,6 +24,7 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] EventPanel eventPanel;
     [SerializeField] DistributionPanel distributionPanel;
     [SerializeField] FixOrCraftPanel fixOrCraftPanel;
+    [SerializeField] FixPanel fixPanel;
     [SerializeField] GameOverPanel gameOverPanel;
     [SerializeField] float gameOverDelay = 0.8f;
     [SerializeField] ChoiceSlotData departChoice;
@@ -45,6 +46,8 @@ public class RoadSceneController : MonoBehaviour
     Action _showEvent;
     Action _onDistributionConfirm;
     Action<MaintenanceChoice> _onMaintenancePicked;
+    Action<ItemType> _onRepairUse;
+    Action _onRepairBack;
     Action _onNextDayBanner;
     Action _onRestart;
     TweenCallback _onGameOver;
@@ -87,6 +90,8 @@ public class RoadSceneController : MonoBehaviour
         _showEvent = ShowEvent;
         _onDistributionConfirm = OnDistributionConfirm;
         _onMaintenancePicked = OnMaintenancePicked;
+        _onRepairUse = OnRepairUse;
+        _onRepairBack = OnRepairBack;
         _onNextDayBanner = ShowChoices;
         _onRestart = OnRestart;
         _onGameOver = ShowGameOver;
@@ -252,16 +257,46 @@ public class RoadSceneController : MonoBehaviour
         fixOrCraftPanel.Show(_flow, _onMaintenancePicked);
     }
 
-    // 정비 선택 -> 내구도 반영 -> 다음 날 배너 -> 출발/정착 선택
-    // Maintenance pick -> durability -> next-day banner -> depart/settle
+    // 수리는 FixPanel로, 제작/넘어가기는 바로 하루 종료
+    // Repair opens FixPanel; craft/pass ends the day right away
     void OnMaintenancePicked(MaintenanceChoice choice)
     {
+        if (choice == MaintenanceChoice.Repair)
+        {
+            fixOrCraftPanel.HideBody();
+            fixPanel.Show(_flow, _onRepairUse, _onRepairBack);
+            return;
+        }
+
         if (!_flow.Maintain(choice))
         {
             fixOrCraftPanel.Show(_flow, _onMaintenancePicked);
             return;
         }
+        EndMaintenance();
+    }
 
+    void OnRepairUse(ItemType item)
+    {
+        if (!_flow.Repair(item))
+        {
+            fixPanel.Show(_flow, _onRepairUse, _onRepairBack);
+            return;
+        }
+        fixPanel.Hide();
+        EndMaintenance();
+    }
+
+    void OnRepairBack()
+    {
+        fixPanel.Hide();
+        fixOrCraftPanel.ShowBody(_flow, _onMaintenancePicked);
+    }
+
+    // 정비 종료 -> 내구도 반영 -> 다음 날 배너 -> 출발/정착 선택
+    // Maintenance done -> durability -> next-day banner -> depart/settle
+    void EndMaintenance()
+    {
         fixOrCraftPanel.Hide();
         durabilityHud.Show(_flow.Run.Durability);
 
@@ -277,5 +312,13 @@ public class RoadSceneController : MonoBehaviour
     [ContextMenu("Test/Food -1")] void TestFoodDown() => Store.Add(ResourceType.Food, -1);
     [ContextMenu("Test/Water +1")] void TestWaterUp() => Store.Add(ResourceType.Water, 1);
     [ContextMenu("Test/Water -1")] void TestWaterDown() => Store.Add(ResourceType.Water, -1);
+    [ContextMenu("Test/Items +1 (all)")]
+    void TestItemsUp()
+    {
+        ItemStore it = _flow.Run.Items;
+        it.Add(ItemType.RepairTool, 1);
+        it.Add(ItemType.RepairKitLow, 1);
+        it.Add(ItemType.RepairKitHigh, 1);
+    }
 #endif
 }

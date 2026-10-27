@@ -5,7 +5,7 @@
 움직이는 집(카라반)을 몰고 도로를 달리며 선택과 자원 관리로 생존하는 2D 모바일 로그라이크.
 Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
 
-> 개발 중 (솔로 프로젝트). 코어 로직, 이벤트 UI, 분배/HUD/게임오버 흐름까지 구현되어 있습니다.
+> 개발 중 (솔로 프로젝트). 코어 로직, 이벤트 UI, 분배/정비/HUD/게임오버 흐름까지 구현되어 있습니다.
 
 ![gameplay](docs/gameplay.gif)
 
@@ -21,10 +21,11 @@ Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
 ## 구현된 것
 
 **게임 코어 (Unity 비의존 순수 C#, `Roadnest.Core` 어셈블리)**
-- 하루 진행 상태 머신 `DayFlow`: 모드 선택(출발/정착) → 이벤트 슬롯 → 분배 → 다음 날
+- 하루 진행 상태 머신 `DayFlow`: 모드 선택(출발/정착) → 이벤트 슬롯 → 분배 → 정비 → 다음 날
 - 선택지 처리 `ChoiceResolver`: 조건/비용 검사 → 확률 굴림 → 효과 적용
 - 시드 기반 결정적 난수: 같은 시드면 같은 결과 (재현, 디버깅, 테스트에 사용)
 - 가중치 기반 이벤트 선택: 슬롯 종류, 연속 정착 횟수, 일차에 따른 보정
+- 아이템 보관 `ItemStore`: 수리 아이템 3종(공구, 하급/상급 수리키트)의 보유 개수와 사용 처리
 
 **데이터 주도 이벤트**
 - 이벤트는 `events.json`에 정의하고, 로드 시점에 전부 검증합니다(선택지 수, 확률 합, 비용 중복, 폴백 이벤트 등). 잘못된 데이터는 한/영 오류 메시지와 함께 즉시 실패합니다.
@@ -37,6 +38,7 @@ Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
 - 이벤트 진입 연출: 랜덤 대기 후 정지, 예고형 이벤트는 차 앞 느낌표 표시, 돌발형은 바로 진입
 - 결과 화면: 성공/실패 표시와 보상 줄(최대 3줄), 확인 버튼을 누르면 자원 변화 연출
 - 식량/물 분배 패널: 분배 결과에 따라 캐릭터 HP와 재고가 변함
+- 정비 패널: 하루 끝에 수리 / 제작 / 넘어가기 중 하나를 선택. 수리는 아이템을 1개 소모해 내구도를 회복하며, 조건(아이템 보유, 내구도 미만)에 따라 칸이 잠김. 제작은 아이템 시스템 연결 전까지 잠금
 - HUD: 내구도 바(값을 부드럽게 따라가고 낮아지면 색 변경/깜빡임), 캐릭터별 HP(변화 연출, 사망 시 숨김)
 - 게임오버: 차량 파괴 / 전원 사망 두 가지 사유별 이미지와 문구, 생존 일수 표시, 씬 재시작
 - 연출은 DOTween을 사용하고, 씬의 Update는 한 곳에서만 돌립니다.
@@ -52,9 +54,9 @@ Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
 
 ## 테스트
 
-Unity Test Runner (EditMode)에서 실행합니다. 현재 80개.
+Unity Test Runner (EditMode)에서 실행합니다. 현재 91개.
 
-- 코어 규칙, 이벤트 로딩/검증, 선택지 처리, 이벤트 선택, 하루 진행 흐름 단위 테스트
+- 코어 규칙, 이벤트 로딩/검증, 선택지 처리, 이벤트 선택, 하루 진행 흐름(분배/정비 포함), 아이템 보관 단위 테스트
 - **봇 시뮬레이션**: 무작위 봇이 여러 시드로 수천 판을 자동 플레이해 (1) 진행 불가(데드락) 없음 (2) 같은 시드 = 같은 결과를 확인합니다.
   - 실행 규모: [ 시드 수 ] 시드 x [ 판 수 ] 판
   - 결과: [ 평균 생존 일수 / 종료 사유 비율 등 ]
@@ -69,8 +71,9 @@ Unity Test Runner (EditMode)에서 실행합니다. 현재 80개.
 - [x] 식량/물 분배 패널
 - [x] 게임 오버 / 재시작
 - [x] 이벤트 18종, 이벤트 텍스트 로컬라이징(Unity Localization)
-- [ ] 정비 선택 UI (수리 / 제작 / 넘어가기)
-- [ ] 아이템 시스템 (재료, 도구, 제작)
+- [x] 정비 선택 UI (수리 / 넘어가기), 수리 아이템 3종
+- [ ] 아이템 획득 (이벤트 보상, 보유 개수 HUD)
+- [ ] 제작 UI와 차량 업그레이드 재료
 - [ ] 연계 이벤트, 이벤트 대폭 확장
 - [ ] 캐릭터 선택, 합류 이벤트
 - [ ] 실기기 빌드, 프로파일링 결과, 서버 연동
@@ -107,7 +110,7 @@ Assets/_Project/
 A 2D mobile roguelike about surviving on the road in a moving home (a caravan) through choices and resource management.
 Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
 
-> Work in progress (solo project). The core logic, event UI, and the distribution / HUD / game over flow are implemented so far.
+> Work in progress (solo project). The core logic, event UI, and the distribution / maintenance / HUD / game over flow are implemented so far.
 
 ![gameplay](docs/gameplay.gif)
 
@@ -123,10 +126,11 @@ Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
 ## What's Implemented
 
 **Game core (engine-independent pure C#, `Roadnest.Core` assembly)**
-- `DayFlow` state machine: pick mode (depart / settle) → event slots → distribution → next day
+- `DayFlow` state machine: pick mode (depart / settle) → event slots → distribution → maintenance → next day
 - `ChoiceResolver`: requirement and cost checks → probability roll → apply effects
 - Deterministic seeded RNG: the same seed gives the same result (used for replay, debugging and tests)
 - Weighted event selection with modifiers by slot type, consecutive settles and day number
+- `ItemStore`: owned counts and use of the three repair items (tool, low / high repair kit)
 
 **Data-driven events**
 - Events are defined in `events.json` and fully validated at load time (choice counts, probability totals, duplicate costs, fallback event, etc.). Bad data fails immediately with bilingual (KR/EN) error messages.
@@ -139,6 +143,7 @@ Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
 - Event entry: random wait, then the car stops; telegraphed events show an exclamation mark above the car, sudden events open right away
 - Result view: success / fail banner and reward rows (up to 3); resource changes animate when you press Done
 - Food / water distribution panel: the result changes each character's HP and the stock
+- Maintenance panel: at the end of the day pick repair / craft / pass. Repair uses one item to restore durability, and its card locks by condition (owning an item, durability below max). Craft stays locked until the item system is connected
 - HUD: durability bar (follows value changes smoothly, changes color and blinks when low) and per-character HP (animated changes, hidden on death)
 - Game over: separate image and text for vehicle destroyed / all characters dead, days survived, scene restart
 - Animations use DOTween, and the scene runs a single Update loop.
@@ -154,9 +159,9 @@ Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
 
 ## Testing
 
-Run from the Unity Test Runner (EditMode). 80 tests at the moment.
+Run from the Unity Test Runner (EditMode). 91 tests at the moment.
 
-- Unit tests for core rules, event loading/validation, choice resolution, event selection and the day flow
+- Unit tests for core rules, event loading/validation, choice resolution, event selection, the day flow (including distribution and maintenance) and the item store
 - **Bot simulation**: a random bot auto-plays thousands of runs across many seeds to confirm (1) no deadlocks (2) same seed = same result.
   - Scale: [ number of seeds ] seeds x [ runs ] runs
   - Results: [ average days survived / end-reason ratios, etc. ]
@@ -171,8 +176,9 @@ Run from the Unity Test Runner (EditMode). 80 tests at the moment.
 - [x] Food / water distribution panel
 - [x] Game over / restart
 - [x] 18 events, event text localization (Unity Localization)
-- [ ] Maintenance choice UI (repair / craft / skip)
-- [ ] Item system (materials, tools, crafting)
+- [x] Maintenance choice UI (repair / skip) and three repair items
+- [ ] Item acquisition (event rewards, owned-count HUD)
+- [ ] Crafting UI and vehicle upgrade materials
 - [ ] Chained events, large event expansion
 - [ ] Character selection, join events
 - [ ] Device build, profiling results, backend integration

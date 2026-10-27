@@ -65,7 +65,35 @@ public class FixOrCraftPanel : MonoBehaviour
         Activate();
         _onPick = onPick;
         _busy = false;
+        Refresh(flow);
 
+        body.gameObject.SetActive(true);
+        rootGroup.blocksRaycasts = true;
+        rootGroup.interactable = true;
+        rootGroup.alpha = 0f;
+        body.localScale = Vector3.one * popFrom;
+        _fade.Restart();
+        _pop.Restart();
+    }
+
+    // FixPanel에서 돌아올 때: 루트 페이드 없이 본문만 다시 띄운다
+    // Returning from FixPanel: reshow only the body, no root fade
+    public void ShowBody(DayFlow flow, Action<MaintenanceChoice> onPick)
+    {
+        _onPick = onPick;
+        _busy = false;
+        Refresh(flow);
+
+        body.gameObject.SetActive(true);
+        body.localScale = Vector3.one * popFrom;
+        _pop.Restart();
+    }
+
+    // FixPanel이 떠 있는 동안 본문을 숨긴다 / hide the body while FixPanel is up
+    public void HideBody() => body.gameObject.SetActive(false);
+
+    void Refresh(DayFlow flow)
+    {
         if (dayText != null) dayText.SetText("DAY {0}", flow.Run.Day);
 
         bool canRepair = flow.CanRepair;
@@ -75,13 +103,6 @@ public class FixOrCraftPanel : MonoBehaviour
         bool canCraft = flow.CanCraft;
         craftButton.interactable = canCraft;
         craftGroup.alpha = canCraft ? 1f : lockedAlpha;
-
-        rootGroup.blocksRaycasts = true;
-        rootGroup.interactable = true;
-        rootGroup.alpha = 0f;
-        body.localScale = Vector3.one * popFrom;
-        _fade.Restart();
-        _pop.Restart();
     }
 
     public void Hide()

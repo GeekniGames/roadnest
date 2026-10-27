@@ -1,0 +1,1404 @@
+fileFormatVersion: 2
+guid: d9e4bd578a258674d971b04b87e0a620
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2841311001092960120
+    second: LowFixIcon_0
+  - first:
+      213: 1898226382049246642
+    second: LowFixIcon_1
+  - first:
+      213: 7873374973923102851
+    second: LowFixIcon_2
+  - first:
+      213: 3261839399744194037
+    second: LowFixIcon_3
+  - first:
+      213: -5928553294277551003
+    second: LowFixIcon_4
+  - first:
+      213: -7447290098892612635
+    second: LowFixIcon_5
+  - first:
+      213: -2553710101244174480
+    second: LowFixIcon_6
+  - first:
+      213: 2979176664805412888
+    second: LowFixIcon_7
+  - first:
+      213: -4557678438591295013
+    second: LowFixIcon_8
+  - first:
+      213: 3938606080062259743
+    second: LowFixIcon_9
+  - first:
+      213: 7549668656858795789
+    second: LowFixIcon_10
+  - first:
+      213: -3897252607356661317
+    second: LowFixIcon_11
+  - first:
+      213: 2868244217160217048
+    second: LowFixIcon_12
+  - first:
+      213: 7159405015691467664
+    second: LowFixIcon_13
+  - first:
+      213: -7043035176052736020
+    second: LowFixIcon_14
+  - first:
+      213: 6690525266565184142
+    second: LowFixIcon_15
+  - first:
+      213: -6293440985791105730
+    second: LowFixIcon_16
+  - first:
+      213: 3569834327794067162
+    second: LowFixIcon_17
+  - first:
+      213: 5717295105216102352
+    second: LowFixIcon_18
+  - first:
+      213: 8555463710038249003
+    second: LowFixIcon_19
+  - first:
+      213: 4187263749983813547
+    second: LowFixIcon_20
+  - first:
+      213: 2414198407822014696
+    second: LowFixIcon_21
+  - first:
+      213: -7328532412521663195
+    second: LowFixIcon_22
+  - first:
+      213: -1338352796027221002
+    second: LowFixIcon_23
+  - first:
+      213: -1449241704566713419
+    second: LowFixIcon_24
+  - first:
+      213: 1923188392085317017
+    second: LowFixIcon_25
+  - first:
+      213: 2311168291699074854
+    second: LowFixIcon_26
+  - first:
+      213: 494366776392349536
+    second: LowFixIcon_27
+  - first:
+      213: 6539362863870618870
+    second: LowFixIcon_28
+  - first:
+      213: 1944180101087822255
+    second: LowFixIcon_29
+  - first:
+      213: -4221615354583501671
+    second: LowFixIcon_30
+  - first:
+      213: -7779045375508569538
+    second: LowFixIcon_31
+  - first:
+      213: -3005065325977360766
+    second: LowFixIcon_32
+  - first:
+      213: -7498376518800210283
+    second: LowFixIcon_33
+  - first:
+      213: 6205908725198567100
+    second: LowFixIcon_34
+  - first:
+      213: 7083096767382153567
+    second: LowFixIcon_35
+  - first:
+      213: -5862723436509852577
+    second: LowFixIcon_36
+  - first:
+      213: -7997100628463739974
+    second: LowFixIcon_37
+  - first:
+      213: -2642709021692671332
+    second: LowFixIcon_38
+  - first:
+      213: 401553320165449887
+    second: LowFixIcon_39
+  - first:
+      213: -5617708668395456433
+    second: LowFixIcon_40
+  - first:
+      213: -8751121746752454792
+    second: LowFixIcon_41
+  - first:
+      213: -6850649795506094164
+    second: LowFixIcon_42
+  - first:
+      213: -1264793084459109637
+    second: LowFixIcon_43
+  - first:
+      213: -214589177088218520
+    second: LowFixIcon_44
+  - first:
+      213: -6630903134323606076
+    second: LowFixIcon_45
+  - first:
+      213: -1374639634897860976
+    second: LowFixIcon_46
+  - first:
+      213: -1115322325877710117
+    second: LowFixIcon_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LowFixIcon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1241
+        height: 1186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880d17bc2b2a198d0800000000000000
+      internalID: -2841311001092960120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_1
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1148
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bdf15556dad75a10800000000000000
+      internalID: 1898226382049246642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1175
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3801328e2d8d34d60800000000000000
+      internalID: 7873374973923102851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_3
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1173
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f54020f6a1644d20800000000000000
+      internalID: 3261839399744194037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_4
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 1140
+        width: 77
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c5d9e803c89bda0800000000000000
+      internalID: -5928553294277551003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_5
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1145
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebd83ccc19e5a890800000000000000
+      internalID: -7447290098892612635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_6
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1156
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f930c61366f8cd0800000000000000
+      internalID: -2553710101244174480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_7
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1157
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8101cdc6469285920800000000000000
+      internalID: 2979176664805412888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_8
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1148
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd11f439b9fdfb0c0800000000000000
+      internalID: -4557678438591295013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_9
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1126
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f120e48bc5db8a630800000000000000
+      internalID: 3938606080062259743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_10
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1140
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f08ffb4afc5c860800000000000000
+      internalID: 7549668656858795789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_11
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1132
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb19a82f66d2ae9c0800000000000000
+      internalID: -3897252607356661317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_12
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1126
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d137ec3bec0ec720800000000000000
+      internalID: 2868244217160217048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_13
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1124
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b907bfde05b5360800000000000000
+      internalID: 7159405015691467664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_14
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1120
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefbbcea2dc124e90800000000000000
+      internalID: -7043035176052736020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_15
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1112
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ab462384589dc50800000000000000
+      internalID: 6690525266565184142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_16
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1102
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35790b74c439a8a0800000000000000
+      internalID: -6293440985791105730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_17
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1108
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6292748699a8130800000000000000
+      internalID: 3569834327794067162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_18
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1092
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0df3c7e4b99e75f40800000000000000
+      internalID: 5717295105216102352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_19
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1084
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e439d5aec1bb670800000000000000
+      internalID: 8555463710038249003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_20
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1094
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafb7ae02362c1a30800000000000000
+      internalID: 4187263749983813547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_21
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1090
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e87b8339a4f08120800000000000000
+      internalID: 2414198407822014696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_22
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1090
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525b5ba5992db4a90800000000000000
+      internalID: -7328532412521663195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_23
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1092
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb85a019373d6de0800000000000000
+      internalID: -1338352796027221002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_24
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1098
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b39e9d195243ebe0800000000000000
+      internalID: -1449241704566713419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_25
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1074
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995666237a980ba10800000000000000
+      internalID: 1923188392085317017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_26
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1074
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627aed2f05be21020800000000000000
+      internalID: 2311168291699074854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_27
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 1078
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 067fe9fb6f75cd600800000000000000
+      internalID: 494366776392349536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_28
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1068
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fca36ea0eb70ca50800000000000000
+      internalID: 6539362863870618870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_29
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 923
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa109b0508d1bfa10800000000000000
+      internalID: 1944180101087822255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 714
+        width: 69
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99437bbb33fc965c0800000000000000
+      internalID: -4221615354583501671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 554
+        width: 65
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32aa2532774b0490800000000000000
+      internalID: -7779045375508569538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_32
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 529
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286a64ee10ddb46d0800000000000000
+      internalID: -3005065325977360766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_33
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 240
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59688c4c84a60f790800000000000000
+      internalID: -7498376518800210283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_34
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 208
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb635f1fa11df1650800000000000000
+      internalID: 6205908725198567100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_35
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 207
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59e7896bf63c4260800000000000000
+      internalID: 7083096767382153567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_36
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 15
+        width: 168
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c0976b81c63aea0800000000000000
+      internalID: -5862723436509852577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_37
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 117
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb9d5f4957940190800000000000000
+      internalID: -7997100628463739974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_38
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 63
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ac94d7526335bd0800000000000000
+      internalID: -2642709021692671332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_39
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 61
+        width: 49
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9027defd9a929500800000000000000
+      internalID: 401553320165449887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_40
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 31
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48f7a0eab3e902b0800000000000000
+      internalID: -5617708668395456433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_41
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 45
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87fbf920325cd8680800000000000000
+      internalID: -8751121746752454792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_42
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 55
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cafb14aae4a9de0a0800000000000000
+      internalID: -6850649795506094164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_43
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 63
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2b17e046d827ee0800000000000000
+      internalID: -1264793084459109637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_44
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 51
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a6307c740a50df0800000000000000
+      internalID: -214589177088218520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_45
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 13
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cdfd9a3bbc4af3a0800000000000000
+      internalID: -6630903134323606076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_46
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 9
+        width: 78
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0968db3098c4cece0800000000000000
+      internalID: -1374639634897860976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LowFixIcon_47
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd22ffbf0449580f0800000000000000
+      internalID: -1115322325877710117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LowFixIcon_0: -2841311001092960120
+      LowFixIcon_1: 1898226382049246642
+      LowFixIcon_10: 7549668656858795789
+      LowFixIcon_11: -3897252607356661317
+      LowFixIcon_12: 2868244217160217048
+      LowFixIcon_13: 7159405015691467664
+      LowFixIcon_14: -7043035176052736020
+      LowFixIcon_15: 6690525266565184142
+      LowFixIcon_16: -6293440985791105730
+      LowFixIcon_17: 3569834327794067162
+      LowFixIcon_18: 5717295105216102352
+      LowFixIcon_19: 8555463710038249003
+      LowFixIcon_2: 7873374973923102851
+      LowFixIcon_20: 4187263749983813547
+      LowFixIcon_21: 2414198407822014696
+      LowFixIcon_22: -7328532412521663195
+      LowFixIcon_23: -1338352796027221002
+      LowFixIcon_24: -1449241704566713419
+      LowFixIcon_25: 1923188392085317017
+      LowFixIcon_26: 2311168291699074854
+      LowFixIcon_27: 494366776392349536
+      LowFixIcon_28: 6539362863870618870
+      LowFixIcon_29: 1944180101087822255
+      LowFixIcon_3: 3261839399744194037
+      LowFixIcon_30: -4221615354583501671
+      LowFixIcon_31: -7779045375508569538
+      LowFixIcon_32: -3005065325977360766
+      LowFixIcon_33: -7498376518800210283
+      LowFixIcon_34: 6205908725198567100
+      LowFixIcon_35: 7083096767382153567
+      LowFixIcon_36: -5862723436509852577
+      LowFixIcon_37: -7997100628463739974
+      LowFixIcon_38: -2642709021692671332
+      LowFixIcon_39: 401553320165449887
+      LowFixIcon_4: -5928553294277551003
+      LowFixIcon_40: -5617708668395456433
+      LowFixIcon_41: -8751121746752454792
+      LowFixIcon_42: -6850649795506094164
+      LowFixIcon_43: -1264793084459109637
+      LowFixIcon_44: -214589177088218520
+      LowFixIcon_45: -6630903134323606076
+      LowFixIcon_46: -1374639634897860976
+      LowFixIcon_47: -1115322325877710117
+      LowFixIcon_5: -7447290098892612635
+      LowFixIcon_6: -2553710101244174480
+      LowFixIcon_7: 2979176664805412888
+      LowFixIcon_8: -4557678438591295013
+      LowFixIcon_9: 3938606080062259743
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

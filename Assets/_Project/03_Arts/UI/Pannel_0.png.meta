@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 4c485de9b86dbf94d9fbce55f8ac6685
+guid: 032e70aa5647d5c47b27467ef2f34dca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1307639436516702728
-    second: "\uD669\uD3D0\uD55C \uC138\uACC4\uC758 \uC774\uBCA4\uD2B8 \uC120\uD0DD
-      \uCC3D_0"
+      213: -6425684850086717212
+    second: Pannel_0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -47,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -140,24 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD669\uD3D0\uD55C \uC138\uACC4\uC758 \uC774\uBCA4\uD2B8 \uC120\uD0DD
-        \uCC3D_0"
+      name: Pannel_0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 42
-        width: 941
-        height: 1602
+        x: 30
+        y: 59
+        width: 1181
+        height: 1178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80abedba32ba52210800000000000000
-      internalID: 1307639436516702728
+      spriteID: 4e8d8ff6ca163d6a0800000000000000
+      internalID: -6425684850086717212
       vertices: []
       indices: 
       edges: []
@@ -166,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 4a67ea8d89900e44b978616946ac1da4
     internalID: 0
     vertices: []
     indices: 
@@ -174,9 +172,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      "\uD669\uD3D0\uD55C \uC138\uACC4\uC758 \uC774\uBCA4\uD2B8 \uC120\uD0DD \uCC3D_0": 1307639436516702728
+      Pannel_0_0: -6425684850086717212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

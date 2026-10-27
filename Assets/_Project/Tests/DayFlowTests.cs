@@ -73,7 +73,7 @@ namespace Roadnest.Tests
         static void PlayDay(DayFlow f, MoveMode mode)
         {
             ToMaintenance(f, mode);
-            Assert.IsTrue(f.Maintain(MaintenanceChoice.Repair));
+            Assert.IsTrue(f.Maintain(MaintenanceChoice.Pass));
         }
 
         static void ToMaintenance(DayFlow f, MoveMode mode)
@@ -115,12 +115,12 @@ namespace Roadnest.Tests
             f.Run.Apply(new Effect(StatType.Durability, -10));
             Assert.IsTrue(f.ChooseMode(MoveMode.Settle));
             Assert.AreEqual(5, f.Run.Resources.Get(ResourceType.Fuel));
-            Assert.AreEqual(93, f.Run.Durability);
+            Assert.AreEqual(95, f.Run.Durability);
             Assert.AreEqual(1, f.Run.ConsecutiveSettles);
         }
 
         [Test]
-        public void FullDay_Depart_ConsumesRationsRepairsAndAdvancesDay()
+        public void FullDay_Depart_ConsumesRationsAndAdvancesDay()
         {
             var f = NewFlow();
             f.Run.Apply(new Effect(StatType.Durability, -30));
@@ -129,17 +129,17 @@ namespace Roadnest.Tests
             Assert.AreEqual(DayPhase.ChooseMode, f.Phase);
             Assert.AreEqual(3, f.Run.Resources.Get(ResourceType.Food));
             Assert.AreEqual(3, f.Run.Resources.Get(ResourceType.Water));
-            Assert.AreEqual(75, f.Run.Durability); // 70 - 5 + 10
+            Assert.AreEqual(65, f.Run.Durability); // 70 - 5, 자동 수리 없음 / no auto repair
         }
 
         [Test]
-        public void FullDay_Settle_UsesBiggerRepair()
+        public void FullDay_Settle_GainsSettleDurability()
         {
             var f = NewFlow();
             f.Run.Apply(new Effect(StatType.Durability, -50));
             PlayDay(f, MoveMode.Settle);
             Assert.AreEqual(2, f.Run.Day);
-            Assert.AreEqual(68, f.Run.Durability); // 50 + 3 + 15
+            Assert.AreEqual(55, f.Run.Durability); // 50 + 5
             Assert.AreEqual(5, f.Run.Resources.Get(ResourceType.Fuel));
         }
 
@@ -276,18 +276,6 @@ namespace Roadnest.Tests
         }
 
         [Test]
-        public void Maintain_Repair_AddsRepairAndAdvancesDay()
-        {
-            var f = NewFlow();
-            f.Run.Apply(new Effect(StatType.Durability, -30));
-            ToMaintenance(f, MoveMode.Depart);
-            Assert.IsTrue(f.Maintain(MaintenanceChoice.Repair));
-            Assert.AreEqual(75, f.Run.Durability);
-            Assert.AreEqual(2, f.Run.Day);
-            Assert.AreEqual(DayPhase.ChooseMode, f.Phase);
-        }
-
-        [Test]
         public void Maintain_Pass_SkipsRepairButAdvancesDay()
         {
             var f = NewFlow();
@@ -313,18 +301,58 @@ namespace Roadnest.Tests
         public void Maintain_OutsideMaintenancePhase_IsRejected()
         {
             var f = NewFlow();
-            Assert.IsFalse(f.Maintain(MaintenanceChoice.Repair));
+            Assert.IsFalse(f.Maintain(MaintenanceChoice.Pass));
         }
 
         [Test]
-        public void Maintain_Repair_IsRejectedWhenRepairAmountIsZero()
+        public void Repair_UsesOneItem_RepairsAndAdvancesDay()
         {
-            var f = NewFlow(null, new RunRules { RepairAmount = 0 });
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
+            ToMaintenance(f, MoveMode.Depart);
+            f.Run.Items.Add(ItemType.RepairKitLow, 2);
+            Assert.IsTrue(f.CanRepair);
+            Assert.IsTrue(f.Repair(ItemType.RepairKitLow));
+            Assert.AreEqual(75, f.Run.Durability);  // 65 + 10
+            Assert.AreEqual(1, f.Run.Items.Get(ItemType.RepairKitLow));
+            Assert.AreEqual(2, f.Run.Day);
+            Assert.AreEqual(DayPhase.ChooseMode, f.Phase);
+        }
+
+        [Test]
+        public void Repair_WithoutItem_IsRejected()
+        {
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
             ToMaintenance(f, MoveMode.Depart);
             Assert.IsFalse(f.CanRepair);
+            Assert.IsFalse(f.CanUseRepair(ItemType.RepairTool));
+            Assert.IsFalse(f.Repair(ItemType.RepairTool));
             Assert.IsFalse(f.Maintain(MaintenanceChoice.Repair));
             Assert.AreEqual(DayPhase.Maintenance, f.Phase);
-            Assert.IsTrue(f.Maintain(MaintenanceChoice.Pass));
+        }
+
+        [Test]
+        public void Repair_WhenDurabilityFull_IsRejected_ItemKept()
+        {
+            var f = NewFlow();
+            ToMaintenance(f, MoveMode.Settle);      // 100 + 5 -> 100으로 잘림 / clamped to 100
+            f.Run.Items.Add(ItemType.RepairKitHigh, 1);
+            Assert.AreEqual(100, f.Run.Durability);
+            Assert.IsFalse(f.CanRepair);
+            Assert.IsFalse(f.Repair(ItemType.RepairKitHigh));
+            Assert.AreEqual(1, f.Run.Items.Get(ItemType.RepairKitHigh));
+        }
+
+        [Test]
+        public void CanUseRepair_FollowsOwnedItems()
+        {
+            var f = NewFlow();
+            f.Run.Apply(new Effect(StatType.Durability, -30));
+            ToMaintenance(f, MoveMode.Depart);
+            f.Run.Items.Add(ItemType.RepairTool, 1);
+            Assert.IsTrue(f.CanUseRepair(ItemType.RepairTool));
+            Assert.IsFalse(f.CanUseRepair(ItemType.RepairKitLow));
         }
     }
 }
