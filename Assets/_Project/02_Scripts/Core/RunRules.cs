@@ -7,7 +7,8 @@ namespace Roadnest.Core
     public sealed class RunRules
     {
         public int StartFuel = 5, StartFood = 5, StartWater = 5;
-        public int ResourceCap = 99;
+        public int InventorySlots = 10;     // 기본 칸 수 / base cell count
+        public int StackCap = 10;           // 한 칸 최대 개수 / max per cell
         public int DepartFuelCost = 1;
 
         public int MaxDurability = 100;         // 시작값 = 최대값 / start = max

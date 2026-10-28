@@ -60,8 +60,8 @@ public class RoadSceneController : MonoBehaviour
     void Awake()
     {
         RunRules rules = config.ToRules();
-        Store = new ResourceStore(rules.ResourceCap);
-        RunState run = RunState.CreateDefault(rules, Store);
+        RunState run = RunState.CreateDefault(rules);
+        Store = run.Resources;
 
         var errors = new List<string>();
         EventTable table = EventTable.FromJson(eventsJson.text, errors);
@@ -78,7 +78,7 @@ public class RoadSceneController : MonoBehaviour
         Debug.Log("[Roadnest] seed = " + seed);
 #endif
 
-        resourceHud.Bind(Store);
+        resourceHud.Bind(run.Inventory);
         durabilityHud.Bind(run.Durability, rules.MaxDurability);
         charactorHud.Bind(run.Characters);
 
@@ -313,6 +313,7 @@ public class RoadSceneController : MonoBehaviour
     [ContextMenu("Test/Water +1")] void TestWaterUp() => Store.Add(ResourceType.Water, 1);
     [ContextMenu("Test/Water -1")] void TestWaterDown() => Store.Add(ResourceType.Water, -1);
     [ContextMenu("Test/Items +1 (all)")]
+    [ContextMenu("Test/StackCap +5")] void TestStackCapUp() => _flow.Run.Inventory.SetStackCap(_flow.Run.Inventory.StackCap + 5);
     void TestItemsUp()
     {
         ItemStore it = _flow.Run.Items;

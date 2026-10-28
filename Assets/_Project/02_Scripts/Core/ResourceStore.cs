@@ -1,57 +1,33 @@
-using System;
-
 namespace Roadnest.Core
 {
     public enum ResourceType : byte { Fuel, Food, Water }
 
     /// <summary>
-    /// 자원 값 보관. 화면과 무관한 순수 C#.
-    /// Holds resource values. Pure C#, no view dependency.
+    /// 자원 3종을 Inventory 위에서 읽고 쓰는 창구. 값은 Inventory가 갖는다.
+    /// Front for the three resources on top of Inventory. The values live in Inventory.
     /// </summary>
     public sealed class ResourceStore
     {
         public const int Count = 3;
 
-        readonly int[] _value = new int[Count];
-        readonly int _cap;
+        readonly Inventory _inv;
 
-        // (종류, 이전 값, 새 값) / (type, old value, new value)
-        public event Action<ResourceType, int, int> Changed;
+        public ResourceStore(Inventory inv) { _inv = inv; }
 
-        public ResourceStore(int cap) { _cap = cap; }
+        static ItemKind Kind(ResourceType t) => (ItemKind)(int)t;
 
-        public int Get(ResourceType t) => _value[(int)t];
-        public bool Has(ResourceType t, int amount) => _value[(int)t] >= amount;
+        public int Get(ResourceType t) => _inv.Get(Kind(t));
+        public bool Has(ResourceType t, int amount) => _inv.Get(Kind(t)) >= amount;
 
-        public void Reset(int fuel, int food, int water)
-        {
-            Set(ResourceType.Fuel, fuel);
-            Set(ResourceType.Food, food);
-            Set(ResourceType.Water, water);
-        }
-
-        // 실제로 적용된 변화량 반환 (상한/0 클램프). / Returns the applied delta (clamped).
+        // 실제로 적용된 변화량 반환. 공간이 부족하면 덜 들어간다 / returns the applied delta; less if space runs out
         public int Add(ResourceType t, int delta)
-        {
-            int i = (int)t, old = _value[i];
-            Set(t, (int)Math.Clamp((long)old + delta, 0, _cap));
-            return _value[i] - old;
-        }
+            => delta >= 0 ? _inv.Add(Kind(t), delta) : -_inv.Remove(Kind(t), -delta);
 
         public bool TryConsume(ResourceType t, int amount)
         {
-            if (amount < 0 || _value[(int)t] < amount) return false;
-            Set(t, _value[(int)t] - amount);
+            if (amount < 0 || _inv.Get(Kind(t)) < amount) return false;
+            _inv.Remove(Kind(t), amount);
             return true;
-        }
-
-        void Set(ResourceType t, int v)
-        {
-            int i = (int)t, old = _value[i];
-            v = Math.Clamp(v, 0, _cap);
-            if (v == old) return;
-            _value[i] = v;
-            Changed?.Invoke(t, old, v);
         }
     }
 }

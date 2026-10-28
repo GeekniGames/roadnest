@@ -7,6 +7,7 @@ namespace Roadnest.Core
     public sealed class RunState
     {
         public readonly RunRules Rules;
+        public readonly Inventory Inventory;
         public readonly ResourceStore Resources;
         public readonly ItemStore Items;
         public readonly CharacterState[] Characters;
@@ -18,22 +19,26 @@ namespace Roadnest.Core
         public EndReason EndReason { get; private set; }
         public bool IsOver => EndReason != EndReason.None;
 
-        public RunState(RunRules rules, ResourceStore resources, CharacterState[] characters)
+
+        public RunState(RunRules rules, CharacterState[] characters)
         {
             Rules = rules;
-            Resources = resources;
-            Items = new ItemStore(rules.ResourceCap);
+            Inventory = new Inventory(rules.InventorySlots, rules.StackCap);
+            Resources = new ResourceStore(Inventory);
+            Items = new ItemStore(Inventory);
             Characters = characters;
-            Resources.Reset(rules.StartFuel, rules.StartFood, rules.StartWater);
+            Resources.Add(ResourceType.Fuel, rules.StartFuel);
+            Resources.Add(ResourceType.Food, rules.StartFood);
+            Resources.Add(ResourceType.Water, rules.StartWater);
             Durability = rules.MaxDurability;
             RecountAlive();
         }
 
         // 임시 시작 캐릭터 1명. 나중에 데이터로 교체 / temporary single starting character, to be data-driven later
-        public static RunState CreateDefault(RunRules rules, ResourceStore resources)
+        public static RunState CreateDefault(RunRules rules)
         {
             var chars = new[] { new CharacterState("char_mechanic", "mechanic", rules.MaxCharacterHp) };
-            return new RunState(rules, resources, chars);
+            return new RunState(rules, chars);
         }
 
         public void AdvanceDay() => Day++;
@@ -51,12 +56,13 @@ namespace Roadnest.Core
             if (AliveCount == 0) End(EndReason.AllDead);
         }
 
-        // 효과는 전부 적용하고, 종료 사유는 가장 먼저 발생한 것만 기록 / all effects apply; first end reason wins
-        public void Apply(Effect e)
+        // 반환: 자원은 실제 적용량, 내구도/HP는 계획값 / returns applied amount for resources, planned amount otherwise
+        public int Apply(Effect e)
         {
-            if (e.Stat <= StatType.Water) ApplyResource((ResourceType)(int)e.Stat, e.Amount);
-            else if (e.Stat == StatType.Durability) ApplyDurability(e.Amount);
+            if (e.Stat <= StatType.Water) return Resources.Add((ResourceType)(int)e.Stat, e.Amount);
+            if (e.Stat == StatType.Durability) ApplyDurability(e.Amount);
             else ApplyHpAll(e.Amount);
+            return e.Amount;
         }
 
         public void Apply(Effect[] effects)
@@ -90,13 +96,6 @@ namespace Roadnest.Core
         {
             if (stat <= StatType.Water) return Resources.Get((ResourceType)(int)stat);
             return stat == StatType.Durability ? Durability : 0;
-        }
-
-        void ApplyResource(ResourceType type, int amount)
-        {
-            int cur = Resources.Get(type);
-            int delta = Clamp(cur + amount, 0, Rules.ResourceCap) - cur;
-            if (delta != 0) Resources.Add(type, delta);
         }
 
         void ApplyDurability(int amount)

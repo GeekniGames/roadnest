@@ -81,13 +81,14 @@ public class ResultView
         {
             bool on = i < fx.Length;
             rows[i].root.SetActive(on);
-            if (on) Fill(rows[i], fx[i]);
+            if (on) Fill(rows[i], fx[i], r.GetApplied(i));
         }
     }
 
     public void Hide() => root.SetActive(false);
 
-    void Fill(RewardRow row, Effect e)
+    // 획득은 실제 들어간 양(0이면 빨간 +0), 손실은 계획값 / gains show the amount that fit (red +0 if none), losses show the planned value
+    void Fill(RewardRow row, Effect e, int amount)
     {
         int s = (int)e.Stat;
         Sprite ic = _display.Icon(s);
@@ -97,7 +98,8 @@ public class ResultView
             row.icon.gameObject.SetActive(ic != null);
         }
         row.label.SetText(_display.statNames[s]);
-        row.value.SetText(e.Amount > 0 ? "+{0}" : "{0}", e.Amount);
-        row.value.color = e.Amount > 0 ? gainColor : lossColor;
+        bool gain = e.Amount > 0;
+        row.value.SetText(gain ? "+{0}" : "{0}", amount);
+        row.value.color = gain && amount > 0 ? gainColor : lossColor;
     }
 }

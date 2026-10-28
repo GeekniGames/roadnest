@@ -50,7 +50,7 @@ namespace Roadnest.Tests
             Assert.IsNotNull(table, string.Join("\n", errors));
             var chars = new CharacterState[characters];
             for (int i = 0; i < characters; i++) chars[i] = new CharacterState("c" + i, null, rules.MaxCharacterHp);
-            var run = new RunState(rules, new ResourceStore(rules.ResourceCap), chars);
+            var run = new RunState(rules, chars);
             return new DayFlow(run, table, 1);
         }
 

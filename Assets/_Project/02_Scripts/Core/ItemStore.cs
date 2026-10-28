@@ -1,42 +1,35 @@
 namespace Roadnest.Core
 {
-    // 수리 아이템 3종. 종류를 늘릴 땐 값을 뒤에 추가하고 TypeCount를 맞춘다
-    // Three repair items. To add a type, append a value and update TypeCount
+    // 수리 아이템 3종. 종류를 늘릴 땐 ItemKind와 TypeCount를 같이 맞춘다
+    // Three repair items. When adding a type, update ItemKind and TypeCount together
     public enum ItemType : byte { RepairTool, RepairKitLow, RepairKitHigh }
 
     /// <summary>
-    /// 아이템 종류별 보유 개수. Unity 의존 없음.
-    /// Item counts per type. No Unity dependency.
+    /// 아이템을 Inventory 위에서 읽고 쓰는 창구. Unity 의존 없음.
+    /// Front for items on top of Inventory. No Unity dependency.
     /// </summary>
     public sealed class ItemStore
     {
-        public const int TypeCount = 3;     // ItemType 값의 개수 / number of ItemType values
+        public const int TypeCount = 3;
 
-        readonly int[] _counts = new int[TypeCount];
-        readonly int _cap;
+        readonly Inventory _inv;
 
-        public ItemStore(int cap) { _cap = cap; }
+        public ItemStore(Inventory inv) { _inv = inv; }
 
-        public int Get(ItemType type) => _counts[(int)type];
+        static ItemKind Kind(ItemType t) => (ItemKind)((int)t + Inventory.ItemKindOffset);
 
-        // 0~cap 범위로 자른다 / clamped to 0..cap
-        public void Add(ItemType type, int amount)
-        {
-            int v = _counts[(int)type] + amount;
-            _counts[(int)type] = v < 0 ? 0 : (v > _cap ? _cap : v);
-        }
+        public int Get(ItemType type) => _inv.Get(Kind(type));
 
-        public bool TryUse(ItemType type)
-        {
-            if (_counts[(int)type] <= 0) return false;
-            _counts[(int)type]--;
-            return true;
-        }
+        // 실제로 적용된 변화량 반환 / returns the applied delta
+        public int Add(ItemType type, int amount)
+            => amount >= 0 ? _inv.Add(Kind(type), amount) : -_inv.Remove(Kind(type), -amount);
+
+        public bool TryUse(ItemType type) => _inv.Remove(Kind(type), 1) == 1;
 
         public bool HasAny()
         {
-            for (int i = 0; i < _counts.Length; i++)
-                if (_counts[i] > 0) return true;
+            for (int i = 0; i < TypeCount; i++)
+                if (_inv.Get((ItemKind)(i + Inventory.ItemKindOffset)) > 0) return true;
             return false;
         }
     }

@@ -35,6 +35,10 @@ public class GameConfig : ScriptableObject
     [Header("하루 / Day")]
     [Min(1)] public int eventsPerDay = 5;
 
+    [Header("인벤토리 / Inventory")]
+    [Range(1, Inventory.MaxSlots)] public int inventorySlots = 10;
+    [Min(1)] public int stackCap = 10;
+
     // 코어는 Unity 타입을 모르므로 순수 C# 규칙 객체로 변환해 넘긴다
     // Core knows no Unity types, so hand it a plain rules object
     public RunRules ToRules()
@@ -44,7 +48,8 @@ public class GameConfig : ScriptableObject
             StartFuel = startFuel,
             StartFood = startFood,
             StartWater = startWater,
-            ResourceCap = resourceCap,
+            InventorySlots = inventorySlots,
+            StackCap = stackCap,
             DepartFuelCost = departFuelCost,
             MaxDurability = maxDurability,
             DepartDurabilityLoss = departDurabilityLoss,

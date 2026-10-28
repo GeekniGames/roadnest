@@ -1,18 +1,27 @@
 using DG.Tweening;
 using Roadnest.Core;
-using System.Runtime.Versioning;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
-/// 카라반 위 자원 아이콘/숫자 표시. 값이 바뀔 때만 갱신한다.
-/// Shows resource icons and counts above the caravan. Updates only on change.
+/// 카라반 위 인벤토리 칸 표시. 화면용 사본(_view)을 그리고, 바뀐 칸만 갱신한다.
+/// Inventory cells above the caravan. Draws a display copy (_view) and updates only changed cells.
 /// </summary>
 public class ResourceHud : MonoBehaviour
 {
-    // 순서: 연료, 식량, 물 (ResourceType 순서와 동일) / order matches ResourceType
-    [SerializeField] Transform[] icons = new Transform[ResourceStore.Count];
-    [SerializeField] TMP_Text[] labels = new TMP_Text[ResourceStore.Count];
+    [System.Serializable]
+    public class Cell
+    {
+        public Image icon;
+        public TMP_Text count;
+    }
+
+    [Header("칸 / Cells (Item_0 ~)")]
+    [SerializeField] Cell[] cells;
+
+    // ItemKind 순서: 연료, 식량, 물, 공구, 하급 키트, 상급 키트 / ItemKind order
+    [SerializeField] Sprite[] kindIcons = new Sprite[Inventory.KindCount];
 
     [Header("연출 / Feedback")]
     [SerializeField] float punchScale = 0.25f;
@@ -20,14 +29,17 @@ public class ResourceHud : MonoBehaviour
     [SerializeField] float flashTime = 0.35f;
     [SerializeField] Color gainColor = new Color(0.6f, 1f, 0.6f);
     [SerializeField] Color lossColor = new Color(1f, 0.55f, 0.55f);
+    [SerializeField] Color fullColor = new Color(1f, 0.3f, 0.25f);     // 한 칸이 가득 찼을 때 / cell at its stack cap
 
-    ResourceStore _store;
+    Inventory _inv;
+    Inventory _view;
     Color[] _baseColor;
     Vector3[] _punch;
+    int[] _shownKind;       // -1 = 빈 칸 / empty
+    int[] _shownCount;
+    bool[] _shownFull;
     bool _ready;
-    int[] _shown;       // 화면에 보이는 값 / values currently displayed
     bool _held;
-
 
     void Awake() => Init();
 
@@ -36,34 +48,48 @@ public class ResourceHud : MonoBehaviour
     {
         if (_ready) return;
         _ready = true;
-        _baseColor = new Color[ResourceStore.Count];
-        _punch = new Vector3[ResourceStore.Count];
-        _shown = new int[ResourceStore.Count];
-        for (int i = 0; i < ResourceStore.Count; i++)
+        int n = cells.Length;
+        _baseColor = new Color[n];
+        _punch = new Vector3[n];
+        _shownKind = new int[n];
+        _shownCount = new int[n];
+        _shownFull = new bool[n];
+        for (int i = 0; i < n; i++)
         {
-            _baseColor[i] = labels[i].color;
-            _punch[i] = icons[i].localScale * punchScale;
+            _baseColor[i] = cells[i].count.color;
+            _punch[i] = cells[i].icon.transform.localScale * punchScale;
         }
+#if UNITY_EDITOR
+        if (kindIcons.Length < Inventory.KindCount)
+            Debug.LogError("kindIcons가 종류 수보다 적음 / kindIcons fewer than kinds: " + Inventory.KindCount, this);
+#endif
     }
 
-    public void Bind(ResourceStore store)
+    public void Bind(Inventory inv)
     {
         Init();
         Unbind();
-        _store = store;
+        _inv = inv;
+        _view = new Inventory(inv.SlotCount, inv.StackCap);
+        _view.CopyFrom(inv);
         _held = false;
-        for (int i = 0; i < ResourceStore.Count; i++)
+
+        for (int i = 0; i < cells.Length; i++)
         {
-            _shown[i] = store.Get((ResourceType)i);
-            labels[i].SetText("{0}", _shown[i]);
+            _shownKind[i] = -1;
+            _shownCount[i] = 0;
+            _shownFull[i] = false;
+            cells[i].icon.gameObject.SetActive(false);
+            cells[i].count.gameObject.SetActive(false);
         }
-        store.Changed += OnChanged;
+        Render(false);
+        inv.Changed += OnChanged;
     }
 
     void Unbind()
     {
-        if (_store != null) _store.Changed -= OnChanged;
-        _store = null;
+        if (_inv != null) _inv.Changed -= OnChanged;
+        _inv = null;
     }
 
     void OnDestroy() => Unbind();
@@ -75,42 +101,89 @@ public class ResourceHud : MonoBehaviour
     // 선택 즉시 비용만 먼저 반영 / apply only the cost right away on pick
     public void ShowCost(Effect[] cost)
     {
+        if (_view == null) return;
         for (int i = 0; i < cost.Length; i++)
         {
             int s = (int)cost[i].Stat;
-            if (s >= ResourceStore.Count) continue;   // 자원이 아닌 비용은 HUD에 칸이 없음 / non-resource costs have no HUD slot
-            int v = _shown[s] + cost[i].Amount;
-            Show(s, v < 0 ? 0 : v);
+            if (s >= ResourceStore.Count || cost[i].Amount >= 0) continue;   // 자원이 아닌 비용은 칸이 없음 / non-resource costs have no cell
+            _view.Remove((ItemKind)s, -cost[i].Amount);
         }
+        Render(true);
     }
 
     public void Release()
     {
         _held = false;
-        if (_store == null) return;
-        for (int i = 0; i < ResourceStore.Count; i++)
+        if (_inv == null) return;
+        _view.CopyFrom(_inv);
+        Render(true);
+    }
+
+    void OnChanged()
+    {
+        if (_held) return;
+        _view.CopyFrom(_inv);
+        Render(true);
+    }
+
+    // 표시 중인 값과 비교해 바뀐 칸만 갱신 / update only cells that differ from what is shown
+    void Render(bool animate)
+    {
+        int used = _view.UsedSlots, cap = _view.StackCap;
+        for (int i = 0; i < cells.Length; i++)
         {
-            int v = _store.Get((ResourceType)i);
-            if (v != _shown[i]) Show(i, v);
+            int kind = -1, cnt = 0;
+            if (i < used) { kind = (int)_view.KindAt(i); cnt = _view.CountAt(i); }
+            bool full = kind >= 0 && cnt >= cap;
+
+            int oldKind = _shownKind[i], oldCnt = _shownCount[i];
+            if (kind == oldKind && cnt == oldCnt && full == _shownFull[i]) continue;
+            _shownKind[i] = kind;
+            _shownCount[i] = cnt;
+            _shownFull[i] = full;
+
+            Cell c = cells[i];
+            c.count.DOKill();
+            c.icon.transform.DOKill(true);
+
+            if (kind < 0)
+            {
+                c.icon.gameObject.SetActive(false);
+                c.count.gameObject.SetActive(false);
+                continue;
+            }
+
+            if (oldKind < 0)
+            {
+                c.icon.gameObject.SetActive(true);
+                c.count.gameObject.SetActive(true);
+            }
+            if (kind != oldKind)
+            {
+                Sprite sp = kindIcons[kind];
+                c.icon.sprite = sp;
+                c.icon.enabled = sp != null;
+            }
+            c.count.SetText("{0}", cnt);
+
+            Color target = full ? fullColor : _baseColor[i];
+            if (animate && kind == oldKind && cnt != oldCnt)
+            {
+                c.count.color = cnt > oldCnt ? gainColor : lossColor;
+                c.count.DOColor(target, flashTime).SetLink(c.count.gameObject);
+                Punch(i);
+            }
+            else
+            {
+                c.count.color = target;
+                if (animate && oldKind < 0) Punch(i);       // 새로 채워진 칸 / newly filled cell
+            }
         }
     }
 
-    void OnChanged(ResourceType t, int oldValue, int newValue)
+    void Punch(int i)
     {
-        if (_held) return;
-        Show((int)t, newValue);
-    }
-
-    void Show(int i, int newValue)
-    {
-        int old = _shown[i];
-        _shown[i] = newValue;
-        labels[i].SetText("{0}", newValue);
-
-        icons[i].DOKill(true);
-        labels[i].DOKill();
-        labels[i].color = newValue > old ? gainColor : lossColor;
-        labels[i].DOColor(_baseColor[i], flashTime).SetLink(labels[i].gameObject);
-        icons[i].DOPunchScale(_punch[i], punchTime, 1, 0f).SetLink(icons[i].gameObject);
+        Image icon = cells[i].icon;
+        icon.transform.DOPunchScale(_punch[i], punchTime, 1, 0f).SetLink(icon.gameObject);
     }
 }

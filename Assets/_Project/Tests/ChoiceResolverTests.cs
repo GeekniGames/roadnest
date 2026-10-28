@@ -6,11 +6,7 @@ namespace Roadnest.Tests
 {
     public class ChoiceResolverTests
     {
-        static RunState NewRun()
-        {
-            var rules = new RunRules();
-            return RunState.CreateDefault(rules, new ResourceStore(rules.ResourceCap));
-        }
+        static RunState NewRun() => RunState.CreateDefault(new RunRules());
 
         static ChoiceDto Dummy(string id) => new ChoiceDto
         {
@@ -164,6 +160,33 @@ namespace Roadnest.Tests
             var r = ChoiceResolver.Resolve(run, next, 1, 1, 1);
             Assert.IsFalse(r.Success);
             Assert.AreEqual(5, run.Resources.Get(ResourceType.Fuel));
+        }
+
+        [Test]
+        public void Resolve_Gain_ReportsAmountThatFit()
+        {
+            var c = Build(Choice(new[] { Rest(Fx("fuel", 5)) }));
+            var run = NewRun();
+            run.Resources.Add(ResourceType.Fuel, 73);   // 78 / 80
+            var r = ChoiceResolver.Resolve(run, c, 1, 1, 0);
+            Assert.AreEqual(2, r.GetApplied(0));
+            Assert.AreEqual(80, run.Resources.Get(ResourceType.Fuel));
+            r = ChoiceResolver.Resolve(run, c, 1, 1, 1);
+            Assert.AreEqual(0, r.GetApplied(0));
+        }
+
+        [Test]
+        public void Resolve_Loss_ReportsPlannedAmount()
+        {
+            var c = Build(Choice(new[] { Rest(Fx("food", -50)) }));
+            var r = ChoiceResolver.Resolve(NewRun(), c, 1, 1, 0);
+            Assert.AreEqual(-50, r.GetApplied(0));
+        }
+
+        [Test]
+        public void AppliedSlots_CoverOutcomeEffectLimit()
+        {
+            Assert.LessOrEqual(EventLimits.MaxOutcomeEffects, ChoiceResult.AppliedSlots);
         }
     }
 }

@@ -5,22 +5,18 @@ namespace Roadnest.Tests
 {
     public class RunStateTests
     {
-        static RunState Make()
-        {
-            var rules = new RunRules();
-            return RunState.CreateDefault(rules, new ResourceStore(rules.ResourceCap));
-        }
+        static RunState Make() => RunState.CreateDefault(new RunRules());
 
         static Effect Fx(StatType stat, int amount) => new Effect(stat, amount);
 
         [Test]
-        public void Resource_AddsAndClamps()
+        public void Resource_AddsAndFillsUpToInventoryLimit()
         {
             var s = Make();
             s.Apply(Fx(StatType.Fuel, 2));
             Assert.AreEqual(7, s.Resources.Get(ResourceType.Fuel));
             s.Apply(Fx(StatType.Fuel, 500));
-            Assert.AreEqual(99, s.Resources.Get(ResourceType.Fuel));
+            Assert.AreEqual(80, s.Resources.Get(ResourceType.Fuel));   // 10칸 - 식량/물 2칸 = 8칸 x 10
             s.Apply(Fx(StatType.Fuel, -500));
             Assert.AreEqual(0, s.Resources.Get(ResourceType.Fuel));
         }
@@ -53,7 +49,7 @@ namespace Roadnest.Tests
         {
             var rules = new RunRules();
             var chars = new[] { new CharacterState("a", null, 100, 5), new CharacterState("b", null, 100) };
-            var s = new RunState(rules, new ResourceStore(rules.ResourceCap), chars);
+            var s = new RunState(rules, chars);
 
             s.Apply(Fx(StatType.HpAll, -10));
             Assert.AreEqual(0, chars[0].Hp);
@@ -97,7 +93,7 @@ namespace Roadnest.Tests
         {
             var rules = new RunRules();
             var chars = new[] { new CharacterState("a", null, 50), new CharacterState("b", null, 150) };
-            var s = new RunState(rules, new ResourceStore(rules.ResourceCap), chars);
+            var s = new RunState(rules, chars);
 
             s.Apply(Fx(StatType.HpAll, -10));
             Assert.AreEqual(40, chars[0].Hp);

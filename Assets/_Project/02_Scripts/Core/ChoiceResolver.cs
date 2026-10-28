@@ -6,14 +6,23 @@ namespace Roadnest.Core
     /// <summary>Result of a pick. Success false means nothing happened.</summary>
     public readonly struct ChoiceResult
     {
+        // 결과 효과 한도(EventLimits.MaxOutcomeEffects)와 맞춰야 한다 / must cover EventLimits.MaxOutcomeEffects
+        public const int AppliedSlots = 3;
+
         public readonly bool Success;
         public readonly int OutcomeIndex;
         public readonly OutcomeDef Outcome;
+        readonly int _a0, _a1, _a2;
 
-        public ChoiceResult(int outcomeIndex, OutcomeDef outcome)
+        public ChoiceResult(int outcomeIndex, OutcomeDef outcome, int a0, int a1, int a2)
         {
-            Success = true; OutcomeIndex = outcomeIndex; Outcome = outcome;
+            Success = true; OutcomeIndex = outcome == null ? outcomeIndex : outcomeIndex; Outcome = outcome;
+            _a0 = a0; _a1 = a1; _a2 = a2;
         }
+
+        // i번째 효과로 화면에 보여줄 수치. 자원 획득은 실제 들어간 양, 나머지는 계획값
+        // Amount to display for effect i: actual amount for resource gains, planned otherwise
+        public int GetApplied(int i) => i == 0 ? _a0 : (i == 1 ? _a1 : _a2);
     }
 
     /// <summary>
@@ -47,8 +56,17 @@ namespace Roadnest.Core
             while (idx < outcomes.Length - 1 && roll >= outcomes[idx].CumulativeEnd) idx++;
 
             OutcomeDef outcome = outcomes[idx];
-            run.Apply(outcome.Effects);
-            return new ChoiceResult(idx, outcome);
+            Effect[] fx = outcome.Effects;
+            int a0 = 0, a1 = 0, a2 = 0;
+            for (int i = 0; i < fx.Length; i++)
+            {
+                int got = run.Apply(fx[i]);
+                int shown = fx[i].Amount > 0 ? got : fx[i].Amount;
+                if (i == 0) a0 = shown;
+                else if (i == 1) a1 = shown;
+                else a2 = shown;
+            }
+            return new ChoiceResult(idx, outcome, a0, a1, a2);
         }
     }
 }

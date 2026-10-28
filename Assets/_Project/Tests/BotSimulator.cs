@@ -70,7 +70,7 @@ namespace Roadnest.Tests
 
         public static BotRunResult PlayRun(EventTable table, RunRules rules, BotStrategy strategy, ulong seed)
         {
-            var run = RunState.CreateDefault(rules, new ResourceStore(rules.ResourceCap));
+            var run = RunState.CreateDefault(rules);
             var flow = new DayFlow(run, table, seed);
 
             while (flow.Phase != DayPhase.Over)
