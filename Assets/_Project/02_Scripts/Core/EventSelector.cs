@@ -5,8 +5,8 @@ namespace Roadnest.Core
     /// <summary>
     /// 슬롯에 맞는 이벤트를 가중치로 뽑는다. 호출 시 할당 없음.
     /// Picks an event for a slot by weight. No allocation per call.
-    /// 같은 날 나온 이벤트는 제외하고, 후보가 없으면 제외 없이 다시 뽑고, 그래도 없으면 폴백.
-    /// Excludes events already seen today; if none remain, retries without exclusion; then falls back.
+    /// 연계(같은날 → 다른날) 먼저, 없으면 일반 후보. 같은 날 나온 이벤트는 제외하고, 없으면 제외 없이, 그래도 없으면 폴백.
+    /// Chains first (same-day, then next-day), else normal candidates. Excludes events seen today, then retries, then falls back.
     /// </summary>
     public sealed class EventSelector
     {
@@ -44,26 +44,83 @@ namespace Roadnest.Core
             return (long)baseWeight * streakPct * dayPct;
         }
 
-        // slotOrder는 하루 안에서의 순서(0부터) / position within the day, 0-based
         public EventDef Pick(ulong runSeed, int day, int slotOrder, MoveMode mode, SlotType slot, int settleStreak)
+            => Pick(runSeed, day, slotOrder, mode, slot, settleStreak, null);
+
+        // slotOrder는 하루 안에서의 순서(0부터) / position within the day, 0-based
+        public EventDef Pick(ulong runSeed, int day, int slotOrder, MoveMode mode, SlotType slot,
+                             int settleStreak, ChainState chains)
         {
+            if (chains != null)
+            {
+                EventDef chained = PickChained(runSeed, day, slotOrder, mode, chains);
+                if (chained != null)
+                {
+                    _usedToday[chained.Index] = true;
+                    return chained;
+                }
+            }
+
             SlotCandidate[] list = _table.GetCandidates(mode, slot);
             SeededRandom rng = SeededRandom.Derive(runSeed, day, slotOrder, RngPurpose.EventPick);
 
-            EventDef picked = Roll(list, day, settleStreak, true, ref rng);
-            if (picked == null) picked = Roll(list, day, settleStreak, false, ref rng);
+            EventDef picked = Roll(list, day, slotOrder, settleStreak, true, ref rng);
+            if (picked == null) picked = Roll(list, day, slotOrder, settleStreak, false, ref rng);
             if (picked == null) return _table.Fallback;
 
             _usedToday[picked.Index] = true;
             return picked;
         }
 
-        EventDef Roll(SlotCandidate[] list, int day, int streak, bool excludeUsed, ref SeededRandom rng)
+        EventDef PickChained(ulong runSeed, int day, int slotOrder, MoveMode mode, ChainState chains)
+        {
+            // 같은날 연계: 이 슬롯에서 한 번만 굴리고 끝 / same-day: one roll at this slot, then gone
+            int sameIdx = chains.TakeSameDay(out int percent);
+            if (sameIdx >= 0)
+            {
+                SeededRandom sr = SeededRandom.Derive(runSeed, day, slotOrder, RngPurpose.ChainSameDay);
+                if (sr.Range(0, 100) < percent) return _table.Events[sameIdx];
+            }
+
+            if (chains.PendingCount == 0 || chains.NextDayPermille <= 0) return null;
+
+            long total = 0;
+            for (int i = 0; i < chains.PendingCount; i++)
+                if (PendingEligible(chains, i, day, slotOrder, mode)) total += chains.WeightAt(i);
+            if (total <= 0) return null;
+
+            SeededRandom rng = SeededRandom.Derive(runSeed, day, slotOrder, RngPurpose.ChainNextDay);
+            if (rng.Range(0, 1000) >= chains.NextDayPermille) return null;
+
+            long r = rng.RangeLong(0, total);
+            for (int i = 0; i < chains.PendingCount; i++)
+            {
+                if (!PendingEligible(chains, i, day, slotOrder, mode)) continue;
+                r -= chains.WeightAt(i);
+                if (r < 0)
+                {
+                    EventDef def = _table.Events[chains.EventAt(i)];
+                    chains.RemoveAt(i);
+                    return def;
+                }
+            }
+            return null;
+        }
+
+        // 만들어진 날에는 나오지 않는다(다음 날부터) / not eligible on the day it was created
+        bool PendingEligible(ChainState chains, int i, int day, int slotOrder, MoveMode mode)
+        {
+            if (chains.DayAt(i) >= day) return false;
+            EventDef d = _table.Events[chains.EventAt(i)];
+            return d.HasMode(mode) && d.IsInDayRange(day) && d.IsInSlotRange(slotOrder);
+        }
+
+        EventDef Roll(SlotCandidate[] list, int day, int slotOrder, int streak, bool excludeUsed, ref SeededRandom rng)
         {
             long total = 0;
             for (int i = 0; i < list.Length; i++)
             {
-                if (!Eligible(list[i].Def, day, excludeUsed)) continue;
+                if (!Eligible(list[i].Def, day, slotOrder, excludeUsed)) continue;
                 total += EffectiveWeight(list[i].Weight, list[i].Def.Mods, day, streak);
             }
             if (total <= 0) return null;
@@ -71,14 +128,14 @@ namespace Roadnest.Core
             long r = rng.RangeLong(0, total);
             for (int i = 0; i < list.Length; i++)
             {
-                if (!Eligible(list[i].Def, day, excludeUsed)) continue;
+                if (!Eligible(list[i].Def, day, slotOrder, excludeUsed)) continue;
                 r -= EffectiveWeight(list[i].Weight, list[i].Def.Mods, day, streak);
                 if (r < 0) return list[i].Def;
             }
             return null;
         }
 
-        bool Eligible(EventDef def, int day, bool excludeUsed)
-            => def.IsInDayRange(day) && !(excludeUsed && _usedToday[def.Index]);
+        bool Eligible(EventDef def, int day, int slotOrder, bool excludeUsed)
+            => def.IsInDayRange(day) && def.IsInSlotRange(slotOrder) && !(excludeUsed && _usedToday[def.Index]);
     }
 }

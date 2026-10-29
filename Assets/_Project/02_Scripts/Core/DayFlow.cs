@@ -79,6 +79,7 @@ namespace Roadnest.Core
             if (Run.IsOver) { Phase = DayPhase.Over; return true; }
 
             _selector.BeginDay();
+            Run.Chains.ClearSameDay();
             SlotIndex = 0;
             Phase = DayPhase.Event;
             CurrentEvent = PickCurrent();
@@ -115,6 +116,8 @@ namespace Roadnest.Core
                 CurrentEvent = null;
                 return r;
             }
+
+            ApplyLink(r.Outcome);
 
             SlotIndex++;
             if (SlotIndex >= _slots.Length)
@@ -218,7 +221,20 @@ namespace Roadnest.Core
             Phase = DayPhase.ChooseMode;
         }
 
+        // 결과에 연계가 걸려 있으면 기록. 같은날 연계는 다음 슬롯이 있을 때만
+        // Record the outcome's chain link; same-day only when a next slot exists
+        void ApplyLink(OutcomeDef o)
+        {
+            if (o == null || o.LinkType == ChainLinkType.None) return;
+
+            if (o.LinkType == ChainLinkType.SameDay)
+            {
+                if (SlotIndex + 1 < _slots.Length) Run.Chains.SetSameDay(o.LinkIndex, o.LinkPercent);
+            }
+            else Run.Chains.AddPending(o.LinkIndex, o.LinkWeight, Run.Day);
+        }
+
         EventDef PickCurrent()
-            => _selector.Pick(_seed, Run.Day, SlotIndex, Mode, _slots[SlotIndex], Run.ConsecutiveSettles);
+            => _selector.Pick(_seed, Run.Day, SlotIndex, Mode, _slots[SlotIndex], Run.ConsecutiveSettles, Run.Chains);
     }
 }

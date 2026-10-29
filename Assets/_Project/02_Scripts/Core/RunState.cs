@@ -11,6 +11,7 @@ namespace Roadnest.Core
         public readonly ResourceStore Resources;
         public readonly ItemStore Items;
         public readonly CharacterState[] Characters;
+        public readonly ChainState Chains;
 
         public int Day { get; private set; } = 1;
         public int ConsecutiveSettles { get; private set; }
@@ -27,6 +28,7 @@ namespace Roadnest.Core
             Resources = new ResourceStore(Inventory);
             Items = new ItemStore(Inventory);
             Characters = characters;
+            Chains = new ChainState(rules.NextDayChainPermille);
             Resources.Add(ResourceType.Fuel, rules.StartFuel);
             Resources.Add(ResourceType.Food, rules.StartFood);
             Resources.Add(ResourceType.Water, rules.StartWater);

@@ -19,6 +19,9 @@ namespace Roadnest.Core
         public int dayMax;              // 0 = 제한 없음 / no limit
         public string[] tags;
         public string[] weightMods;     // settle_streak | day
+        public bool chainOnly;          // 연계 전용, 일반 랜덤 제외 / chain-only, excluded from normal picks
+        public int slotMin;             // 1~5, 0 = 제한 없음 / 0 = no limit
+        public int slotMax;             // 1~5, 0 = 제한 없음 / 0 = no limit
         public ChoiceDto[] choices;
     }
 
@@ -46,6 +49,10 @@ namespace Roadnest.Core
         public int percent;             // fixed일 때만 사용 / used by fixed only
         public string textKey;
         public EffectDto[] effects;
+        public string next;             // 후속 이벤트 id, 비우면 없음 / follow-up event id, empty = none
+        public string nextType;         // same_day | next_day
+        public int nextPercent;         // 1~100
+        public int nextWeight;          // next_day만, 0 = 1 / next_day only, 0 means 1
     }
 
     [Serializable] public class EffectDto { public string stat; public int amount; }

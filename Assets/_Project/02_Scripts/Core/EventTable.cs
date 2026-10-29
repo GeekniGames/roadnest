@@ -73,6 +73,15 @@ namespace Roadnest.Core
                 return null;
             }
 
+            // 연계 대상이 뒤에 정의돼도 Index를 알 수 있게 먼저 번호를 매긴다
+            // number events first so a chain target defined later still has its Index
+            var indexById = new Dictionary<string, int>();
+            for (int i = 0; i < dto.events.Length; i++)
+            {
+                string pid = dto.events[i].id;
+                if (!string.IsNullOrEmpty(pid) && !indexById.ContainsKey(pid)) indexById.Add(pid, indexById.Count);
+            }
+
             var tagIds = new Dictionary<string, int>();
             var byId = new Dictionary<string, EventDef>();
             var defs = new List<EventDef>(dto.events.Length);
@@ -91,8 +100,10 @@ namespace Roadnest.Core
                     errors.Add(e.id + ": id 중복 / duplicate id");
                     continue;
                 }
+                if (e.chainOnly && e.id == dto.fallback)
+                    errors.Add(e.id + ": fallback은 chainOnly일 수 없음 / fallback cannot be chainOnly");
 
-                EventDef def = BuildEvent(e, defs.Count, tagIds, errors);
+                EventDef def = BuildEvent(e, defs.Count, tagIds, indexById, errors);
                 defs.Add(def);
                 byId.Add(e.id, def);
                 AddCandidates(e, def, e.id == dto.fallback, buckets, errors);
@@ -105,6 +116,7 @@ namespace Roadnest.Core
                 errors.Add("fallback 이벤트를 찾을 수 없음 '" + dto.fallback + "' / fallback event not found");
 
             SlotType[][] daySlots = ParseDaySlots(dto.daySlots, errors);
+            ValidateChains(defs, daySlots, errors);
             if (errors.Count > errorStart) return null;
 
             var candidates = new SlotCandidate[buckets.Length][];
@@ -156,7 +168,8 @@ namespace Roadnest.Core
 
         static int BucketIndex(MoveMode mode, SlotType slot) => (int)mode * SlotCount + (int)slot;
 
-        static EventDef BuildEvent(EventDto e, int index, Dictionary<string, int> tagIds, List<string> errors)
+        static EventDef BuildEvent(EventDto e, int index, Dictionary<string, int> tagIds,
+                                   Dictionary<string, int> indexById, List<string> errors)
         {
             string id = e.id;
 
@@ -169,6 +182,18 @@ namespace Roadnest.Core
 
             if (e.dayMin < 0 || e.dayMax < 0 || (e.dayMax != 0 && e.dayMax < e.dayMin))
                 errors.Add(id + ": dayMin/dayMax 범위 오류 / invalid day range");
+
+            if (e.slotMin < 0 || e.slotMax < 0 || (e.slotMax != 0 && e.slotMax < e.slotMin))
+                errors.Add(id + ": slotMin/slotMax 범위 오류 / invalid slot range");
+
+            // 잘못된 mode 값은 AddCandidates가 보고한다 / invalid modes are reported by AddCandidates
+            int modeMask = 0;
+            int modeLen = Len(e.modes);
+            for (int m = 0; m < modeLen; m++)
+            {
+                MoveMode mm;
+                if (TryParseEnum(e.modes[m], out mm)) modeMask |= 1 << (int)mm;
+            }
 
             WeightMods mods = ParseWeightMods(e.weightMods, id, errors);
 
@@ -198,7 +223,7 @@ namespace Roadnest.Core
             int free = 0;
             for (int c = 0; c < choiceCount; c++)
             {
-                ChoiceDef ch = BuildChoice(e.choices[c], id, c, errors);
+                ChoiceDef ch = BuildChoice(e.choices[c], id, c, indexById, errors);
                 choices[c] = ch;
                 if (ch.Special) { special++; continue; }
                 normal++;
@@ -218,7 +243,8 @@ namespace Roadnest.Core
             if (choiceCount > EventLimits.MaxChoices)
                 errors.Add(id + ": 선택지는 최대 " + EventLimits.MaxChoices + "개 (현재 " + choiceCount + ") / at most " + EventLimits.MaxChoices + " choices");
 
-            return new EventDef(index, id, e.titleKey, e.textKey, trigger, e.dayMin, e.dayMax, mods, tagArr, choices);
+            return new EventDef(index, id, e.titleKey, e.textKey, trigger, e.dayMin, e.dayMax, mods, tagArr, choices,
+                                modeMask, e.chainOnly, e.slotMin, e.slotMax);
         }
 
         static WeightMods ParseWeightMods(string[] src, string id, List<string> errors)
@@ -239,7 +265,8 @@ namespace Roadnest.Core
             return mods;
         }
 
-        static ChoiceDef BuildChoice(ChoiceDto c, string eventId, int index, List<string> errors)
+        static ChoiceDef BuildChoice(ChoiceDto c, string eventId, int index,
+                                     Dictionary<string, int> indexById, List<string> errors)
         {
             string where = eventId + ".choices[" + index + "]";
             if (string.IsNullOrEmpty(c.id)) errors.Add(where + ": id 없음 / missing id");
@@ -256,11 +283,11 @@ namespace Roadnest.Core
                         errors.Add(where + ".cost[" + i + "]: 같은 stat 중복 / duplicate stat in cost");
             }
 
-            OutcomeDef[] outcomes = BuildOutcomes(c.outcomes, where, errors);
+            OutcomeDef[] outcomes = BuildOutcomes(c.outcomes, where, indexById, errors);
             return new ChoiceDef(c.id, c.textKey, c.iconKey, c.hidden, reqs, cost, outcomes, c.special);
         }
 
-        static OutcomeDef[] BuildOutcomes(OutcomeDto[] src, string where, List<string> errors)
+        static OutcomeDef[] BuildOutcomes(OutcomeDto[] src, string where, Dictionary<string, int> indexById, List<string> errors)
         {
             int n = Len(src);
             if (n == 0)
@@ -304,14 +331,175 @@ namespace Roadnest.Core
             int cumulative = 0;
             for (int i = 0; i < n; i++)
             {
+                string w = where + ".outcomes[" + i + "]";
                 int pct = kinds[i] == ProbKind.Rest ? 100 - sumFixed : src[i].percent;
                 cumulative += pct;
-                Effect[] fx = BuildEffects(src[i].effects, where + ".outcomes[" + i + "].effects", errors);
+                Effect[] fx = BuildEffects(src[i].effects, w + ".effects", errors);
                 if (fx.Length > EventLimits.MaxOutcomeEffects)
-                    errors.Add(where + ".outcomes[" + i + "].effects: 효과는 최대 " + EventLimits.MaxOutcomeEffects + "개 / at most " + EventLimits.MaxOutcomeEffects + " effects per outcome");
-                result[i] = new OutcomeDef(kinds[i], pct, cumulative, src[i].textKey, fx);
+                    errors.Add(w + ".effects: 효과는 최대 " + EventLimits.MaxOutcomeEffects + "개 / at most " + EventLimits.MaxOutcomeEffects + " effects per outcome");
+
+                ChainLinkType linkType;
+                int linkIndex, linkPercent, linkWeight;
+                ParseLink(src[i], w, indexById, errors, out linkType, out linkIndex, out linkPercent, out linkWeight);
+                result[i] = new OutcomeDef(kinds[i], pct, cumulative, src[i].textKey, fx,
+                                           linkType, linkIndex, linkPercent, linkWeight);
             }
             return result;
+        }
+
+        static void ParseLink(OutcomeDto o, string where, Dictionary<string, int> indexById, List<string> errors,
+                              out ChainLinkType type, out int index, out int percent, out int weight)
+        {
+            type = ChainLinkType.None; index = -1; percent = 0; weight = 0;
+
+            if (string.IsNullOrEmpty(o.next))
+            {
+                if (!string.IsNullOrEmpty(o.nextType) || o.nextPercent != 0 || o.nextWeight != 0)
+                    errors.Add(where + ": next 없이 연계 설정이 있음 / chain settings without next");
+                return;
+            }
+
+            if (!indexById.TryGetValue(o.next, out index))
+            {
+                index = -1;
+                errors.Add(where + ": 연계 대상 없음 '" + o.next + "' / chain target not found");
+                return;
+            }
+
+            if (o.nextType == "same_day") type = ChainLinkType.SameDay;
+            else if (o.nextType == "next_day") type = ChainLinkType.NextDay;
+            else
+            {
+                index = -1;
+                errors.Add(where + ": nextType은 same_day 또는 next_day / nextType must be same_day or next_day");
+                return;
+            }
+
+            percent = o.nextPercent;
+            if (percent < 1 || percent > 100)
+                errors.Add(where + ": nextPercent는 1~100 / nextPercent must be 1-100");
+
+            if (type == ChainLinkType.NextDay)
+            {
+                weight = o.nextWeight == 0 ? 1 : o.nextWeight;
+                if (weight < 1 || weight > EventLimits.MaxChainWeight)
+                    errors.Add(where + ": nextWeight는 1~" + EventLimits.MaxChainWeight + " / nextWeight must be 1-" + EventLimits.MaxChainWeight);
+            }
+            else if (o.nextWeight != 0)
+                errors.Add(where + ": same_day에는 nextWeight를 쓰지 않음 / nextWeight is for next_day only");
+        }
+
+        // 연계 전체 검증: 대상, 모드, 순환, 단계 수, 하루 5슬롯 초과
+        // whole-chain checks: targets, modes, cycles, stage count, day overflow
+        static void ValidateChains(List<EventDef> defs, SlotType[][] daySlots, List<string> errors)
+        {
+            int perDay = int.MaxValue;
+            for (int m = 0; m < ModeCount; m++)
+            {
+                if (daySlots[m] == null) return;
+                if (daySlots[m].Length < perDay) perDay = daySlots[m].Length;
+            }
+
+            int n = defs.Count;
+            var nextDayIn = new bool[n];
+            int nextDayTargets = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                EventDef d = defs[i];
+                if (d.SlotMin > perDay || d.SlotMax > perDay)
+                    errors.Add(d.Id + ": slotMin/slotMax가 하루 슬롯 수(" + perDay + ")를 넘음 / slot range exceeds slots per day");
+
+                for (int c = 0; c < d.Choices.Length; c++)
+                {
+                    OutcomeDef[] os = d.Choices[c].Outcomes;
+                    for (int k = 0; k < os.Length; k++)
+                    {
+                        OutcomeDef o = os[k];
+                        if (o.LinkType == ChainLinkType.None) continue;
+
+                        EventDef t = defs[o.LinkIndex];
+                        if (!t.ChainOnly)
+                            errors.Add(d.Id + ": 연계 대상 '" + t.Id + "'은 chainOnly여야 함 / chain target must be chainOnly");
+
+                        if (o.LinkType == ChainLinkType.SameDay)
+                        {
+                            if ((d.ModeMask & ~t.ModeMask) != 0)
+                                errors.Add(d.Id + ": 같은날 연계 대상 '" + t.Id + "'의 modes가 시작 이벤트 modes를 모두 포함해야 함 / same-day chain target must cover all modes of the starter");
+                        }
+                        else if (!nextDayIn[o.LinkIndex])
+                        {
+                            nextDayIn[o.LinkIndex] = true;
+                            nextDayTargets++;
+                        }
+                    }
+                }
+            }
+
+            if (nextDayTargets > EventLimits.MaxPendingChains)
+                errors.Add("다른날 연계 대상이 너무 많음 (" + nextDayTargets + ") / too many next-day chain targets, max " + EventLimits.MaxPendingChains);
+
+            bool cycle;
+            int[] sameDepth = ChainDepth(defs, true, out cycle);
+            int[] allDepth = ChainDepth(defs, false, out cycle);
+            if (cycle)
+            {
+                errors.Add("연계가 순환함 / chain cycle detected");
+                return;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                EventDef d = defs[i];
+                if (allDepth[i] > EventLimits.MaxChainStages)
+                    errors.Add(d.Id + ": 연계는 최대 " + EventLimits.MaxChainStages + "단계 (현재 " + allDepth[i] + ") / chain stages over " + EventLimits.MaxChainStages);
+
+                // 연계 중간 단계가 아닌 시작점만 슬롯 범위를 검사 / only entry points need a slot-range check
+                int sd = sameDepth[i];
+                if (sd > 1 && (!d.ChainOnly || nextDayIn[i]))
+                {
+                    int effMax = d.SlotMax == 0 ? perDay : d.SlotMax;
+                    if (effMax + sd - 1 > perDay)
+                        errors.Add(d.Id + ": 같은날 " + sd + "단계 연계가 하루 " + perDay + "슬롯을 넘을 수 있음. slotMax를 " + (perDay - sd + 1) + " 이하로 / same-day chain of " + sd + " stages can overflow the day; set slotMax <= " + (perDay - sd + 1));
+                }
+            }
+        }
+
+        // 각 이벤트에서 시작했을 때의 연계 길이(자기 포함). sameOnly면 같은날 연계만 센다
+        // chain length starting at each event (itself included); sameOnly counts same-day links only
+        static int[] ChainDepth(List<EventDef> defs, bool sameOnly, out bool cycle)
+        {
+            int n = defs.Count;
+            var depth = new int[n];
+            var state = new byte[n];
+            cycle = false;
+            for (int i = 0; i < n; i++) Visit(defs, i, sameOnly, depth, state, ref cycle);
+            return depth;
+        }
+
+        static int Visit(List<EventDef> defs, int i, bool sameOnly, int[] depth, byte[] state, ref bool cycle)
+        {
+            if (state[i] == 2) return depth[i];
+            if (state[i] == 1) { cycle = true; return 1; }
+
+            state[i] = 1;
+            int best = 0;
+            ChoiceDef[] cs = defs[i].Choices;
+            for (int c = 0; c < cs.Length; c++)
+            {
+                OutcomeDef[] os = cs[c].Outcomes;
+                for (int k = 0; k < os.Length; k++)
+                {
+                    OutcomeDef o = os[k];
+                    if (o.LinkType == ChainLinkType.None) continue;
+                    if (sameOnly && o.LinkType != ChainLinkType.SameDay) continue;
+                    int len = Visit(defs, o.LinkIndex, sameOnly, depth, state, ref cycle);
+                    if (len > best) best = len;
+                }
+            }
+            state[i] = 2;
+            depth[i] = best + 1;
+            return depth[i];
         }
 
         static Effect[] BuildEffects(EffectDto[] src, string where, List<string> errors)
@@ -353,7 +541,8 @@ namespace Roadnest.Core
             return arr;
         }
 
-        // 폴백 이벤트는 mode/slot 없이도 허용 / the fallback event may omit modes and slots
+        // 폴백은 mode/slot 없이도 허용, 연계 전용은 slot 없이도 허용하며 후보 목록에는 넣지 않는다
+        // the fallback may omit modes and slots; chain-only may omit slots and never enters the candidate lists
         static void AddCandidates(EventDto e, EventDef def, bool isFallback,
                                   List<SlotCandidate>[] buckets, List<string> errors)
         {
@@ -362,7 +551,7 @@ namespace Roadnest.Core
             if (!isFallback)
             {
                 if (modeCount == 0) errors.Add(e.id + ": modes 없음 / missing modes");
-                if (slotCount == 0) errors.Add(e.id + ": slots 없음 / missing slots");
+                if (slotCount == 0 && !e.chainOnly) errors.Add(e.id + ": slots 없음 / missing slots");
             }
 
             for (int m = 0; m < modeCount; m++)
@@ -373,6 +562,7 @@ namespace Roadnest.Core
                     errors.Add(e.id + ": mode 값 오류 '" + e.modes[m] + "' / invalid mode");
                     continue;
                 }
+                if (e.chainOnly) continue;
 
                 for (int s = 0; s < slotCount; s++)
                 {

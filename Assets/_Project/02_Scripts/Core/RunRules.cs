@@ -24,6 +24,8 @@ namespace Roadnest.Core
 
         public int EventsPerDay = 5;
 
+        public int NextDayChainPermille = 25;   // 다른날 연계 슬롯당 확률(1000분율), 25 = 2.5% / next-day chain chance per slot, per-mille
+
 
         public int GetRepairAmount(ItemType item)
         {

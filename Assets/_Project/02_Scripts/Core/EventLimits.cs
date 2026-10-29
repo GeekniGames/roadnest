@@ -12,5 +12,8 @@ namespace Roadnest.Core
         public const int MaxCostEffects = 3;
         public const int MaxOutcomes = 2;
         public const int MaxOutcomeEffects = 3;
+        public const int MaxChainStages = 4;        // 연계 최대 단계 / max chain stages
+        public const int MaxPendingChains = 32;     // 다른날 대기 최대 수 / max next-day pending
+        public const int MaxChainWeight = 1000;
     }
 }

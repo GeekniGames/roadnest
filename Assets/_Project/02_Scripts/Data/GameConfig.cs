@@ -39,6 +39,9 @@ public class GameConfig : ScriptableObject
     [Range(1, Inventory.MaxSlots)] public int inventorySlots = 10;
     [Min(1)] public int stackCap = 10;
 
+    [Header("연계 / Chains")]
+    [Range(0, 1000)] public int nextDayChainPermille = 25;
+
     // 코어는 Unity 타입을 모르므로 순수 C# 규칙 객체로 변환해 넘긴다
     // Core knows no Unity types, so hand it a plain rules object
     public RunRules ToRules()
@@ -60,7 +63,8 @@ public class GameConfig : ScriptableObject
             MaxCharacterHp = maxCharacterHp,
             HpLossMissingOne = hpLossMissingOne,
             HpLossMissingBoth = hpLossMissingBoth,
-            EventsPerDay = eventsPerDay
+            EventsPerDay = eventsPerDay,
+            NextDayChainPermille = nextDayChainPermille
         };
     }
 }

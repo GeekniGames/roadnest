@@ -27,7 +27,9 @@ namespace Roadnest.Core
 
     public enum ProbKind : byte { Fixed, Rest }
 
-    public enum RngPurpose : byte { EventPick = 1, Outcome = 2, Misc = 3 }
+    public enum RngPurpose : byte { EventPick = 1, Outcome = 2, Misc = 3, ChainSameDay = 4, ChainNextDay = 5 }
+
+    public enum ChainLinkType : byte { None, SameDay, NextDay }
 
     public enum EndReason : byte { None, AllDead, VehicleDestroyed }
 
