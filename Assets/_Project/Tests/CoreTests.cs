@@ -57,7 +57,7 @@ namespace Roadnest.Tests
 
     public class EventTableTests
     {
-        const string JsonPath = "Assets/_Project/04_Data/Events/events.json";
+        const string JsonPath = "Assets/_Project/Tests/events_test.json";
 
         static EventTable LoadSample(List<string> errors)
         {

@@ -8,7 +8,7 @@ namespace Roadnest.Tests
 {
     internal static class TestData
     {
-        public const string EventsJsonPath = "Assets/_Project/04_Data/Events/events.json";
+        public const string EventsJsonPath = "Assets/_Project/Tests/events_test.json";
 
         public static DaySlotsDto[] DaySlots() => new[]
         {

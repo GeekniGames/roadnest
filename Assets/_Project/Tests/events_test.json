@@ -1,0 +1,1650 @@
+{
+  "version": 1,
+  "fallback": "EVT_QUIET_DAY",
+  "daySlots": [
+    {
+      "mode": "depart",
+      "slots": [ "Minor", "ResourceExplore", "Danger", "Minor", "Major" ]
+    },
+    {
+      "mode": "settle",
+      "slots": [ "Minor", "MaintenanceRecovery", "NearbyExplore", "Danger", "Night" ]
+    }
+  ],
+  "events": [
+    {
+      "id": "EVT_FALLEN_TREE",
+      "titleKey": "evt-fallen-tree-title",
+      "textKey": "evt-fallen-tree-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 6
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_FALLEN_TREE_C1",
+          "textKey": "evt-fallen-tree-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-fallen-tree-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-fallen-tree-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -15
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_FALLEN_TREE_C2",
+          "textKey": "evt-fallen-tree-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-fallen-tree-c2-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_TRADER",
+      "titleKey": "evt-trader-title",
+      "textKey": "evt-trader-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 8
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 8
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_TRADER_C1",
+          "textKey": "evt-trader-c1",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "food",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-trader-c1-o1",
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_TRADER_C2",
+          "textKey": "evt-trader-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-trader-c2-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ZOMBIE_RAID",
+      "titleKey": "evt-zombie-raid-title",
+      "textKey": "evt-zombie-raid-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Night",
+          "weight": 6
+        },
+        {
+          "slot": "Major",
+          "weight": 4
+        }
+      ],
+      "weightMods": [ "settle_streak", "day" ],
+      "tags": [ "zombie_raid" ],
+      "choices": [
+        {
+          "id": "EVT_ZOMBIE_RAID_C1",
+          "textKey": "evt-zombie-raid-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-zombie-raid-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-raid-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -30
+                },
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ZOMBIE_RAID_C2",
+          "textKey": "evt-zombie-raid-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-zombie-raid-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-raid-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_GAS_STATION",
+      "titleKey": "evt-gas-station-title",
+      "textKey": "evt-gas-station-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 4
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_GAS_STATION_C1",
+          "textKey": "evt-gas-station-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-gas-station-c1-o1",
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-gas-station-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_GAS_STATION_C2",
+          "textKey": "evt-gas-station-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-gas-station-c2-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_GAS_STATION_C3",
+          "textKey": "common-pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DRY_WELL",
+      "titleKey": "evt-dry-well-title",
+      "textKey": "evt-dry-well-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 8
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DRY_WELL_C1",
+          "textKey": "evt-dry-well-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-dry-well-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-dry-well-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DRY_WELL_C2",
+          "textKey": "evt-dry-well-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "evt-dry-well-c2-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-dry-well-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DRY_WELL_C3",
+          "textKey": "common-pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_FARM_RUINS",
+      "titleKey": "evt-farm-ruins-title",
+      "textKey": "evt-farm-ruins-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 6
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_FARM_RUINS_C1",
+          "textKey": "evt-farm-ruins-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 65,
+              "textKey": "evt-farm-ruins-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-farm-ruins-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_FARM_RUINS_C2",
+          "textKey": "evt-farm-ruins-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-farm-ruins-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_FARM_RUINS_C3",
+          "textKey": "evt-farm-ruins-c3",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-farm-ruins-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-farm-ruins-c3-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_VENDING_MACHINE",
+      "titleKey": "evt-vending-machine-title",
+      "textKey": "evt-vending-machine-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 8
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 4
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 4
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_VENDING_MACHINE_C1",
+          "textKey": "evt-vending-machine-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-vending-machine-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "water",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-vending-machine-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_VENDING_MACHINE_C2",
+          "textKey": "evt-vending-machine-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-vending-machine-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                },
+                {
+                  "stat": "water",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-vending-machine-c2-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_VENDING_MACHINE_C3",
+          "textKey": "common-pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RADIO",
+      "titleKey": "evt-radio-title",
+      "textKey": "evt-radio-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 6
+        },
+        {
+          "slot": "Night",
+          "weight": 6
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RADIO_C1",
+          "textKey": "evt-radio-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-radio-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-radio-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RADIO_C2",
+          "textKey": "evt-radio-c2",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 30,
+              "textKey": "evt-radio-c2-o1",
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-radio-c2-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RADIO_C3",
+          "textKey": "evt-radio-c3",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CLINIC",
+      "titleKey": "evt-clinic-title",
+      "textKey": "evt-clinic-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 4
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CLINIC_C1",
+          "textKey": "evt-clinic-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-clinic-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-clinic-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CLINIC_C2",
+          "textKey": "evt-clinic-c2",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-clinic-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CLINIC_C3",
+          "textKey": "common-pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_JUNKYARD",
+      "titleKey": "evt-junkyard-title",
+      "textKey": "evt-junkyard-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_JUNKYARD_C1",
+          "textKey": "evt-junkyard-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 65,
+              "textKey": "evt-junkyard-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-junkyard-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_JUNKYARD_C2",
+          "textKey": "evt-junkyard-c2",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-junkyard-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-junkyard-c2-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_JUNKYARD_C3",
+          "textKey": "common-pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "common-nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CAMPFIRE",
+      "titleKey": "evt-campfire-title",
+      "textKey": "evt-campfire-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 8
+        },
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 4
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CAMPFIRE_C1",
+          "textKey": "evt-campfire-c1",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-campfire-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": 8
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-campfire-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CAMPFIRE_C2",
+          "textKey": "evt-campfire-c2",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-campfire-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-campfire-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_BANDITS",
+      "titleKey": "evt-bandits-title",
+      "textKey": "evt-bandits-text",
+      "trigger": "sudden",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 8
+        },
+        {
+          "slot": "Major",
+          "weight": 6
+        }
+      ],
+      "dayMin": 3,
+      "choices": [
+        {
+          "id": "EVT_BANDITS_C1",
+          "textKey": "evt-bandits-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-bandits-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-bandits-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -15
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BANDITS_C2",
+          "textKey": "evt-bandits-c2",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -2
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "food",
+              "op": "gte",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-bandits-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_BANDITS_C3",
+          "textKey": "evt-bandits-c3",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -2
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-bandits-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-bandits-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SANDSTORM",
+      "titleKey": "evt-sandstorm-title",
+      "textKey": "evt-sandstorm-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 8
+        },
+        {
+          "slot": "Major",
+          "weight": 4
+        }
+      ],
+      "dayMin": 2,
+      "choices": [
+        {
+          "id": "EVT_SANDSTORM_C1",
+          "textKey": "evt-sandstorm-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 55,
+              "textKey": "evt-sandstorm-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-sandstorm-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -20
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SANDSTORM_C2",
+          "textKey": "evt-sandstorm-c2",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            },
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "food",
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "stat": "water",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-sandstorm-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_SANDSTORM_C3",
+          "textKey": "evt-sandstorm-c3",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -2
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "evt-sandstorm-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-sandstorm-c3-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_TRAFFIC_JAM",
+      "titleKey": "evt-traffic-jam-title",
+      "textKey": "evt-traffic-jam-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 4
+        },
+        {
+          "slot": "Danger",
+          "weight": 6
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_TRAFFIC_JAM_C1",
+          "textKey": "evt-traffic-jam-c1",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-traffic-jam-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-traffic-jam-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_TRAFFIC_JAM_C2",
+          "textKey": "evt-traffic-jam-c2",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-traffic-jam-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-traffic-jam-c2-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_TRAFFIC_JAM_C3",
+          "textKey": "evt-traffic-jam-c3",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-traffic-jam-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-traffic-jam-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ZOMBIE_HORDE",
+      "titleKey": "evt-zombie-horde-title",
+      "textKey": "evt-zombie-horde-text",
+      "trigger": "sudden",
+      "modes": [ "depart" ],
+      "slots": [
+        {
+          "slot": "Major",
+          "weight": 8
+        }
+      ],
+      "dayMin": 6,
+      "weightMods": [ "day" ],
+      "choices": [
+        {
+          "id": "EVT_ZOMBIE_HORDE_C1",
+          "textKey": "evt-zombie-horde-c1",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -2
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-zombie-horde-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-horde-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -25
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ZOMBIE_HORDE_C2",
+          "textKey": "evt-zombie-horde-c2",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            },
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "food",
+              "op": "gte",
+              "value": 1
+            },
+            {
+              "stat": "water",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-zombie-horde-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-horde-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -30
+                },
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ZOMBIE_HORDE_C3",
+          "textKey": "evt-zombie-horde-c3",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -3
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 3
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-zombie-horde-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-horde-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ZOMBIE_HORDE_C4",
+          "textKey": "evt-zombie-horde-c4",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-zombie-horde-c4-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -15
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-zombie-horde-c4-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -30
+                },
+                {
+                  "stat": "hp_all",
+                  "amount": -40
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_NIGHT_KNOCK",
+      "titleKey": "evt-night-knock-title",
+      "textKey": "evt-night-knock-text",
+      "trigger": "sudden",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 4
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NIGHT_KNOCK_C1",
+          "textKey": "evt-night-knock-c1",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-night-knock-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                },
+                {
+                  "stat": "water",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-night-knock-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHT_KNOCK_C2",
+          "textKey": "evt-night-knock-c2",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-night-knock-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-night-knock-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHT_KNOCK_C3",
+          "textKey": "evt-night-knock-c3",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "fuel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-night-knock-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_STRANGER",
+      "titleKey": "evt-stranger-title",
+      "textKey": "evt-stranger-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 6
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 6
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_STRANGER_C1",
+          "textKey": "evt-stranger-c1",
+          "cost": [
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "requirements": [
+            {
+              "stat": "water",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-stranger-c1-o1",
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 2
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-stranger-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGER_C2",
+          "textKey": "evt-stranger-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-stranger-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGER_C3",
+          "textKey": "evt-stranger-c3",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-stranger-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "water",
+                  "amount": 2
+                },
+                {
+                  "stat": "fuel",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-stranger-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_all",
+                  "amount": -15
+                },
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_QUIET_DAY",
+      "titleKey": "evt-quiet-day-title",
+      "textKey": "evt-quiet-day-text",
+      "trigger": "telegraphed",
+      "choices": [
+        {
+          "id": "EVT_QUIET_DAY_C1",
+          "textKey": "evt-quiet-day-c1",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_QUIET_DAY_C2",
+          "textKey": "evt-quiet-day-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c2-o1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
