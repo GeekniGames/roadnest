@@ -429,5 +429,24 @@ namespace Roadnest.Tests
             Assert.IsNull(EventTable.Build(dto, errors));
             Assert.IsTrue(HasError(errors, "duplicate stat"));
         }
+
+        [Test]
+        public void Item_Stats_AcceptedInCostRequirementAndEffect()
+        {
+            var dto = MakeDto();
+            ChoiceDto ch = dto.events[0].choices[0];
+            ch.requirements = new[] { new RequirementDto { stat = "crowbar", op = "gte", value = 1 } };
+            ch.cost = new[] { new EffectDto { stat = "crowbar", amount = -1 } };
+            ch.outcomes = new[]
+            {
+        new OutcomeDto
+        {
+            kind = "rest", textKey = "o",
+            effects = new[] { new EffectDto { stat = "steel_plate", amount = 2 } }
+        }
+    };
+            var errors = new List<string>();
+            Assert.IsNotNull(EventTable.Build(dto, errors), string.Join("\n", errors));
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace Roadnest.Tests
 
         // 따지는 봇의 점수 가중치 (0.5 단위를 피하려고 2배 정수). 임의 값이며 조정 대상
         // Weighing bot score weights (doubled to stay integer). Arbitrary, meant to be tuned
-        const int WFuel = 6, WFood = 4, WWater = 4, WDurability = 2, WHpPerChar = 3;
+        const int WFuel = 6, WFood = 4, WWater = 4, WDurability = 2, WHpPerChar = 3, WItem = 2;
         const int ReserveFuel = 2;      // 연료가 이보다 적으면 정착 / settle below this fuel
         const int LowDurability = 20;   // 내구도가 이 이하면 정착 / settle at or below this durability
 
@@ -178,7 +178,8 @@ namespace Roadnest.Tests
                 case StatType.Food: return e.Amount * WFood;
                 case StatType.Water: return e.Amount * WWater;
                 case StatType.Durability: return e.Amount * WDurability;
-                default: return e.Amount * WHpPerChar * alive; // HpAll
+                case StatType.HpAll: return e.Amount * WHpPerChar * alive;
+                default: return e.Amount * WItem;   // 나머지 아이템 / all other items
             }
         }
 

@@ -109,5 +109,17 @@ namespace Roadnest.Tests
         {
             Assert.AreEqual(1, Make().Characters.Length);
         }
+
+        [Test]
+        public void Item_GainAndCost_FollowInventory()
+        {
+            var s = Make();
+            Assert.AreEqual(1, s.Apply(Fx(StatType.Crowbar, 1)));
+            Assert.AreEqual(1, s.GetStat(StatType.Crowbar));
+            Assert.IsTrue(s.CanPay(new[] { Fx(StatType.Crowbar, -1) }));
+            s.Apply(Fx(StatType.Crowbar, -1));
+            Assert.AreEqual(0, s.GetStat(StatType.Crowbar));
+            Assert.IsFalse(s.CanPay(new[] { Fx(StatType.Crowbar, -1) }));
+        }
     }
 }

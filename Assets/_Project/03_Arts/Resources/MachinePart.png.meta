@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: 8c7929edddf5f6a42b5295a9484bd77c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8669535894236820280
+    second: MachinePart_0
+  - first:
+      213: 3280712294344445255
+    second: MachinePart_1
+  - first:
+      213: -8376922522411361857
+    second: MachinePart_2
+  - first:
+      213: 8323197794279378312
+    second: MachinePart_3
+  - first:
+      213: -9112729524334607555
+    second: MachinePart_4
+  - first:
+      213: -7835828877758607193
+    second: MachinePart_5
+  - first:
+      213: 5193673342644213759
+    second: MachinePart_6
+  - first:
+      213: -3856790859527978198
+    second: MachinePart_7
+  - first:
+      213: -8281560475566197050
+    second: MachinePart_8
+  - first:
+      213: 208026505933021616
+    second: MachinePart_9
+  - first:
+      213: -5305191995638546381
+    second: MachinePart_10
+  - first:
+      213: -1645500377284830029
+    second: MachinePart_11
+  - first:
+      213: 166430306127657485
+    second: MachinePart_12
+  - first:
+      213: -5979750559745229207
+    second: MachinePart_13
+  - first:
+      213: -5954041659535510167
+    second: MachinePart_14
+  - first:
+      213: -8284927140014521979
+    second: MachinePart_15
+  - first:
+      213: -1396360161957988909
+    second: MachinePart_16
+  - first:
+      213: -198416512080138372
+    second: MachinePart_17
+  - first:
+      213: 1897045419270633503
+    second: MachinePart_18
+  - first:
+      213: -5387366761424737889
+    second: MachinePart_19
+  - first:
+      213: 2261119848209198323
+    second: MachinePart_20
+  - first:
+      213: 4373615802351442973
+    second: MachinePart_21
+  - first:
+      213: -160656067686664459
+    second: MachinePart_22
+  - first:
+      213: 7411195167289162210
+    second: MachinePart_23
+  - first:
+      213: -5615497007211080330
+    second: MachinePart_24
+  - first:
+      213: -8547315699260429326
+    second: MachinePart_25
+  - first:
+      213: -6252583948416664720
+    second: MachinePart_26
+  - first:
+      213: -7386142208718291216
+    second: MachinePart_27
+  - first:
+      213: 2955242213088421399
+    second: MachinePart_28
+  - first:
+      213: 2119497670079626544
+    second: MachinePart_29
+  - first:
+      213: 3389644731903848849
+    second: MachinePart_30
+  - first:
+      213: 7640187399726158920
+    second: MachinePart_31
+  - first:
+      213: 1676644189372947012
+    second: MachinePart_32
+  - first:
+      213: -8869055413668726866
+    second: MachinePart_33
+  - first:
+      213: 6308722790166876252
+    second: MachinePart_34
+  - first:
+      213: -6090860330111196336
+    second: MachinePart_35
+  - first:
+      213: -8446827455988351442
+    second: MachinePart_36
+  - first:
+      213: -7311427607679002116
+    second: MachinePart_37
+  - first:
+      213: -7868533955280490992
+    second: MachinePart_38
+  - first:
+      213: 1966147361960453236
+    second: MachinePart_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MachinePart_0
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1148
+        width: 131
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833fb7f66f0605870800000000000000
+      internalID: 8669535894236820280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_1
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1179
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d48a2237e678d20800000000000000
+      internalID: 3280712294344445255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_2
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1197
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb993b449513fbb80800000000000000
+      internalID: -8376922522411361857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_3
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1182
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88d4653bb40f18370800000000000000
+      internalID: 8323197794279378312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_4
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1128
+        width: 52
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3342d767c4198180800000000000000
+      internalID: -9112729524334607555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 1191
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a05374d62b814390800000000000000
+      internalID: -7835828877758607193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_6
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1173
+        width: 186
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff759bb4362a31840800000000000000
+      internalID: 5193673342644213759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_7
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1164
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a238cdcb52de97ac0800000000000000
+      internalID: -3856790859527978198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_8
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 1173
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c636f300acf11d80800000000000000
+      internalID: -8281560475566197050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_9
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1116
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1e006410f03e200800000000000000
+      internalID: 208026505933021616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_10
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1096
+        width: 71
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33008b2fcfb2066b0800000000000000
+      internalID: -5305191995638546381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_11
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1098
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc9a2600220a29e0800000000000000
+      internalID: -1645500377284830029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_12
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1094
+        width: 33
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a399c4b774f4200800000000000000
+      internalID: 166430306127657485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_13
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 1100
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e31f84c88a30da0800000000000000
+      internalID: -5979750559745229207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_14
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 1092
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965328118aefe5da0800000000000000
+      internalID: -5954041659535510167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 503
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 581017d59a6060d80800000000000000
+      internalID: -8284927140014521979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_16
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 1220
+        height: 1091
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5bcf7b4d12f9ce0800000000000000
+      internalID: -1396360161957988909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_17
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 117
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f24e7cb351f3df0800000000000000
+      internalID: -198416512080138372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_18
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 99
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18786202c8a35a10800000000000000
+      internalID: 1897045419270633503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_19
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 95
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f992886597a3c35b0800000000000000
+      internalID: -5387366761424737889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_20
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 95
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc2813a58c116f10800000000000000
+      internalID: 2261119848209198323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_21
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 101
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c513b566432bc30800000000000000
+      internalID: 4373615802351442973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_22
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 79
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6768a582c35cdf0800000000000000
+      internalID: -160656067686664459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_23
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 81
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9bc5b0dbad9d660800000000000000
+      internalID: 7411195167289162210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_24
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 89
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6751aef593fb112b0800000000000000
+      internalID: -5615497007211080330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_25
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 80
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb667a38a5d16980800000000000000
+      internalID: -8547315699260429326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_26
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 85
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07bb05ac60c5a39a0800000000000000
+      internalID: -6252583948416664720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_27
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 79
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0feb3dc6bc62f7990800000000000000
+      internalID: -7386142208718291216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_28
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 63
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716ef50a221230920800000000000000
+      internalID: 2955242213088421399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_29
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 75
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d3d5fb6e7f96d10800000000000000
+      internalID: 2119497670079626544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_30
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 41
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19137efacef6a0f20800000000000000
+      internalID: 3389644731903848849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_31
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 11
+        width: 35
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844d71ae5f5670a60800000000000000
+      internalID: 7640187399726158920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_32
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 53
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a1c4ac103a44710800000000000000
+      internalID: 1676644189372947012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_33
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 45
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7350f6719cae480800000000000000
+      internalID: -8869055413668726866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_34
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 35
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c50de4ed3f51d8750800000000000000
+      internalID: 6308722790166876252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_35
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 33
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053243feccae87ba0800000000000000
+      internalID: -6090860330111196336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_36
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 21
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e3cc69e27d6ca80800000000000000
+      internalID: -8446827455988351442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_37
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 31
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf91f431457988a90800000000000000
+      internalID: -7311427607679002116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_38
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 19
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e28649e0a5dc290800000000000000
+      internalID: -7868533955280490992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MachinePart_39
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 15
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47469bdcb98294b10800000000000000
+      internalID: 1966147361960453236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MachinePart_0: 8669535894236820280
+      MachinePart_1: 3280712294344445255
+      MachinePart_10: -5305191995638546381
+      MachinePart_11: -1645500377284830029
+      MachinePart_12: 166430306127657485
+      MachinePart_13: -5979750559745229207
+      MachinePart_14: -5954041659535510167
+      MachinePart_15: -8284927140014521979
+      MachinePart_16: -1396360161957988909
+      MachinePart_17: -198416512080138372
+      MachinePart_18: 1897045419270633503
+      MachinePart_19: -5387366761424737889
+      MachinePart_2: -8376922522411361857
+      MachinePart_20: 2261119848209198323
+      MachinePart_21: 4373615802351442973
+      MachinePart_22: -160656067686664459
+      MachinePart_23: 7411195167289162210
+      MachinePart_24: -5615497007211080330
+      MachinePart_25: -8547315699260429326
+      MachinePart_26: -6252583948416664720
+      MachinePart_27: -7386142208718291216
+      MachinePart_28: 2955242213088421399
+      MachinePart_29: 2119497670079626544
+      MachinePart_3: 8323197794279378312
+      MachinePart_30: 3389644731903848849
+      MachinePart_31: 7640187399726158920
+      MachinePart_32: 1676644189372947012
+      MachinePart_33: -8869055413668726866
+      MachinePart_34: 6308722790166876252
+      MachinePart_35: -6090860330111196336
+      MachinePart_36: -8446827455988351442
+      MachinePart_37: -7311427607679002116
+      MachinePart_38: -7868533955280490992
+      MachinePart_39: 1966147361960453236
+      MachinePart_4: -9112729524334607555
+      MachinePart_5: -7835828877758607193
+      MachinePart_6: 5193673342644213759
+      MachinePart_7: -3856790859527978198
+      MachinePart_8: -8281560475566197050
+      MachinePart_9: 208026505933021616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

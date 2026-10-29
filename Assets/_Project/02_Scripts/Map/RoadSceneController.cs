@@ -312,14 +312,15 @@ public class RoadSceneController : MonoBehaviour
     [ContextMenu("Test/Food -1")] void TestFoodDown() => Store.Add(ResourceType.Food, -1);
     [ContextMenu("Test/Water +1")] void TestWaterUp() => Store.Add(ResourceType.Water, 1);
     [ContextMenu("Test/Water -1")] void TestWaterDown() => Store.Add(ResourceType.Water, -1);
-    [ContextMenu("Test/Items +1 (all)")]
     [ContextMenu("Test/StackCap +5")] void TestStackCapUp() => _flow.Run.Inventory.SetStackCap(_flow.Run.Inventory.StackCap + 5);
-    void TestItemsUp()
+
+    int _testKind = Inventory.ItemKindOffset;
+
+    [ContextMenu("Test/Next item +1")]
+    void TestNextItem()
     {
-        ItemStore it = _flow.Run.Items;
-        it.Add(ItemType.RepairTool, 1);
-        it.Add(ItemType.RepairKitLow, 1);
-        it.Add(ItemType.RepairKitHigh, 1);
+        _flow.Run.Inventory.Add((ItemKind)_testKind, 1);
+        _testKind = _testKind + 1 >= Inventory.KindCount ? Inventory.ItemKindOffset : _testKind + 1;
     }
 #endif
 }

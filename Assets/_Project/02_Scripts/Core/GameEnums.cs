@@ -10,8 +10,18 @@ namespace Roadnest.Core
 
     public enum TriggerType : byte { Telegraphed, Sudden }
 
-    // Fuel/Food/Water는 ResourceType과 순서가 같음 / first three match ResourceType order
-    public enum StatType : byte { Fuel, Food, Water, Durability, HpAll }
+    // 앞 5개는 기존 순서 유지, 뒤는 ItemKind의 RepairTool부터 같은 순서 / first 5 keep their order, the rest follow ItemKind from RepairTool
+    public enum StatType : byte
+    {
+        Fuel, Food, Water, Durability, HpAll,
+        RepairTool, RepairKitLow, RepairKitHigh,
+        Bandage, FirstAid, MedicalKit,
+        Crowbar, Axe, Shovel, BoltCutter, Flashlight, Rope,
+        WoodScrap, SteelPlate, MachinePart, ScrapMetal,
+        ClothScrap, Alcohol,
+        PurificationTablet, Flare, SmokeGrenade, Radio, MapFragment,
+        Gun, FireExtinguisher, Binoculars, Megaphone
+    }
 
     public enum CompareOp : byte { Gte, Gt, Lte, Lt, Eq }
 

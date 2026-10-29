@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 3a637d5ccb554e144b6c240122d64a48
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2195040084631497593
+    second: ScrapMetal_0
+  - first:
+      213: 6356923041483228846
+    second: ScrapMetal_1
+  - first:
+      213: -7155229428140729868
+    second: ScrapMetal_2
+  - first:
+      213: -123544869641507999
+    second: ScrapMetal_3
+  - first:
+      213: -7718692658133262296
+    second: ScrapMetal_4
+  - first:
+      213: -8108721878876331090
+    second: ScrapMetal_5
+  - first:
+      213: 3988364241297320676
+    second: ScrapMetal_6
+  - first:
+      213: 8485200134108974310
+    second: ScrapMetal_7
+  - first:
+      213: 4148737278717628166
+    second: ScrapMetal_8
+  - first:
+      213: 131002193220110167
+    second: ScrapMetal_9
+  - first:
+      213: -4252668952913572240
+    second: ScrapMetal_10
+  - first:
+      213: -7727748848362005388
+    second: ScrapMetal_11
+  - first:
+      213: -6322075811154379899
+    second: ScrapMetal_12
+  - first:
+      213: -2124445097431672482
+    second: ScrapMetal_13
+  - first:
+      213: 6359353629501807845
+    second: ScrapMetal_14
+  - first:
+      213: 2345941504183356657
+    second: ScrapMetal_15
+  - first:
+      213: -2748094241236657267
+    second: ScrapMetal_16
+  - first:
+      213: -4414051575076097409
+    second: ScrapMetal_17
+  - first:
+      213: -8655378624350675404
+    second: ScrapMetal_18
+  - first:
+      213: -7754248345972318473
+    second: ScrapMetal_19
+  - first:
+      213: -8717328292498271092
+    second: ScrapMetal_20
+  - first:
+      213: 6819520006176938842
+    second: ScrapMetal_21
+  - first:
+      213: -5624211440918462105
+    second: ScrapMetal_22
+  - first:
+      213: -4409096487873483327
+    second: ScrapMetal_23
+  - first:
+      213: -7071714511476277526
+    second: ScrapMetal_24
+  - first:
+      213: 7676403621812827399
+    second: ScrapMetal_25
+  - first:
+      213: -6063343536827012242
+    second: ScrapMetal_26
+  - first:
+      213: -3956745761721822234
+    second: ScrapMetal_27
+  - first:
+      213: -722381324491987595
+    second: ScrapMetal_28
+  - first:
+      213: 2141218764775371497
+    second: ScrapMetal_29
+  - first:
+      213: -8640789858789954898
+    second: ScrapMetal_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ScrapMetal_0
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1171
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784dbcf3ca6a981e0800000000000000
+      internalID: -2195040084631497593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_1
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 1173
+        width: 83
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea68a1863d3583850800000000000000
+      internalID: 6356923041483228846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_2
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 1201
+        width: 102
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f91041ceb483bc90800000000000000
+      internalID: -7155229428140729868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1241
+        height: 1198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b223b7894194ef0800000000000000
+      internalID: -123544869641507999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_4
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1130
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8202d8d3ce1b1e490800000000000000
+      internalID: -7718692658133262296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1132
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3632bb968087f80800000000000000
+      internalID: -8108721878876331090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_6
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1126
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eaa56d6524895730800000000000000
+      internalID: 3988364241297320676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_7
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1132
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec89a1c09c71c570800000000000000
+      internalID: 8485200134108974310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_8
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1116
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f8264f296439930800000000000000
+      internalID: 4148737278717628166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_9
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1114
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7578ea7fcc961d100800000000000000
+      internalID: 131002193220110167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_10
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1074
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e01427e1c7bf4c0800000000000000
+      internalID: -4252668952913572240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_11
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 1068
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47cd2f3ad5581c490800000000000000
+      internalID: -7727748848362005388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_12
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 1050
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58bbd09ab897348a0800000000000000
+      internalID: -6322075811154379899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_13
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1060
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e59d3ce80747482e0800000000000000
+      internalID: -2124445097431672482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_14
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 128
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecdb87ce66f04850800000000000000
+      internalID: 6359353629501807845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_15
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 115
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fcc1b46e557e8020800000000000000
+      internalID: 2345941504183356657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_16
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 111
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8bdacdf8deccd9d0800000000000000
+      internalID: -2748094241236657267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_17
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 111
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72f557aa732eb2c0800000000000000
+      internalID: -4414051575076097409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_18
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 95
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e9113dffae1e780800000000000000
+      internalID: -8655378624350675404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_19
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 81
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fed82e8630636490800000000000000
+      internalID: -7754248345972318473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_20
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 78
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c849d27ba14d50780800000000000000
+      internalID: -8717328292498271092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_21
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 79
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b98d2705dc3ae50800000000000000
+      internalID: 6819520006176938842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_22
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 79
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7610e5a2e79c2f1b0800000000000000
+      internalID: -5624211440918462105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_23
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 63
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cde0ebca1ebfc2c0800000000000000
+      internalID: -4409096487873483327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_24
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 33
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aee3b7e8e193cdd90800000000000000
+      internalID: -7071714511476277526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_25
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 33
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705fca63c60188a60800000000000000
+      internalID: 7676403621812827399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_26
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 39
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6be340ad2daadba0800000000000000
+      internalID: -6063343536827012242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e3d90681b0d619c0800000000000000
+      internalID: -3956745761721822234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_28
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 23
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5756741430699f5f0800000000000000
+      internalID: -722381324491987595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_29
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 15
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e236d43f1327bd10800000000000000
+      internalID: 2141218764775371497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScrapMetal_30
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 15
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaae600876fb51880800000000000000
+      internalID: -8640789858789954898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ScrapMetal_0: -2195040084631497593
+      ScrapMetal_1: 6356923041483228846
+      ScrapMetal_10: -4252668952913572240
+      ScrapMetal_11: -7727748848362005388
+      ScrapMetal_12: -6322075811154379899
+      ScrapMetal_13: -2124445097431672482
+      ScrapMetal_14: 6359353629501807845
+      ScrapMetal_15: 2345941504183356657
+      ScrapMetal_16: -2748094241236657267
+      ScrapMetal_17: -4414051575076097409
+      ScrapMetal_18: -8655378624350675404
+      ScrapMetal_19: -7754248345972318473
+      ScrapMetal_2: -7155229428140729868
+      ScrapMetal_20: -8717328292498271092
+      ScrapMetal_21: 6819520006176938842
+      ScrapMetal_22: -5624211440918462105
+      ScrapMetal_23: -4409096487873483327
+      ScrapMetal_24: -7071714511476277526
+      ScrapMetal_25: 7676403621812827399
+      ScrapMetal_26: -6063343536827012242
+      ScrapMetal_27: -3956745761721822234
+      ScrapMetal_28: -722381324491987595
+      ScrapMetal_29: 2141218764775371497
+      ScrapMetal_3: -123544869641507999
+      ScrapMetal_30: -8640789858789954898
+      ScrapMetal_4: -7718692658133262296
+      ScrapMetal_5: -8108721878876331090
+      ScrapMetal_6: 3988364241297320676
+      ScrapMetal_7: 8485200134108974310
+      ScrapMetal_8: 4148737278717628166
+      ScrapMetal_9: 131002193220110167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

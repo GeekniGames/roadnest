@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 8221efc2a63cdd64c92652f4284919e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7181488888117965067
+    second: PurificationTablet_0
+  - first:
+      213: -500368790013578465
+    second: PurificationTablet_1
+  - first:
+      213: 3988955798366032101
+    second: PurificationTablet_2
+  - first:
+      213: -2961353891391834305
+    second: PurificationTablet_3
+  - first:
+      213: -434731446565269721
+    second: PurificationTablet_4
+  - first:
+      213: 3800568404291278333
+    second: PurificationTablet_5
+  - first:
+      213: 6723467098552937869
+    second: PurificationTablet_6
+  - first:
+      213: 6180459410352436226
+    second: PurificationTablet_7
+  - first:
+      213: -6949966704797461720
+    second: PurificationTablet_8
+  - first:
+      213: 3470168928998857081
+    second: PurificationTablet_9
+  - first:
+      213: 8536448999526730165
+    second: PurificationTablet_10
+  - first:
+      213: -937866814122118282
+    second: PurificationTablet_11
+  - first:
+      213: -4550690617806913442
+    second: PurificationTablet_12
+  - first:
+      213: 8567801380755457156
+    second: PurificationTablet_13
+  - first:
+      213: -5248394781015240720
+    second: PurificationTablet_14
+  - first:
+      213: 7799871547075700211
+    second: PurificationTablet_15
+  - first:
+      213: 7327599862719248227
+    second: PurificationTablet_16
+  - first:
+      213: 1204396553204122474
+    second: PurificationTablet_17
+  - first:
+      213: 1975025690725544480
+    second: PurificationTablet_18
+  - first:
+      213: -8550625940548811290
+    second: PurificationTablet_19
+  - first:
+      213: 7931874773966531985
+    second: PurificationTablet_20
+  - first:
+      213: -36286123426110460
+    second: PurificationTablet_21
+  - first:
+      213: 3195437531195832373
+    second: PurificationTablet_22
+  - first:
+      213: 8130316053489105015
+    second: PurificationTablet_23
+  - first:
+      213: -3012562435100750533
+    second: PurificationTablet_24
+  - first:
+      213: 7843171102894614438
+    second: PurificationTablet_25
+  - first:
+      213: 4834849718323307951
+    second: PurificationTablet_26
+  - first:
+      213: 3099961330155752587
+    second: PurificationTablet_27
+  - first:
+      213: 7846583126816382846
+    second: PurificationTablet_28
+  - first:
+      213: -476588169079748531
+    second: PurificationTablet_29
+  - first:
+      213: 345710903036900709
+    second: PurificationTablet_30
+  - first:
+      213: -8306039367641496558
+    second: PurificationTablet_31
+  - first:
+      213: -1922232206190312128
+    second: PurificationTablet_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PurificationTablet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1243
+        height: 1219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe4059c7e9365c90800000000000000
+      internalID: -7181488888117965067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 954
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f137c8e8c355e09f0800000000000000
+      internalID: -500368790013578465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 859
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0975a0a2e9b5730800000000000000
+      internalID: 3988955798366032101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 778
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f377e51635827e6d0800000000000000
+      internalID: -2961353891391834305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 690
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f09ca7d0687f9f0800000000000000
+      internalID: -434731446565269721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 681
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5da52d3d45eb430800000000000000
+      internalID: 3800568404291278333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_6
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 693
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d264424bd8e4d50800000000000000
+      internalID: 6723467098552937869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 664
+        width: 61
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204f6c6961765c550800000000000000
+      internalID: 6180459410352436226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_8
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 628
+        width: 78
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82351cfba12cc8f90800000000000000
+      internalID: -6949966704797461720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_9
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 617
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97913935144882030800000000000000
+      internalID: 3470168928998857081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_10
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 512
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b98704132f877670800000000000000
+      internalID: 8536448999526730165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 463
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 673bf910a170cf2f0800000000000000
+      internalID: -937866814122118282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_12
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 380
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e508ae26ef2b8d0c0800000000000000
+      internalID: -4550690617806913442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_13
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 385
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484c70e26f1f6e670800000000000000
+      internalID: 8567801380755457156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 371
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff829cf0c4f927b0800000000000000
+      internalID: -5248394781015240720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 339
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f5af19b8d5be3c60800000000000000
+      internalID: 7799871547075700211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_16
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 245
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 367f499704dd0b560800000000000000
+      internalID: 7327599862719248227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_17
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 216
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63cf62b840e6b010800000000000000
+      internalID: 1204396553204122474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 152
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02277fdc663b86b10800000000000000
+      internalID: 1975025690725544480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_19
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 79
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e5095e9203165980800000000000000
+      internalID: -8550625940548811290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_20
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 128
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d2821051ea31e60800000000000000
+      internalID: 7931874773966531985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_21
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 77
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40429e686f51f7ff0800000000000000
+      internalID: -36286123426110460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_22
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 57
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 538f0e42189785c20800000000000000
+      internalID: 3195437531195832373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_23
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 49
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778bfd7df5fa4d070800000000000000
+      internalID: 8130316053489105015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_24
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 81
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d42203d6a3136d0800000000000000
+      internalID: -3012562435100750533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_25
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 66
+        width: 62
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a764ac209a88dc60800000000000000
+      internalID: 7843171102894614438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_26
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 45
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5ee03e336d81340800000000000000
+      internalID: 4834849718323307951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_27
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 67
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c816dc766450b20800000000000000
+      internalID: 3099961330155752587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_28
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 55
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7fd676e7c9a4ec60800000000000000
+      internalID: 7846583126816382846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_29
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 56
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4809d5d591d269f0800000000000000
+      internalID: -476588169079748531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_30
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 37
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5657e721c363cc400800000000000000
+      internalID: 345710903036900709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_31
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 0
+        width: 52
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2148151d3350bbc80800000000000000
+      internalID: -8306039367641496558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurificationTablet_32
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 15
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045063e2efbd255e0800000000000000
+      internalID: -1922232206190312128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PurificationTablet_0: -7181488888117965067
+      PurificationTablet_1: -500368790013578465
+      PurificationTablet_10: 8536448999526730165
+      PurificationTablet_11: -937866814122118282
+      PurificationTablet_12: -4550690617806913442
+      PurificationTablet_13: 8567801380755457156
+      PurificationTablet_14: -5248394781015240720
+      PurificationTablet_15: 7799871547075700211
+      PurificationTablet_16: 7327599862719248227
+      PurificationTablet_17: 1204396553204122474
+      PurificationTablet_18: 1975025690725544480
+      PurificationTablet_19: -8550625940548811290
+      PurificationTablet_2: 3988955798366032101
+      PurificationTablet_20: 7931874773966531985
+      PurificationTablet_21: -36286123426110460
+      PurificationTablet_22: 3195437531195832373
+      PurificationTablet_23: 8130316053489105015
+      PurificationTablet_24: -3012562435100750533
+      PurificationTablet_25: 7843171102894614438
+      PurificationTablet_26: 4834849718323307951
+      PurificationTablet_27: 3099961330155752587
+      PurificationTablet_28: 7846583126816382846
+      PurificationTablet_29: -476588169079748531
+      PurificationTablet_3: -2961353891391834305
+      PurificationTablet_30: 345710903036900709
+      PurificationTablet_31: -8306039367641496558
+      PurificationTablet_32: -1922232206190312128
+      PurificationTablet_4: -434731446565269721
+      PurificationTablet_5: 3800568404291278333
+      PurificationTablet_6: 6723467098552937869
+      PurificationTablet_7: 6180459410352436226
+      PurificationTablet_8: -6949966704797461720
+      PurificationTablet_9: 3470168928998857081
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

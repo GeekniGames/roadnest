@@ -56,27 +56,30 @@ namespace Roadnest.Core
             if (AliveCount == 0) End(EndReason.AllDead);
         }
 
-        // 반환: 자원은 실제 적용량, 내구도/HP는 계획값 / returns applied amount for resources, planned amount otherwise
+        // 반환: 인벤토리 값은 실제 적용량, 내구도/HP는 계획값 / returns applied amount for stored values, planned amount otherwise
         public int Apply(Effect e)
         {
-            if (e.Stat <= StatType.Water) return Resources.Add((ResourceType)(int)e.Stat, e.Amount);
+            if (StatMap.IsStored(e.Stat)) return ApplyStored(StatMap.ToKind(e.Stat), e.Amount);
             if (e.Stat == StatType.Durability) ApplyDurability(e.Amount);
             else ApplyHpAll(e.Amount);
             return e.Amount;
         }
+
+        int ApplyStored(ItemKind kind, int amount)
+            => amount >= 0 ? Inventory.Add(kind, amount) : -Inventory.Remove(kind, -amount);
 
         public void Apply(Effect[] effects)
         {
             for (int i = 0; i < effects.Length; i++) Apply(effects[i]);
         }
 
-        // 비용을 낼 수 있는가. 자원만 부족 판정 / can the cost be paid; only resources can run short
+        // 비용을 낼 수 있는가. 인벤토리 값만 부족 판정 / can the cost be paid; only stored values can run short
         public bool CanPay(Effect[] cost)
         {
             for (int i = 0; i < cost.Length; i++)
             {
                 Effect c = cost[i];
-                if (c.Stat <= StatType.Water && Resources.Get((ResourceType)(int)c.Stat) + c.Amount < 0)
+                if (StatMap.IsStored(c.Stat) && Inventory.Get(StatMap.ToKind(c.Stat)) + c.Amount < 0)
                     return false;
             }
             return true;
@@ -94,7 +97,7 @@ namespace Roadnest.Core
         // hp_all은 조건에 쓸 수 없고 EventTable이 검증한다 / hp_all is rejected in requirements by EventTable
         public int GetStat(StatType stat)
         {
-            if (stat <= StatType.Water) return Resources.Get((ResourceType)(int)stat);
+            if (StatMap.IsStored(stat)) return Inventory.Get(StatMap.ToKind(stat));
             return stat == StatType.Durability ? Durability : 0;
         }
 

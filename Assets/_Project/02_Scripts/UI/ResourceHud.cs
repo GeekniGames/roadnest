@@ -20,8 +20,7 @@ public class ResourceHud : MonoBehaviour
     [Header("칸 / Cells (Item_0 ~)")]
     [SerializeField] Cell[] cells;
 
-    // ItemKind 순서: 연료, 식량, 물, 공구, 하급 키트, 상급 키트 / ItemKind order
-    [SerializeField] Sprite[] kindIcons = new Sprite[Inventory.KindCount];
+    [SerializeField] ItemIcons itemIcons;
 
     [Header("연출 / Feedback")]
     [SerializeField] float punchScale = 0.25f;
@@ -59,10 +58,6 @@ public class ResourceHud : MonoBehaviour
             _baseColor[i] = cells[i].count.color;
             _punch[i] = cells[i].icon.transform.localScale * punchScale;
         }
-#if UNITY_EDITOR
-        if (kindIcons.Length < Inventory.KindCount)
-            Debug.LogError("kindIcons가 종류 수보다 적음 / kindIcons fewer than kinds: " + Inventory.KindCount, this);
-#endif
     }
 
     public void Bind(Inventory inv)
@@ -104,9 +99,8 @@ public class ResourceHud : MonoBehaviour
         if (_view == null) return;
         for (int i = 0; i < cost.Length; i++)
         {
-            int s = (int)cost[i].Stat;
-            if (s >= ResourceStore.Count || cost[i].Amount >= 0) continue;   // 자원이 아닌 비용은 칸이 없음 / non-resource costs have no cell
-            _view.Remove((ItemKind)s, -cost[i].Amount);
+            if (!StatMap.IsStored(cost[i].Stat) || cost[i].Amount >= 0) continue;   // 인벤토리에 없는 비용은 칸이 없음 / costs outside the inventory have no cell
+            _view.Remove(StatMap.ToKind(cost[i].Stat), -cost[i].Amount);
         }
         Render(true);
     }
@@ -160,7 +154,7 @@ public class ResourceHud : MonoBehaviour
             }
             if (kind != oldKind)
             {
-                Sprite sp = kindIcons[kind];
+                Sprite sp = itemIcons != null ? itemIcons.Get(kind) : null;
                 c.icon.sprite = sp;
                 c.icon.enabled = sp != null;
             }

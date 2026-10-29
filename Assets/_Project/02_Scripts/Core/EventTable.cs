@@ -405,18 +405,7 @@ namespace Roadnest.Core
             return Enum.TryParse(s, true, out value) && Enum.IsDefined(typeof(T), value);
         }
 
-        static bool TryParseStat(string s, out StatType stat)
-        {
-            switch (s)
-            {
-                case "fuel": stat = StatType.Fuel; return true;
-                case "food": stat = StatType.Food; return true;
-                case "water": stat = StatType.Water; return true;
-                case "durability": stat = StatType.Durability; return true;
-                case "hp_all": stat = StatType.HpAll; return true;
-                default: stat = StatType.Fuel; return false;
-            }
-        }
+        static bool TryParseStat(string s, out StatType stat) => StatMap.TryParse(s, out stat);
 
         static bool TryParseOp(string s, out CompareOp op)
         {

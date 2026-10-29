@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 167adf91ee2da4e47acc1edd8590f52f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5810710880154435840
+    second: FirstAid_0
+  - first:
+      213: -8344123524974528030
+    second: FirstAid_1
+  - first:
+      213: 3639493485805320902
+    second: FirstAid_2
+  - first:
+      213: -3313859312036790499
+    second: FirstAid_3
+  - first:
+      213: -7421970125512113221
+    second: FirstAid_4
+  - first:
+      213: 5250772651316251317
+    second: FirstAid_5
+  - first:
+      213: 8258200993033188858
+    second: FirstAid_6
+  - first:
+      213: 5255081378944150489
+    second: FirstAid_7
+  - first:
+      213: 9058528855318349944
+    second: FirstAid_8
+  - first:
+      213: 1699977475449589528
+    second: FirstAid_9
+  - first:
+      213: 6814483180266178955
+    second: FirstAid_10
+  - first:
+      213: -7373306496323592388
+    second: FirstAid_11
+  - first:
+      213: -1511639193703617311
+    second: FirstAid_12
+  - first:
+      213: 6970282722553318171
+    second: FirstAid_13
+  - first:
+      213: -1465712023358367852
+    second: FirstAid_14
+  - first:
+      213: 4713471872936401986
+    second: FirstAid_15
+  - first:
+      213: -8446225940642438928
+    second: FirstAid_16
+  - first:
+      213: 8279602014684432428
+    second: FirstAid_17
+  - first:
+      213: 8120980860021842504
+    second: FirstAid_18
+  - first:
+      213: 5733432253628969957
+    second: FirstAid_19
+  - first:
+      213: -5788539848734182229
+    second: FirstAid_20
+  - first:
+      213: -4740750820320109551
+    second: FirstAid_21
+  - first:
+      213: 5397827091331161403
+    second: FirstAid_22
+  - first:
+      213: 809074129378408329
+    second: FirstAid_23
+  - first:
+      213: -8712344370606517252
+    second: FirstAid_24
+  - first:
+      213: -3200146486088110063
+    second: FirstAid_25
+  - first:
+      213: 6098052553934227725
+    second: FirstAid_26
+  - first:
+      213: -7551151812943373223
+    second: FirstAid_27
+  - first:
+      213: -414163155520356130
+    second: FirstAid_28
+  - first:
+      213: 5158499494744851249
+    second: FirstAid_29
+  - first:
+      213: -6038873018888883119
+    second: FirstAid_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FirstAid_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 1185
+        height: 1222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fb5efad353c5fa0800000000000000
+      internalID: -5810710880154435840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_1
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 859
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9b9e3fcd7b33c80800000000000000
+      internalID: -8344123524974528030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_2
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 811
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca36cfda04128230800000000000000
+      internalID: 3639493485805320902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_3
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 807
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f3d66638ec202d0800000000000000
+      internalID: -3313859312036790499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_4
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 787
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb30a4f7e7ddff890800000000000000
+      internalID: -7421970125512113221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 657
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba8a0618ed7ed840800000000000000
+      internalID: 5250772651316251317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_6
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 696
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af57581ac060b9270800000000000000
+      internalID: 8258200993033188858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_7
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 683
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db6cb9ebaccde840800000000000000
+      internalID: 5255081378944150489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_8
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 608
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87840e0fffb56bd70800000000000000
+      internalID: 9058528855318349944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_9
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 601
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f865ec188879710800000000000000
+      internalID: 1699977475449589528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_10
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 585
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89c3a70958e19e50800000000000000
+      internalID: 6814483180266178955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_11
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 568
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f5d8a9ec0cca990800000000000000
+      internalID: -7373306496323592388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_12
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 556
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ececbe8924950be0800000000000000
+      internalID: -1511639193703617311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_13
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 553
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b45ddb43b6bb060800000000000000
+      internalID: 6970282722553318171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_14
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 521
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49794b03eaeb8abe0800000000000000
+      internalID: -1465712023358367852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_15
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 521
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c5b2502bd996140800000000000000
+      internalID: 4713471872936401986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_16
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 483
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0615bc14af8ca80800000000000000
+      internalID: -8446225940642438928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_17
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 414
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28cfd64a2e07e270800000000000000
+      internalID: 8279602014684432428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_18
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 406
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842295db01583b070800000000000000
+      internalID: 8120980860021842504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_19
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 407
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e37255f14e319f40800000000000000
+      internalID: 5733432253628969957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_20
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 393
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba471043da9faafa0800000000000000
+      internalID: -5788539848734182229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_21
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 393
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c9d2a1f38753eb0800000000000000
+      internalID: -4740750820320109551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_22
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 381
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d16c1042fe8ea40800000000000000
+      internalID: 5397827091331161403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 310
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987fe8e42a86a3b00800000000000000
+      internalID: 809074129378408329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_24
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 311
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3df1574f8871780800000000000000
+      internalID: -8712344370606517252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_25
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 246
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110f08bd9bbc693d0800000000000000
+      internalID: -3200146486088110063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 232
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09c9ea2d72a0a450800000000000000
+      internalID: 6098052553934227725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_27
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 222
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c96701f6be43790800000000000000
+      internalID: -7551151812943373223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_28
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 200
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0872cedc8904af0800000000000000
+      internalID: -414163155520356130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_29
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 15
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1338c46a5fba69740800000000000000
+      internalID: 5158499494744851249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstAid_30
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 0
+        width: 37
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154ff611cfc913ca0800000000000000
+      internalID: -6038873018888883119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FirstAid_0: -5810710880154435840
+      FirstAid_1: -8344123524974528030
+      FirstAid_10: 6814483180266178955
+      FirstAid_11: -7373306496323592388
+      FirstAid_12: -1511639193703617311
+      FirstAid_13: 6970282722553318171
+      FirstAid_14: -1465712023358367852
+      FirstAid_15: 4713471872936401986
+      FirstAid_16: -8446225940642438928
+      FirstAid_17: 8279602014684432428
+      FirstAid_18: 8120980860021842504
+      FirstAid_19: 5733432253628969957
+      FirstAid_2: 3639493485805320902
+      FirstAid_20: -5788539848734182229
+      FirstAid_21: -4740750820320109551
+      FirstAid_22: 5397827091331161403
+      FirstAid_23: 809074129378408329
+      FirstAid_24: -8712344370606517252
+      FirstAid_25: -3200146486088110063
+      FirstAid_26: 6098052553934227725
+      FirstAid_27: -7551151812943373223
+      FirstAid_28: -414163155520356130
+      FirstAid_29: 5158499494744851249
+      FirstAid_3: -3313859312036790499
+      FirstAid_30: -6038873018888883119
+      FirstAid_4: -7421970125512113221
+      FirstAid_5: 5250772651316251317
+      FirstAid_6: 8258200993033188858
+      FirstAid_7: 5255081378944150489
+      FirstAid_8: 9058528855318349944
+      FirstAid_9: 1699977475449589528
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

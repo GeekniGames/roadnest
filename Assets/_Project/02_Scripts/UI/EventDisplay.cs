@@ -19,9 +19,23 @@ public class EventDisplay
         public Sprite sprite;
     }
 
-    // 순서: 연료, 식량, 물, 내구도, HP (StatType 순서) / order matches StatType
+    // 앞 5개: 연료, 식량, 물, 내구도, HP. 아이템 아이콘은 itemIcons에서 가져온다
+    // First 5: fuel, food, water, durability, HP. Item icons come from itemIcons
     public Sprite[] statIcons;
-    public string[] statNames = { "연료", "식량", "물", "내구도", "HP" };
+    public ItemIcons itemIcons;
+
+    static readonly string[] DefaultNames =
+    {
+    "연료", "식량", "물", "내구도", "HP",
+    "공구", "하급 수리키트", "상급 수리키트",
+    "붕대", "구급약", "의료 키트",
+    "빠루", "도끼", "삽", "절단기", "손전등", "밧줄",
+    "나무 조각", "철판", "기계 부품", "고철",
+    "천 조각", "알코올",
+    "정수 알약", "조명탄", "연막탄", "무전기", "지도 조각",
+    "총", "소화기", "쌍안경", "확성기"
+};
+    public string[] statNames = (string[])DefaultNames.Clone();
     public string noCostLabel = "비용 없음 / No cost";
     public string noChangeLabel = "변화 없음 / No change";
     [Range(0f, 1f)] public float lockedAlpha = 0.4f;
@@ -38,6 +52,16 @@ public class EventDisplay
     // 서식과 조회표를 미리 만들어 두어 표시할 때 할당이 없다 / prebuild formats and the lookup so showing allocates nothing
     public void Build()
     {
+        // 저장된 이름이 모자라면 기본 이름으로 채운다 / fill missing names with defaults
+        if (statNames == null || statNames.Length < DefaultNames.Length)
+        {
+            var names = new string[DefaultNames.Length];
+            for (int i = 0; i < names.Length; i++)
+                names[i] = statNames != null && i < statNames.Length && !string.IsNullOrEmpty(statNames[i])
+                    ? statNames[i] : DefaultNames[i];
+            statNames = names;
+        }
+
         int n = statNames.Length;
         _posFmt = new string[n];
         _negFmt = new string[n];
@@ -65,7 +89,16 @@ public class EventDisplay
         }
     }
 
-    public Sprite Icon(int stat) => statIcons != null && stat < statIcons.Length ? statIcons[stat] : null;
+    public Sprite Icon(int stat)
+    {
+        var st = (StatType)stat;
+        if (itemIcons != null && StatMap.IsStored(st))
+        {
+            Sprite s = itemIcons.Get((int)StatMap.ToKind(st));
+            if (s != null) return s;
+        }
+        return statIcons != null && stat < statIcons.Length ? statIcons[stat] : null;
+    }
 
     public void SetEffect(Image icon, TMP_Text value, Effect e)
     {

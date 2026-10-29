@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: b3655996f056ce4469a4d6babed05762
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1162017668502996798
+    second: MedicalKit_0
+  - first:
+      213: 5681442053535068083
+    second: MedicalKit_1
+  - first:
+      213: 7779375295679920085
+    second: MedicalKit_2
+  - first:
+      213: -7780125669429219545
+    second: MedicalKit_3
+  - first:
+      213: -2958009573174126928
+    second: MedicalKit_4
+  - first:
+      213: 1743021023639023183
+    second: MedicalKit_5
+  - first:
+      213: 3042881071461358027
+    second: MedicalKit_6
+  - first:
+      213: 8083811597863666703
+    second: MedicalKit_7
+  - first:
+      213: 5793254712954632942
+    second: MedicalKit_8
+  - first:
+      213: -7151016606600009322
+    second: MedicalKit_9
+  - first:
+      213: -2138926526154911386
+    second: MedicalKit_10
+  - first:
+      213: 7823247367284434882
+    second: MedicalKit_11
+  - first:
+      213: -1275864184958213382
+    second: MedicalKit_12
+  - first:
+      213: 3521077022094156947
+    second: MedicalKit_13
+  - first:
+      213: -7497076580150337617
+    second: MedicalKit_14
+  - first:
+      213: -6098583828185929508
+    second: MedicalKit_15
+  - first:
+      213: -4724303102891955305
+    second: MedicalKit_16
+  - first:
+      213: 7825574598054368424
+    second: MedicalKit_17
+  - first:
+      213: -2337859024839925364
+    second: MedicalKit_18
+  - first:
+      213: -8603453510784155581
+    second: MedicalKit_19
+  - first:
+      213: -3934447392172532461
+    second: MedicalKit_20
+  - first:
+      213: 5108935830534795372
+    second: MedicalKit_21
+  - first:
+      213: -536356366997393869
+    second: MedicalKit_22
+  - first:
+      213: -4003066267685883582
+    second: MedicalKit_23
+  - first:
+      213: -2560502332540462210
+    second: MedicalKit_24
+  - first:
+      213: -4515176981108923827
+    second: MedicalKit_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MedicalKit_0
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1148
+        width: 190
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c8b62e461fafdfe0800000000000000
+      internalID: -1162017668502996798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_1
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 1173
+        width: 51
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf6ce4327988de40800000000000000
+      internalID: 5681442053535068083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_2
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 1164
+        width: 67
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d773715d94e5fb60800000000000000
+      internalID: 7779375295679920085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_3
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 1189
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fe5cdace0770490800000000000000
+      internalID: -7780125669429219545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_4
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1156
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b650c427f903f6d0800000000000000
+      internalID: -2958009573174126928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_5
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1150
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4eaa06d264703810800000000000000
+      internalID: 1743021023639023183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_6
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1130
+        width: 62
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9d63e663c7a3a20800000000000000
+      internalID: 3042881071461358027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_7
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 15
+        width: 1203
+        height: 1135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04c8d181d77f2070800000000000000
+      internalID: 8083811597863666703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_8
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 1125
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeab40ba776c56050800000000000000
+      internalID: 5793254712954632942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_9
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1121
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699efa4b84c72cc90800000000000000
+      internalID: -7151016606600009322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_10
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 982
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66150ef28a10152e0800000000000000
+      internalID: -2138926526154911386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 5
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7affcf702c19c60800000000000000
+      internalID: 7823247367284434882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_12
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 79
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af22ce998483b4ee0800000000000000
+      internalID: -1275864184958213382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_13
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 95
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39466b865e06dd030800000000000000
+      internalID: 3521077022094156947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_14
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 79
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf1d32529805f790800000000000000
+      internalID: -7497076580150337617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_15
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 23
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd82908e15a7d5ba0800000000000000
+      internalID: -6098583828185929508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_16
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 47
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b69dcbb57ef6eb0800000000000000
+      internalID: -4724303102891955305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_17
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 63
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4d950a2a60a9c60800000000000000
+      internalID: 7825574598054368424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_18
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 67
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81a9797a914e8fd0800000000000000
+      internalID: -2337859024839925364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_19
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 63
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3408f107d946a9880800000000000000
+      internalID: -8603453510784155581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_20
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 44
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d181241f80669c0800000000000000
+      internalID: -3934447392172532461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_21
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 29
+        width: 38
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60ba4fc11696e640800000000000000
+      internalID: 5108935830534795372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_22
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 37
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ee918d9ba7e88f0800000000000000
+      internalID: -536356366997393869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_23
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 29
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241fb3e40704278c0800000000000000
+      internalID: -4003066267685883582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_24
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 13
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bdd56d1b4477cd0800000000000000
+      internalID: -2560502332540462210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MedicalKit_25
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 7
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d426bf6457ed651c0800000000000000
+      internalID: -4515176981108923827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MedicalKit_0: -1162017668502996798
+      MedicalKit_1: 5681442053535068083
+      MedicalKit_10: -2138926526154911386
+      MedicalKit_11: 7823247367284434882
+      MedicalKit_12: -1275864184958213382
+      MedicalKit_13: 3521077022094156947
+      MedicalKit_14: -7497076580150337617
+      MedicalKit_15: -6098583828185929508
+      MedicalKit_16: -4724303102891955305
+      MedicalKit_17: 7825574598054368424
+      MedicalKit_18: -2337859024839925364
+      MedicalKit_19: -8603453510784155581
+      MedicalKit_2: 7779375295679920085
+      MedicalKit_20: -3934447392172532461
+      MedicalKit_21: 5108935830534795372
+      MedicalKit_22: -536356366997393869
+      MedicalKit_23: -4003066267685883582
+      MedicalKit_24: -2560502332540462210
+      MedicalKit_25: -4515176981108923827
+      MedicalKit_3: -7780125669429219545
+      MedicalKit_4: -2958009573174126928
+      MedicalKit_5: 1743021023639023183
+      MedicalKit_6: 3042881071461358027
+      MedicalKit_7: 8083811597863666703
+      MedicalKit_8: 5793254712954632942
+      MedicalKit_9: -7151016606600009322
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

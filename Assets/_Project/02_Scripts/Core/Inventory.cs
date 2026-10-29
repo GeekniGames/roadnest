@@ -2,9 +2,19 @@ using System;
 
 namespace Roadnest.Core
 {
-    // 인벤토리에 들어가는 모든 종류. 앞 3개는 ResourceType, 뒤 3개는 ItemType과 같은 순서
-    // Every kind the inventory holds. First 3 match ResourceType, last 3 match ItemType
-    public enum ItemKind : byte { Fuel, Food, Water, RepairTool, RepairKitLow, RepairKitHigh }
+    // 인벤토리에 들어가는 모든 종류. ITEMS.md 번호 순서이며 StatType의 아이템 부분과 같은 순서
+    // Every kind the inventory holds. ITEMS.md order, matching the item part of StatType
+    public enum ItemKind : byte
+    {
+        Fuel, Food, Water,
+        RepairTool, RepairKitLow, RepairKitHigh,
+        Bandage, FirstAid, MedicalKit,
+        Crowbar, Axe, Shovel, BoltCutter, Flashlight, Rope,
+        WoodScrap, SteelPlate, MachinePart, ScrapMetal,
+        ClothScrap, Alcohol,
+        PurificationTablet, Flare, SmokeGrenade, Radio, MapFragment,
+        Gun, FireExtinguisher, Binoculars, Megaphone
+    }
 
     /// <summary>
     /// 칸 단위 보관함. 칸마다 (종류, 개수)를 갖고, 비면 사라지며 뒤 칸이 당겨진다. Unity 의존 없음.
@@ -12,7 +22,7 @@ namespace Roadnest.Core
     /// </summary>
     public sealed class Inventory
     {
-        public const int KindCount = 6;
+        public const int KindCount = 30;
         public const int MaxSlots = 30;         // 업그레이드 상한 / upgrade ceiling
         public const int ItemKindOffset = 3;    // ItemType -> ItemKind
 

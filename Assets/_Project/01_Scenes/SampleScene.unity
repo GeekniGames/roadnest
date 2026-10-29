@@ -16791,6 +16791,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 0921647c504ac4d4b9b223cf7c7b1c01, type: 3}
     - {fileID: 21300000, guid: 9126dcfff45d7c24596f3f827cc0e8b5, type: 3}
     - {fileID: 21300000, guid: ffe9f58bf05a2e94d8c632e73fbefe16, type: 3}
+    itemIcons: {fileID: 11400000, guid: 6befbd176566f1b4dace54750472096d, type: 2}
     statNames:
     - "\uC5F0\uB8CC"
     - "\uC2DD\uB7C9"
@@ -22787,13 +22788,7 @@ MonoBehaviour:
     count: {fileID: 1467554918}
   - icon: {fileID: 474356546}
     count: {fileID: 9888953}
-  kindIcons:
-  - {fileID: 21300000, guid: 7ad38f26354604046a65776dfe8efe19, type: 3}
-  - {fileID: 21300000, guid: d514dd19a2264e845a50fc7bddaab180, type: 3}
-  - {fileID: 21300000, guid: 0921647c504ac4d4b9b223cf7c7b1c01, type: 3}
-  - {fileID: 21300000, guid: 9126dcfff45d7c24596f3f827cc0e8b5, type: 3}
-  - {fileID: 21300000, guid: d9e4bd578a258674d971b04b87e0a620, type: 3}
-  - {fileID: 21300000, guid: 9f743ea0107051641bbbc7e54fc455e0, type: 3}
+  itemIcons: {fileID: 11400000, guid: 6befbd176566f1b4dace54750472096d, type: 2}
   punchScale: 0.25
   punchTime: 0.2
   flashTime: 0.35

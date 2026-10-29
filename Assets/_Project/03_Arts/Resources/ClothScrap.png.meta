@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 40dd54d280f580a44b48910eb9ccde8e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -867896513601903668
+    second: ClothScrap_0
+  - first:
+      213: 5321123203484801663
+    second: ClothScrap_1
+  - first:
+      213: 8195816603207458478
+    second: ClothScrap_2
+  - first:
+      213: 6614862129570344888
+    second: ClothScrap_3
+  - first:
+      213: -6105232020732272364
+    second: ClothScrap_4
+  - first:
+      213: -5823119714973973654
+    second: ClothScrap_5
+  - first:
+      213: -7118418415532876681
+    second: ClothScrap_6
+  - first:
+      213: -2418787722565585814
+    second: ClothScrap_7
+  - first:
+      213: -1682986905554258963
+    second: ClothScrap_8
+  - first:
+      213: 6433920646998146276
+    second: ClothScrap_9
+  - first:
+      213: 3079863788744111406
+    second: ClothScrap_10
+  - first:
+      213: 7817810011255740459
+    second: ClothScrap_11
+  - first:
+      213: -2739267499648553814
+    second: ClothScrap_12
+  - first:
+      213: 7570558793638324731
+    second: ClothScrap_13
+  - first:
+      213: 4349581473731143488
+    second: ClothScrap_14
+  - first:
+      213: 2391032996427746000
+    second: ClothScrap_15
+  - first:
+      213: 7925114584140504604
+    second: ClothScrap_16
+  - first:
+      213: 6844257660146715683
+    second: ClothScrap_17
+  - first:
+      213: 8879066920548934865
+    second: ClothScrap_18
+  - first:
+      213: 7088556120382359662
+    second: ClothScrap_19
+  - first:
+      213: 2978241243939302991
+    second: ClothScrap_20
+  - first:
+      213: 1110261337141902145
+    second: ClothScrap_21
+  - first:
+      213: -4835963066700453473
+    second: ClothScrap_22
+  - first:
+      213: 6474940101828502828
+    second: ClothScrap_23
+  - first:
+      213: 7119990140734438033
+    second: ClothScrap_24
+  - first:
+      213: -2954791189518433952
+    second: ClothScrap_25
+  - first:
+      213: 4604037461494741640
+    second: ClothScrap_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ClothScrap_0
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1148
+        width: 44
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc365fc18bc94f3f0800000000000000
+      internalID: -867896513601903668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_1
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1227
+        width: 78
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7adccd6c5d68d940800000000000000
+      internalID: 5321123203484801663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_2
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1227
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaedd6ef6c36db170800000000000000
+      internalID: 8195816603207458478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_3
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1175
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf693f4f06bccb50800000000000000
+      internalID: 6614862129570344888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1185
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411a9e4f2dbd54ba0800000000000000
+      internalID: -6105232020732272364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_5
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1198
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a630760b87f103fa0800000000000000
+      internalID: -5823119714973973654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_6
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 1148
+        width: 63
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c50938a2c463d90800000000000000
+      internalID: -7118418415532876681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_7
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1102
+        width: 142
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64f661b16dbe6ed0800000000000000
+      internalID: -2418787722565585814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_8
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1126
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de3fdc48354d4a8e0800000000000000
+      internalID: -1682986905554258963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_9
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1139
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec30657db0e94950800000000000000
+      internalID: 6433920646998146276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_10
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1158
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e257eac4ccfddba20800000000000000
+      internalID: 3079863788744111406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1124
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b281462e8c07e7c60800000000000000
+      internalID: 7817810011255740459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_12
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 1102
+        width: 70
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aacecaae8ba2cf9d0800000000000000
+      internalID: -2739267499648553814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_13
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 1221
+        height: 1098
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9a50ebc17001960800000000000000
+      internalID: 7570558793638324731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_14
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1068
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0476d572e41dc5c30800000000000000
+      internalID: 4349581473731143488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 119
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da405e87d7ae2120800000000000000
+      internalID: 2391032996427746000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_16
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 97
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e56f7a9b9abfd60800000000000000
+      internalID: 7925114584140504604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_17
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 91
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c8a485410bbfe50800000000000000
+      internalID: 6844257660146715683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_18
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 87
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4ad382258c83b70800000000000000
+      internalID: 8879066920548934865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_19
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 85
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68cfc51c3c9f5260800000000000000
+      internalID: 7088556120382359662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_20
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 73
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e6b68c1a6d45920800000000000000
+      internalID: 2978241243939302991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_21
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 71
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b7130cdc0786f00800000000000000
+      internalID: 1110261337141902145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_22
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 61
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f99296e763533ecb0800000000000000
+      internalID: -4835963066700453473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_23
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 73
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c256b6787bb9bd950800000000000000
+      internalID: 6474940101828502828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_24
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 63
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a72c64f494fc260800000000000000
+      internalID: 7119990140734438033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_25
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 31
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061cc4b71197ef6d0800000000000000
+      internalID: -2954791189518433952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClothScrap_26
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 0
+        width: 46
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a3cf09da3d4ef30800000000000000
+      internalID: 4604037461494741640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ClothScrap_0: -867896513601903668
+      ClothScrap_1: 5321123203484801663
+      ClothScrap_10: 3079863788744111406
+      ClothScrap_11: 7817810011255740459
+      ClothScrap_12: -2739267499648553814
+      ClothScrap_13: 7570558793638324731
+      ClothScrap_14: 4349581473731143488
+      ClothScrap_15: 2391032996427746000
+      ClothScrap_16: 7925114584140504604
+      ClothScrap_17: 6844257660146715683
+      ClothScrap_18: 8879066920548934865
+      ClothScrap_19: 7088556120382359662
+      ClothScrap_2: 8195816603207458478
+      ClothScrap_20: 2978241243939302991
+      ClothScrap_21: 1110261337141902145
+      ClothScrap_22: -4835963066700453473
+      ClothScrap_23: 6474940101828502828
+      ClothScrap_24: 7119990140734438033
+      ClothScrap_25: -2954791189518433952
+      ClothScrap_26: 4604037461494741640
+      ClothScrap_3: 6614862129570344888
+      ClothScrap_4: -6105232020732272364
+      ClothScrap_5: -5823119714973973654
+      ClothScrap_6: -7118418415532876681
+      ClothScrap_7: -2418787722565585814
+      ClothScrap_8: -1682986905554258963
+      ClothScrap_9: 6433920646998146276
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
