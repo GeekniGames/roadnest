@@ -36,10 +36,10 @@ namespace Roadnest.Core
             RecountAlive();
         }
 
-        // 임시 시작 캐릭터 1명. 나중에 데이터로 교체 / temporary single starting character, to be data-driven later
+        // 임시 시작 캐릭터: 웨이드. 선택 화면이 생기면 데이터로 교체 / temporary starting character: Wade, to be data-driven once the selection screen exists
         public static RunState CreateDefault(RunRules rules)
         {
-            var chars = new[] { new CharacterState("char_mechanic", "mechanic", rules.MaxCharacterHp) };
+            var chars = new[] { new CharacterState("char_wade", null, rules.MaxCharacterHp) };
             return new RunState(rules, chars);
         }
 
