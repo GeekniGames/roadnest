@@ -32,9 +32,9 @@ Unity 6 / 2D URP / 세로 화면(1080x1920) / 픽셀 아트.
   - `ResourceStore`, `ItemStore`는 이 인벤토리를 읽고 쓰는 창구입니다.
 
 **데이터 주도 이벤트**
-- 이벤트는 `events.json`에 정의하고, 로드 시점에 전부 검증합니다(선택지 수, 확률 합, 비용 중복, 폴백 이벤트 등). 잘못된 데이터는 한/영 오류 메시지와 함께 즉시 실패합니다.
+- 이벤트는 04_Data/Events/Json/의 분류별 JSON(events_common|depart|settle|raid|chain.json)에 정의하고, 텍스트는 CSV로 관리해 Unity Localization에 반영하며, 로드 시점에 전부 검증합니다(선택지 수, 확률 합, 비용 중복, 폴백 이벤트 등). 잘못된 데이터는 한/영 오류 메시지와 함께 즉시 실패합니다.
 - 코드 수정 없이 이벤트 추가 가능
-- 현재 이벤트 18종 (이동/정착 슬롯별 가중치, 일차 조건 포함)
+- 현재 이벤트 132종 (일반 97 + 연계 전용 33 + 습격 2). 연계 이벤트와 습격은 로드 시점에 연결·순환·슬롯 범위를 검증합니다.
 
 **UI / 연출**
 - 이벤트 패널: 일반 선택지 최대 4개 + 특수 선택지 1개, 소모/성공/실패 영역별 최대 3줄 효과 표시, 선택 불가 카드 표시
@@ -74,13 +74,13 @@ Unity Test Runner (EditMode)에서 실행합니다. 현재 105개.
 - [x] 결과 화면(성공/실패 표시, 보상 줄)
 - [x] 식량/물 분배 패널
 - [x] 게임 오버 / 재시작
-- [x] 이벤트 18종, 이벤트 텍스트 로컬라이징(Unity Localization)
+- [x] 이벤트 132종, 이벤트 텍스트 로컬라이징(Unity Localization)
 - [x] 정비 선택 UI (수리 / 넘어가기), 수리 아이템 3종
 - [x] 칸 기반 인벤토리와 인벤토리 HUD
 - [ ] 아이템 획득 (이벤트 보상)
 - [ ] 제작 UI와 차량 업그레이드 재료
 - [ ] 창고 업그레이드 (칸 수, 칸당 최대치)
-- [ ] 연계 이벤트, 이벤트 대폭 확장
+- [x] 연계 이벤트, 이벤트 대폭 확장
 - [ ] 캐릭터 선택, 합류 이벤트
 - [ ] 실기기 빌드, 프로파일링 결과, 서버 연동
 
@@ -95,7 +95,7 @@ Caravan/ 차량 연출
 Sound/ 오디오
 UI/ UI 패널
 03_Arts/ 아트 리소스
-04_Data/ events.json 등 데이터
+04_Data/Events/ Json(이벤트 데이터), Text(번역 CSV)
 
 
 ## 실행 방법
@@ -141,9 +141,9 @@ Unity 6 / 2D URP / portrait (1080x1920) / pixel art.
   - `ResourceStore` and `ItemStore` are thin fronts over this inventory.
 
 **Data-driven events**
-- Events are defined in `events.json` and fully validated at load time (choice counts, probability totals, duplicate costs, fallback event, etc.). Bad data fails immediately with bilingual (KR/EN) error messages.
+- Events are defined in per-category JSON files under 04_Data/Events/Json/ (events_common|depart|settle|raid|chain.json), their text is kept in CSV files and pushed into Unity Localization, and fully validated at load time (choice counts, probability totals, duplicate costs, fallback event, etc.). Bad data fails immediately with bilingual (KR/EN) error messages.
 - New events need no code changes.
-- 18 events at the moment (weights per depart / settle slot, day-based conditions)
+- 132 events at the moment (97 regular + 33 chain-only + 2 raids). Chained events and raids are validated at load time for links, cycles and slot range.
 
 **UI / presentation**
 - Event panel: up to 4 normal choices plus 1 special choice, up to 3 effect rows each for cost / success / failure, and a locked state for unaffordable choices
@@ -183,13 +183,13 @@ Run from the Unity Test Runner (EditMode). 105 tests at the moment.
 - [x] Result view (success / fail banner, reward rows)
 - [x] Food / water distribution panel
 - [x] Game over / restart
-- [x] 18 events, event text localization (Unity Localization)
+- [x] 132 events, event text localization (Unity Localization)
 - [x] Maintenance choice UI (repair / skip) and three repair items
 - [x] Cell-based inventory and inventory HUD
 - [ ] Item acquisition (event rewards)
 - [ ] Crafting UI and vehicle upgrade materials
 - [ ] Storage upgrades (cell count, stack cap)
-- [ ] Chained events, large event expansion
+- [x] Chained events, large event expansion
 - [ ] Character selection, join events
 - [ ] Device build, profiling results, backend integration
 
@@ -204,7 +204,7 @@ Caravan/ caravan visuals
 Sound/ audio
 UI/ UI panels
 03_Arts/ art resources
-04_Data/ data such as events.json
+04_Data/Events/ Json (event data), Text (translation CSV)
 
 
 ## Getting Started
