@@ -118,6 +118,7 @@ namespace Roadnest.Core
             }
 
             ApplyLink(r.Outcome);
+            ApplyBoost(r.Outcome);
 
             SlotIndex++;
             if (SlotIndex >= _slots.Length)
@@ -234,7 +235,14 @@ namespace Roadnest.Core
             else Run.Chains.AddPending(o.LinkIndex, o.LinkWeight, Run.Day);
         }
 
+        // 결과에 보정이 있으면 오늘부터 건다 / apply the outcome's boost starting today
+        void ApplyBoost(OutcomeDef o)
+        {
+            if (o == null || o.BoostTagId < 0) return;
+            Run.Boosts.Add(o.BoostTagId, o.BoostMul, Run.Day, o.BoostDays);
+        }
+
         EventDef PickCurrent()
-            => _selector.Pick(_seed, Run.Day, SlotIndex, Mode, _slots[SlotIndex], Run.ConsecutiveSettles, Run.Chains);
+            => _selector.Pick(_seed, Run.Day, SlotIndex, Mode, _slots[SlotIndex], Run.ConsecutiveSettles, Run.Chains, Run.Boosts);
     }
 }

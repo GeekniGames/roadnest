@@ -1,0 +1,323 @@
+{
+  "events": [
+    {
+      "id": "EVT_STRANGERS_RAID",
+      "titleKey": "evt-strangers-raid-title",
+      "textKey": "evt-strangers-raid-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Night",
+          "weight": 6
+        },
+        {
+          "slot": "Major",
+          "weight": 4
+        }
+      ],
+      "weightMods": [ "settle_streak", "day" ],
+      "tags": [ "strangers_raid" ],
+      "choices": [
+        {
+          "id": "EVT_STRANGERS_RAID_C1",
+          "textKey": "evt-strangers-raid-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-strangers-raid-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strangers-raid-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -25
+                },
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGERS_RAID_C2",
+          "textKey": "evt-strangers-raid-c2",
+          "iconKey": "trash",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-strangers-raid-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strangers-raid-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGERS_RAID_C3",
+          "textKey": "evt-strangers-raid-c3",
+          "iconKey": "feed",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-strangers-raid-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strangers-raid-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGERS_RAID_C4",
+          "textKey": "evt-strangers-raid-c4",
+          "iconKey": "smoke",
+          "cost": [
+            {
+              "stat": "smoke_grenade",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-strangers-raid-c4-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGERS_RAID_C5",
+          "textKey": "evt-strangers-raid-c5",
+          "iconKey": "gun",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "gun",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "gun",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-strangers-raid-c5-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strangers-raid-c5-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                },
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RUST_WHEELS_RAID",
+      "titleKey": "evt-rust-wheels-raid-title",
+      "textKey": "evt-rust-wheels-raid-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 5
+        },
+        {
+          "slot": "Major",
+          "weight": 4
+        },
+        {
+          "slot": "Night",
+          "weight": 2
+        }
+      ],
+      "weightMods": [ "settle_streak", "day" ],
+      "tags": [ "rust_wheels_raid" ],
+      "choices": [
+        {
+          "id": "EVT_RUST_WHEELS_RAID_C1",
+          "textKey": "evt-rust-wheels-raid-c1",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -40
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-rust-wheels-raid-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rust-wheels-raid-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUST_WHEELS_RAID_C2",
+          "textKey": "evt-rust-wheels-raid-c2",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -3
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-rust-wheels-raid-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUST_WHEELS_RAID_C3",
+          "textKey": "evt-rust-wheels-raid-c3",
+          "iconKey": "gamble",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 45,
+              "textKey": "evt-rust-wheels-raid-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rust-wheels-raid-c3-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -3
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUST_WHEELS_RAID_C4",
+          "textKey": "evt-rust-wheels-raid-c4",
+          "iconKey": "rush",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-rust-wheels-raid-c4-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rust-wheels-raid-c4-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -20
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUST_WHEELS_RAID_C5",
+          "textKey": "evt-rust-wheels-raid-c5",
+          "iconKey": "smoke",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "smoke_grenade",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "smoke_grenade",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-rust-wheels-raid-c5-o1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

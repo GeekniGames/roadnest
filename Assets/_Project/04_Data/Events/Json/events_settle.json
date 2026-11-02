@@ -1,0 +1,3033 @@
+{
+  "events": [
+    {
+      "id": "EVT_NEARBY_HOUSE",
+      "titleKey": "evt-nearby-house-title",
+      "textKey": "evt-nearby-house-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NEARBY_HOUSE_C1",
+          "textKey": "evt-nearby-house-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-nearby-house-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "cloth_scrap",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-house-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEARBY_HOUSE_C2",
+          "textKey": "evt-nearby-house-c2",
+          "iconKey": "light",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flashlight",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flashlight",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-nearby-house-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                },
+                {
+                  "stat": "alcohol",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-house-c2-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEARBY_HOUSE_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-house-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SUNKEN_GROUND",
+      "titleKey": "evt-sunken-ground-title",
+      "textKey": "evt-sunken-ground-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_SUNKEN_GROUND_C1",
+          "textKey": "evt-sunken-ground-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 35,
+              "textKey": "evt-sunken-ground-c1-o1",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-sunken-ground-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_SUNKEN_GROUND_C2",
+          "textKey": "evt-sunken-ground-c2",
+          "iconKey": "break",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "shovel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "shovel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-sunken-ground-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "water",
+                  "amount": 2
+                },
+                {
+                  "stat": "steel_plate",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-sunken-ground-c2-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SUNKEN_GROUND_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-sunken-ground-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_NEARBY_STREAM",
+      "titleKey": "evt-nearby-stream-title",
+      "textKey": "evt-nearby-stream-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NEARBY_STREAM_C1",
+          "textKey": "evt-nearby-stream-c1",
+          "iconKey": "collect",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "evt-nearby-stream-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-stream-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEARBY_STREAM_C2",
+          "textKey": "evt-nearby-stream-c2",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-stream-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEARBY_STREAM_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nearby-stream-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_POND_FISHING",
+      "titleKey": "evt-pond-fishing-title",
+      "textKey": "evt-pond-fishing-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_POND_FISHING_C1",
+          "textKey": "evt-pond-fishing-c1",
+          "iconKey": "gamble",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-pond-fishing-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-pond-fishing-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_POND_FISHING_C2",
+          "textKey": "evt-pond-fishing-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-pond-fishing-c2-o1",
+              "effects": [
+                {
+                  "stat": "cloth_scrap",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-pond-fishing-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_POND_FISHING_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-pond-fishing-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RABBIT_TRACKS",
+      "titleKey": "evt-rabbit-tracks-title",
+      "textKey": "evt-rabbit-tracks-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RABBIT_TRACKS_C1",
+          "textKey": "evt-rabbit-tracks-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-rabbit-tracks-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rabbit-tracks-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RABBIT_TRACKS_C2",
+          "textKey": "evt-rabbit-tracks-c2",
+          "iconKey": "trap",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "rope",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "rope",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-rabbit-tracks-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rabbit-tracks-c2-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_RABBIT_TRACKS_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rabbit-tracks-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_MAINTENANCE_TIME",
+      "titleKey": "evt-maintenance-time-title",
+      "textKey": "evt-maintenance-time-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_MAINTENANCE_TIME_C1",
+          "textKey": "evt-maintenance-time-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-maintenance-time-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MAINTENANCE_TIME_C2",
+          "textKey": "evt-maintenance-time-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "repair_tool",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "repair_tool",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-maintenance-time-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MAINTENANCE_TIME_C3",
+          "textKey": "evt-maintenance-time-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-maintenance-time-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WHEEL_CHECK",
+      "titleKey": "evt-wheel-check-title",
+      "textKey": "evt-wheel-check-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WHEEL_CHECK_C1",
+          "textKey": "evt-wheel-check-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-wheel-check-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wheel-check-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WHEEL_CHECK_C2",
+          "textKey": "evt-wheel-check-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "repair_tool",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "repair_tool",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-wheel-check-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WHEEL_CHECK_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wheel-check-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_LEAKY_ROOF",
+      "titleKey": "evt-leaky-roof-title",
+      "textKey": "evt-leaky-roof-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_LEAKY_ROOF_C1",
+          "textKey": "evt-leaky-roof-c1",
+          "iconKey": "collect",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-roof-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LEAKY_ROOF_C2",
+          "textKey": "evt-leaky-roof-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "cloth_scrap",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-roof-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LEAKY_ROOF_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-roof-c3-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ENGINE_CLEANING",
+      "titleKey": "evt-engine-cleaning-title",
+      "textKey": "evt-engine-cleaning-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_ENGINE_CLEANING_C1",
+          "textKey": "evt-engine-cleaning-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-engine-cleaning-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-engine-cleaning-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ENGINE_CLEANING_C2",
+          "textKey": "evt-engine-cleaning-c2",
+          "iconKey": "clean",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "alcohol",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "alcohol",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-engine-cleaning-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ENGINE_CLEANING_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-engine-cleaning-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_LAUNDRY",
+      "titleKey": "evt-laundry-title",
+      "textKey": "evt-laundry-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_LAUNDRY_C1",
+          "textKey": "evt-laundry-c1",
+          "iconKey": "rest",
+          "cost": [
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-laundry-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LAUNDRY_C2",
+          "textKey": "evt-laundry-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-laundry-c2-o1",
+              "effects": [
+                {
+                  "stat": "cloth_scrap",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-laundry-c2-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_LAUNDRY_C3",
+          "textKey": "evt-laundry-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-laundry-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SHOWER",
+      "titleKey": "evt-shower-title",
+      "textKey": "evt-shower-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_SHOWER_C1",
+          "textKey": "evt-shower-c1",
+          "iconKey": "rest",
+          "cost": [
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-shower-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SHOWER_C2",
+          "textKey": "evt-shower-c2",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-shower-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_MEALTIME",
+      "titleKey": "evt-mealtime-title",
+      "textKey": "evt-mealtime-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "MaintenanceRecovery",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_MEALTIME_C1",
+          "textKey": "evt-mealtime-c1",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mealtime-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MEALTIME_C2",
+          "textKey": "evt-mealtime-c2",
+          "iconKey": "rest",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mealtime-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MEALTIME_C3",
+          "textKey": "evt-mealtime-c3",
+          "iconKey": "endure",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mealtime-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DIARY",
+      "titleKey": "evt-diary-title",
+      "textKey": "evt-diary-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DIARY_C1",
+          "textKey": "evt-diary-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-diary-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DIARY_C2",
+          "textKey": "evt-diary-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-diary-c2-o1",
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-diary-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DIARY_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-diary-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_NIGHT_WATCH",
+      "titleKey": "evt-night-watch-title",
+      "textKey": "evt-night-watch-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NIGHT_WATCH_C1",
+          "textKey": "evt-night-watch-c1",
+          "iconKey": "endure",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-night-watch-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHT_WATCH_C2",
+          "textKey": "evt-night-watch-c2",
+          "iconKey": "gamble",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-night-watch-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 4
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-night-watch-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHT_WATCH_C3",
+          "textKey": "evt-night-watch-c3",
+          "iconKey": "flare",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flare",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flare",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-night-watch-c3-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DOOR_KNOCK",
+      "titleKey": "evt-door-knock-title",
+      "textKey": "evt-door-knock-text",
+      "trigger": "sudden",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DOOR_KNOCK_C1",
+          "textKey": "evt-door-knock-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-door-knock-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DOOR_KNOCK_C2",
+          "textKey": "evt-door-knock-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 30,
+              "textKey": "evt-door-knock-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-door-knock-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DOOR_KNOCK_C3",
+          "textKey": "evt-door-knock-c3",
+          "iconKey": "flare",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flare",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flare",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-door-knock-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ROOF_SNIFFING",
+      "titleKey": "evt-roof-sniffing-title",
+      "textKey": "evt-roof-sniffing-text",
+      "trigger": "sudden",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_ROOF_SNIFFING_C1",
+          "textKey": "evt-roof-sniffing-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-roof-sniffing-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ROOF_SNIFFING_C2",
+          "textKey": "evt-roof-sniffing-c2",
+          "iconKey": "clean",
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-roof-sniffing-c2-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ROOF_SNIFFING_C3",
+          "textKey": "evt-roof-sniffing-c3",
+          "iconKey": "smoke",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "smoke_grenade",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "smoke_grenade",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-roof-sniffing-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_NIGHTMARE",
+      "titleKey": "evt-nightmare-title",
+      "textKey": "evt-nightmare-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NIGHTMARE_C1",
+          "textKey": "evt-nightmare-c1",
+          "iconKey": "help",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-nightmare-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nightmare-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHTMARE_C2",
+          "textKey": "evt-nightmare-c2",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nightmare-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NIGHTMARE_C3",
+          "textKey": "evt-nightmare-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-nightmare-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CARGO_RUSTLE",
+      "titleKey": "evt-cargo-rustle-title",
+      "textKey": "evt-cargo-rustle-text",
+      "trigger": "sudden",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CARGO_RUSTLE_C1",
+          "textKey": "evt-cargo-rustle-c1",
+          "iconKey": "chase",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-cargo-rustle-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cargo-rustle-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CARGO_RUSTLE_C2",
+          "textKey": "evt-cargo-rustle-c2",
+          "iconKey": "light",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flashlight",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flashlight",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-cargo-rustle-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_CARGO_RUSTLE_C3",
+          "textKey": "evt-cargo-rustle-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-cargo-rustle-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DISTANT_LIGHT",
+      "titleKey": "evt-distant-light-title",
+      "textKey": "evt-distant-light-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slotMax": 4,
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DISTANT_LIGHT_C1",
+          "textKey": "evt-distant-light-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-light-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_LIGHT_C2",
+          "textKey": "evt-distant-light-c2",
+          "iconKey": "scout",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-distant-light-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-light-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_LIGHT_C3",
+          "textKey": "evt-distant-light-c3",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -10
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-distant-light-c3-o1",
+              "next": "EVT_LIGHT_OWNER",
+              "nextType": "same_day",
+              "nextPercent": 60,
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-light-c3-o2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_NEIGHBOR_CAMPER",
+      "titleKey": "evt-neighbor-camper-title",
+      "textKey": "evt-neighbor-camper-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slotMax": 4,
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_NEIGHBOR_CAMPER_C1",
+          "textKey": "evt-neighbor-camper-c1",
+          "iconKey": "trade",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-neighbor-camper-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-neighbor-camper-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEIGHBOR_CAMPER_C2",
+          "textKey": "evt-neighbor-camper-c2",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-neighbor-camper-c2-o1",
+              "next": "EVT_CAMPER_OFFER",
+              "nextType": "same_day",
+              "nextPercent": 50,
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_NEIGHBOR_CAMPER_C3",
+          "textKey": "evt-neighbor-camper-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-neighbor-camper-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_OLD_MAN_STORY",
+      "titleKey": "evt-old-man-story-title",
+      "textKey": "evt-old-man-story-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Night",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_OLD_MAN_STORY_C1",
+          "textKey": "evt-old-man-story-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-old-man-story-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_MAN_STORY_C2",
+          "textKey": "evt-old-man-story-c2",
+          "iconKey": "listen",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-old-man-story-c2-o1",
+              "next": "EVT_OLD_MAN_REQUEST",
+              "nextType": "next_day",
+              "nextPercent": 40,
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-man-story-c2-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_MAN_STORY_C3",
+          "textKey": "evt-old-man-story-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-man-story-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WIRE_FIELD",
+      "titleKey": "evt-wire-field-title",
+      "textKey": "evt-wire-field-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WIRE_FIELD_C1",
+          "textKey": "evt-wire-field-c1",
+          "iconKey": "break",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "bolt_cutter",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "bolt_cutter",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-wire-field-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                },
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WIRE_FIELD_C2",
+          "textKey": "evt-wire-field-c2",
+          "iconKey": "climb",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-wire-field-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wire-field-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WIRE_FIELD_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wire-field-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CELLAR_ENTRANCE",
+      "titleKey": "evt-cellar-entrance-title",
+      "textKey": "evt-cellar-entrance-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CELLAR_ENTRANCE_C1",
+          "textKey": "evt-cellar-entrance-c1",
+          "iconKey": "break",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "shovel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "shovel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-cellar-entrance-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "steel_plate",
+                  "amount": 1
+                },
+                {
+                  "stat": "machine_part",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cellar-entrance-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CELLAR_ENTRANCE_C2",
+          "textKey": "evt-cellar-entrance-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 25,
+              "textKey": "evt-cellar-entrance-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cellar-entrance-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CELLAR_ENTRANCE_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cellar-entrance-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WALL_GRAFFITI",
+      "titleKey": "evt-wall-graffiti-title",
+      "textKey": "evt-wall-graffiti-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WALL_GRAFFITI_C1",
+          "textKey": "evt-wall-graffiti-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-wall-graffiti-c1-o1",
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wall-graffiti-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_WALL_GRAFFITI_C2",
+          "textKey": "evt-wall-graffiti-c2",
+          "iconKey": "break",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wall-graffiti-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WALL_GRAFFITI_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wall-graffiti-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_BROKEN_RADIO",
+      "titleKey": "evt-broken-radio-title",
+      "textKey": "evt-broken-radio-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slotMax": 4,
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_BROKEN_RADIO_C1",
+          "textKey": "evt-broken-radio-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 25,
+              "textKey": "evt-broken-radio-c1-o1",
+              "next": "EVT_VOICE_IN_STATIC",
+              "nextType": "same_day",
+              "nextPercent": 60,
+              "effects": [
+                {
+                  "stat": "radio",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-broken-radio-c1-o2",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BROKEN_RADIO_C2",
+          "textKey": "evt-broken-radio-c2",
+          "iconKey": "break",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-broken-radio-c2-o1",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BROKEN_RADIO_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-broken-radio-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DRY_BRANCHES",
+      "titleKey": "evt-dry-branches-title",
+      "textKey": "evt-dry-branches-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DRY_BRANCHES_C1",
+          "textKey": "evt-dry-branches-c1",
+          "iconKey": "collect",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-dry-branches-c1-o1",
+              "effects": [
+                {
+                  "stat": "wood_scrap",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-dry-branches-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DRY_BRANCHES_C2",
+          "textKey": "evt-dry-branches-c2",
+          "iconKey": "break",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "axe",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "axe",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-dry-branches-c2-o1",
+              "effects": [
+                {
+                  "stat": "wood_scrap",
+                  "amount": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DRY_BRANCHES_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-dry-branches-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_OLD_TENT",
+      "titleKey": "evt-old-tent-title",
+      "textKey": "evt-old-tent-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_OLD_TENT_C1",
+          "textKey": "evt-old-tent-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 55,
+              "textKey": "evt-old-tent-c1-o1",
+              "effects": [
+                {
+                  "stat": "cloth_scrap",
+                  "amount": 2
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-tent-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_TENT_C2",
+          "textKey": "evt-old-tent-c2",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-old-tent-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-tent-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_TENT_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-tent-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_PERIMETER_SCOUT",
+      "titleKey": "evt-perimeter-scout-title",
+      "textKey": "evt-perimeter-scout-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_PERIMETER_SCOUT_C1",
+          "textKey": "evt-perimeter-scout-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-perimeter-scout-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-perimeter-scout-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_PERIMETER_SCOUT_C2",
+          "textKey": "evt-perimeter-scout-c2",
+          "iconKey": "scout",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-perimeter-scout-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 25
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-perimeter-scout-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_PERIMETER_SCOUT_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-perimeter-scout-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WATCHTOWER",
+      "titleKey": "evt-watchtower-title",
+      "textKey": "evt-watchtower-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WATCHTOWER_C1",
+          "textKey": "evt-watchtower-c1",
+          "iconKey": "climb",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 65,
+              "textKey": "evt-watchtower-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 15
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-watchtower-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WATCHTOWER_C2",
+          "textKey": "evt-watchtower-c2",
+          "iconKey": "climb",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "rope",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "rope",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-watchtower-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 15
+                },
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WATCHTOWER_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-watchtower-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CAT",
+      "titleKey": "evt-cat-title",
+      "textKey": "evt-cat-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CAT_C1",
+          "textKey": "evt-cat-c1",
+          "iconKey": "chase",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cat-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CAT_C2",
+          "textKey": "evt-cat-c2",
+          "iconKey": "feed",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-cat-c2-o1",
+              "next": "EVT_CAT_GIFT",
+              "nextType": "next_day",
+              "nextPercent": 50,
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CAT_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-cat-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_AFTER_RAIN",
+      "titleKey": "evt-after-rain-title",
+      "textKey": "evt-after-rain-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_AFTER_RAIN_C1",
+          "textKey": "evt-after-rain-c1",
+          "iconKey": "collect",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "evt-after-rain-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-after-rain-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_AFTER_RAIN_C2",
+          "textKey": "evt-after-rain-c2",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-after-rain-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_AFTER_RAIN_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-after-rain-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_ABANDONED_GARDEN",
+      "titleKey": "evt-abandoned-garden-title",
+      "textKey": "evt-abandoned-garden-text",
+      "trigger": "telegraphed",
+      "modes": [ "settle" ],
+      "slots": [
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_ABANDONED_GARDEN_C1",
+          "textKey": "evt-abandoned-garden-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 65,
+              "textKey": "evt-abandoned-garden-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-abandoned-garden-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ABANDONED_GARDEN_C2",
+          "textKey": "evt-abandoned-garden-c2",
+          "iconKey": "break",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "shovel",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "shovel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 90,
+              "textKey": "evt-abandoned-garden-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 3
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-abandoned-garden-c2-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_ABANDONED_GARDEN_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-abandoned-garden-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

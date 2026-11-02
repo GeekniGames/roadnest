@@ -4,6 +4,7 @@ using DG.Tweening;
 using Roadnest.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 /// <summary>
 /// 주행 연출 진입점이자 코어(DayFlow)와 화면을 잇는 곳. 씬 전체에서 Update는 여기 하나뿐.
@@ -20,6 +21,7 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] ResourceHud resourceHud;
     [SerializeField] DurabilityHud durabilityHud;
     [SerializeField] CharactorHud charactorHud;
+    [SerializeField] GoldHud goldHud;
     [SerializeField] ChoicePanel choicePanel;
     [SerializeField] EventPanel eventPanel;
     [SerializeField] DistributionPanel distributionPanel;
@@ -29,7 +31,7 @@ public class RoadSceneController : MonoBehaviour
     [SerializeField] float gameOverDelay = 0.8f;
     [SerializeField] ChoiceSlotData departChoice;
     [SerializeField] ChoiceSlotData settleChoice;
-    [SerializeField] TextAsset eventsJson;
+    [SerializeField] TextAsset[] eventsJsons;           // base + 카테고리 파일들 / base + category files
     [SerializeField] int fixedSeed;                     // 0이면 매 판 랜덤 / 0 = random every run
     [SerializeField] float ignitionPuffDelay = 0.35f;   // 시동 시작 후 배기가스까지 / delay from ignition start to the puff
     [SerializeField] float panelDelay = 0.7f;           // 시동 후 패널 등장까지 텀 / pause before the panel appears
@@ -54,17 +56,33 @@ public class RoadSceneController : MonoBehaviour
     bool _moving;
 
     public ResourceStore Store { get; private set; }
+    LocalSave _save;
+    GoldWallet _wallet;
+    Action _onGoldChanged;
 
 
 
     void Awake()
     {
         RunRules rules = config.ToRules();
-        RunState run = RunState.CreateDefault(rules);
+        // 저장된 골드를 불러와 지갑을 만든다 / load the saved gold and build the wallet
+        _save = new LocalSave(Path.Combine(Application.persistentDataPath, "save.json"));
+        _save.Load();
+        _wallet = new GoldWallet(_save.Data.gold);
+        _onGoldChanged = OnGoldChanged;
+        _wallet.Changed += _onGoldChanged;
+        RunState run = RunState.CreateDefault(rules, _wallet);
         Store = run.Resources;
 
         var errors = new List<string>();
-        EventTable table = EventTable.FromJson(eventsJson.text, errors);
+        var jsons = new string[eventsJsons.Length];
+        var names = new string[eventsJsons.Length];
+        for (int i = 0; i < jsons.Length; i++)
+        {
+            jsons[i] = eventsJsons[i] != null ? eventsJsons[i].text : null;
+            names[i] = eventsJsons[i] != null ? eventsJsons[i].name : "(없음 / missing)";
+        }
+        EventTable table = EventTable.FromJsons(jsons, names, errors);
         if (table == null)
         {
             for (int i = 0; i < errors.Count; i++) Debug.LogError(errors[i]);
@@ -81,6 +99,7 @@ public class RoadSceneController : MonoBehaviour
         resourceHud.Bind(run.Inventory);
         durabilityHud.Bind(run.Durability, rules.MaxDurability);
         charactorHud.Bind(run.Characters);
+        goldHud.Bind(_wallet);
 
         _choices = new[] { departChoice, settleChoice };
         _onPicked = OnPicked;
@@ -96,6 +115,18 @@ public class RoadSceneController : MonoBehaviour
         _onRestart = OnRestart;
         _onGameOver = ShowGameOver;
         departChoice.cost.amount = rules.DepartFuelCost;   // 문구의 {amount}와 실제 소모량을 일치시킴 / keep text and cost in sync
+    }
+
+    // 골드가 바뀔 때마다 저장 / save every time gold changes
+    void OnGoldChanged()
+    {
+        _save.Data.gold = _wallet.Amount;
+        _save.Save();
+    }
+
+    void OnDestroy()
+    {
+        if (_wallet != null) _wallet.Changed -= _onGoldChanged;
     }
 
     void Start()
@@ -199,14 +230,17 @@ public class RoadSceneController : MonoBehaviour
     {
         EventDef ev = _flow.CurrentEvent;
         resourceHud.Hold();     // 확인 누를 때까지 자원 표시를 멈춤 / freeze the HUD until Done
+        goldHud.Hold();
         ChoiceResult result = _flow.Choose(choiceIndex);
         if (!result.Success)
         {
             resourceHud.Release();
+            goldHud.Release();
             ShowEvent();
             return;
         }
         resourceHud.ShowCost(ev.Choices[choiceIndex].Cost);   // 비용은 즉시, 보상은 확인 때 / cost now, rewards on Done
+        goldHud.ShowCost(ev.Choices[choiceIndex].Cost);
         durabilityHud.ShowCost(ev.Choices[choiceIndex].Cost);
         charactorHud.ShowCost(ev.Choices[choiceIndex].Cost);
         eventPanel.ShowResult(ev, result, _flow.Run, _onResultContinue);
@@ -215,6 +249,7 @@ public class RoadSceneController : MonoBehaviour
     void OnResultContinue()
     {
         resourceHud.Release();  // 이때 자원 변화 연출 / resource feedback plays here
+        goldHud.Release();
         durabilityHud.Show(_flow.Run.Durability);   // 보상 반영 / apply rewards
         charactorHud.Show(_flow.Run.Characters);
         if (_flow.Phase != DayPhase.Event) { HandleFlowEnd(); return; }
@@ -312,6 +347,10 @@ public class RoadSceneController : MonoBehaviour
     [ContextMenu("Test/Food -1")] void TestFoodDown() => Store.Add(ResourceType.Food, -1);
     [ContextMenu("Test/Water +1")] void TestWaterUp() => Store.Add(ResourceType.Water, 1);
     [ContextMenu("Test/Water -1")] void TestWaterDown() => Store.Add(ResourceType.Water, -1);
+    [ContextMenu("Test/Gold +100")] void TestGoldUp() => _wallet.Add(100);
+    [ContextMenu("Test/Gold -100")] void TestGoldDown() => _wallet.Add(-100);
+    [ContextMenu("Test/Gold max")] void TestGoldMax() => _wallet.Set(GoldWallet.MaxGold);
+    [ContextMenu("Test/Reset save")] void TestResetSave() { _save.Reset(); _wallet.Set(0); }
     [ContextMenu("Test/StackCap +5")] void TestStackCapUp() => _flow.Run.Inventory.SetStackCap(_flow.Run.Inventory.StackCap + 5);
 
     int _testKind = Inventory.ItemKindOffset;

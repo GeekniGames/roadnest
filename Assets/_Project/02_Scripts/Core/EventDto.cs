@@ -53,6 +53,9 @@ namespace Roadnest.Core
         public string nextType;         // same_day | next_day
         public int nextPercent;         // 1~100
         public int nextWeight;          // next_day만, 0 = 1 / next_day only, 0 means 1
+        public string boostTag;         // 확률을 올릴 이벤트 태그 / event tag whose chance goes up
+        public int boostMul;            // 배수, 2 = 2배 / multiplier, 2 = x2
+        public int boostDays;           // 오늘 포함 일수, 2 = 오늘과 내일 / days including today, 2 = today and tomorrow
     }
 
     [Serializable] public class EffectDto { public string stat; public int amount; }

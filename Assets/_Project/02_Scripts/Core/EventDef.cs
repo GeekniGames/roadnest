@@ -42,14 +42,19 @@ namespace Roadnest.Core
         public readonly int LinkIndex;      // 후속 이벤트 Index, 없으면 -1 / follow-up event index, -1 = none
         public readonly int LinkPercent;
         public readonly int LinkWeight;
+        public readonly int BoostTagId;     // 확률 보정 태그, 없으면 -1 / boost tag id, -1 = none
+        public readonly int BoostMul;
+        public readonly int BoostDays;
 
         public OutcomeDef(ProbKind kind, int percent, int cumulativeEnd, string textKey, Effect[] effects,
                           ChainLinkType linkType = ChainLinkType.None, int linkIndex = -1,
-                          int linkPercent = 0, int linkWeight = 0)
+                          int linkPercent = 0, int linkWeight = 0,
+                          int boostTagId = -1, int boostMul = 0, int boostDays = 0)
         {
             Kind = kind; Percent = percent; CumulativeEnd = cumulativeEnd;
             TextKey = textKey; Effects = effects;
             LinkType = linkType; LinkIndex = linkIndex; LinkPercent = linkPercent; LinkWeight = linkWeight;
+            BoostTagId = boostTagId; BoostMul = boostMul; BoostDays = boostDays;
         }
     }
 

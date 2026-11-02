@@ -23,6 +23,7 @@ public class EventDisplay
     // First 5: fuel, food, water, durability, HP. Item icons come from itemIcons
     public Sprite[] statIcons;
     public ItemIcons itemIcons;
+    public Sprite goldIcon;
 
     static readonly string[] DefaultNames =
     {
@@ -33,7 +34,8 @@ public class EventDisplay
     "나무 조각", "철판", "기계 부품", "고철",
     "천 조각", "알코올",
     "정수 알약", "조명탄", "연막탄", "무전기", "지도 조각",
-    "총", "소화기", "쌍안경", "확성기"
+    "총", "소화기", "쌍안경", "확성기",
+    "골드", "HP"
 };
     public string[] statNames = (string[])DefaultNames.Clone();
     public string noCostLabel = "비용 없음 / No cost";
@@ -91,7 +93,9 @@ public class EventDisplay
 
     public Sprite Icon(int stat)
     {
+        if (stat == (int)StatType.HpOne) stat = (int)StatType.HpAll;   // 같은 HP 아이콘 / same HP icon
         var st = (StatType)stat;
+        if (st == StatType.Gold) return goldIcon;
         if (itemIcons != null && StatMap.IsStored(st))
         {
             Sprite s = itemIcons.Get((int)StatMap.ToKind(st));

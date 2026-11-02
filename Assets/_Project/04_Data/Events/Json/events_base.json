@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "fallback": "EVT_QUIET_DAY",
+  "daySlots": [
+    {
+      "mode": "depart",
+      "slots": [ "Minor", "ResourceExplore", "Danger", "Minor", "Major" ]
+    },
+    {
+      "mode": "settle",
+      "slots": [ "Minor", "MaintenanceRecovery", "NearbyExplore", "Danger", "Night" ]
+    }
+  ],
+  "events": [
+    {
+      "id": "EVT_QUIET_DAY",
+      "titleKey": "evt-quiet-day-title",
+      "textKey": "evt-quiet-day-text",
+      "trigger": "telegraphed",
+      "choices": [
+        {
+          "id": "EVT_QUIET_DAY_C1",
+          "textKey": "evt-quiet-day-c1",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_QUIET_DAY_C2",
+          "textKey": "evt-quiet-day-c2",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-quiet-day-c2-o1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,8 @@ namespace Roadnest.Core
         public readonly ItemStore Items;
         public readonly CharacterState[] Characters;
         public readonly ChainState Chains;
+        public readonly BoostState Boosts = new BoostState();   // 습격 등 확률 보정 / chance boosts such as raids
+        public readonly GoldWallet Gold;        // 판이 끝나도 남는 별도 지갑 / separate wallet that outlives the run
 
         public int Day { get; private set; } = 1;
         public int ConsecutiveSettles { get; private set; }
@@ -21,7 +23,7 @@ namespace Roadnest.Core
         public bool IsOver => EndReason != EndReason.None;
 
 
-        public RunState(RunRules rules, CharacterState[] characters)
+        public RunState(RunRules rules, CharacterState[] characters, GoldWallet gold = null)
         {
             Rules = rules;
             Inventory = new Inventory(rules.InventorySlots, rules.StackCap);
@@ -29,6 +31,7 @@ namespace Roadnest.Core
             Items = new ItemStore(Inventory);
             Characters = characters;
             Chains = new ChainState(rules.NextDayChainPermille);
+            Gold = gold ?? new GoldWallet();
             Resources.Add(ResourceType.Fuel, rules.StartFuel);
             Resources.Add(ResourceType.Food, rules.StartFood);
             Resources.Add(ResourceType.Water, rules.StartWater);
@@ -37,10 +40,10 @@ namespace Roadnest.Core
         }
 
         // 임시 시작 캐릭터: 웨이드. 선택 화면이 생기면 데이터로 교체 / temporary starting character: Wade, to be data-driven once the selection screen exists
-        public static RunState CreateDefault(RunRules rules)
+        public static RunState CreateDefault(RunRules rules, GoldWallet gold = null)
         {
             var chars = new[] { new CharacterState("char_wade", null, rules.MaxCharacterHp) };
-            return new RunState(rules, chars);
+            return new RunState(rules, chars, gold);
         }
 
         public void AdvanceDay() => Day++;
@@ -48,19 +51,35 @@ namespace Roadnest.Core
         // 출발이면 연속 정착 0, 정착이면 +1 / depart resets the settle streak, settle adds 1
         public void RegisterMove(MoveMode mode) => ConsecutiveSettles = mode == MoveMode.Settle ? ConsecutiveSettles + 1 : 0;
 
-        // 캐릭터 한 명의 HP 감소. 죽은 캐릭터는 무시 / damage one character; dead ones ignored
-        public void DamageCharacter(int index, int amount)
+        // 캐릭터 한 명의 HP 증감, 음수가 피해. 죽은 캐릭터는 무시 / change one character's HP, negative = damage; dead ones ignored
+        public void ChangeHp(int index, int amount)
         {
             CharacterState c = Characters[index];
             if (!c.IsAlive) return;
-            c.Hp = Clamp(c.Hp - amount, 0, c.MaxHp);
+            c.Hp = Clamp(c.Hp + amount, 0, c.MaxHp);
             RecountAlive();
             if (AliveCount == 0) End(EndReason.AllDead);
         }
 
-        // 반환: 인벤토리 값은 실제 적용량, 내구도/HP는 계획값 / returns applied amount for stored values, planned amount otherwise
+        public void DamageCharacter(int index, int amount) => ChangeHp(index, -amount);
+
+        // 살아 있는 캐릭터 중 n번째(0부터)의 인덱스, 없으면 -1 / index of the n-th living character (0-based), -1 if none
+        public int NthAlive(int n)
+        {
+            for (int i = 0; i < Characters.Length; i++)
+            {
+                if (!Characters[i].IsAlive) continue;
+                if (n == 0) return i;
+                n--;
+            }
+            return -1;
+        }
+
+        // 반환: 인벤토리와 골드는 실제 적용량, 내구도/HP는 계획값 / returns applied amount for inventory and gold, planned amount otherwise
         public int Apply(Effect e)
         {
+            if (e.Stat == StatType.Gold) return Gold.Add(e.Amount);
+            if (e.Stat == StatType.HpOne) return 0;     // 대상은 ChoiceResolver가 정한다 / ChoiceResolver picks the target
             if (StatMap.IsStored(e.Stat)) return ApplyStored(StatMap.ToKind(e.Stat), e.Amount);
             if (e.Stat == StatType.Durability) ApplyDurability(e.Amount);
             else ApplyHpAll(e.Amount);
@@ -75,12 +94,17 @@ namespace Roadnest.Core
             for (int i = 0; i < effects.Length; i++) Apply(effects[i]);
         }
 
-        // 비용을 낼 수 있는가. 인벤토리 값만 부족 판정 / can the cost be paid; only stored values can run short
+        // 비용을 낼 수 있는가. 인벤토리 값과 골드만 부족 판정 / can the cost be paid; only inventory values and gold can run short
         public bool CanPay(Effect[] cost)
         {
             for (int i = 0; i < cost.Length; i++)
             {
                 Effect c = cost[i];
+                if (c.Stat == StatType.Gold)
+                {
+                    if (Gold.Amount + c.Amount < 0) return false;
+                    continue;
+                }
                 if (StatMap.IsStored(c.Stat) && Inventory.Get(StatMap.ToKind(c.Stat)) + c.Amount < 0)
                     return false;
             }
@@ -99,6 +123,7 @@ namespace Roadnest.Core
         // hp_all은 조건에 쓸 수 없고 EventTable이 검증한다 / hp_all is rejected in requirements by EventTable
         public int GetStat(StatType stat)
         {
+            if (stat == StatType.Gold) return Gold.Amount;
             if (StatMap.IsStored(stat)) return Inventory.Get(StatMap.ToKind(stat));
             return stat == StatType.Durability ? Durability : 0;
         }

@@ -6,7 +6,7 @@ namespace Roadnest.Core
     /// </summary>
     public static class StatMap
     {
-        public const int Count = 32;
+        public const int Count = 34;
 
         // StatType 순서와 같다 / same order as StatType
         static readonly string[] JsonNames =
@@ -18,12 +18,14 @@ namespace Roadnest.Core
             "wood_scrap", "steel_plate", "machine_part", "scrap_metal",
             "cloth_scrap", "alcohol",
             "purification_tablet", "flare", "smoke_grenade", "radio", "map_fragment",
-            "gun", "fire_extinguisher", "binoculars", "megaphone"
+            "gun", "fire_extinguisher", "binoculars", "megaphone",
+            "gold", "hp_one"
         };
 
-        // 인벤토리에 쌓이는 값인가 (자원 + 아이템). 내구도/HP는 아님
-        // True for values kept in the inventory (resources + items); durability and HP are not
-        public static bool IsStored(StatType s) => s <= StatType.Water || s >= StatType.RepairTool;
+        // 인벤토리에 쌓이는 값인가 (자원 + 아이템). 내구도/HP/골드는 아님
+        // True for values kept in the inventory (resources + items); durability, HP and gold are not
+        public static bool IsStored(StatType s)
+            => s <= StatType.Water || (s >= StatType.RepairTool && s <= StatType.Megaphone);
 
         public static ItemKind ToKind(StatType s) => (ItemKind)(s <= StatType.Water ? (int)s : (int)s - 2);
 

@@ -45,11 +45,15 @@ namespace Roadnest.Core
         }
 
         public EventDef Pick(ulong runSeed, int day, int slotOrder, MoveMode mode, SlotType slot, int settleStreak)
-            => Pick(runSeed, day, slotOrder, mode, slot, settleStreak, null);
+    => Pick(runSeed, day, slotOrder, mode, slot, settleStreak, null, null);
+
+        public EventDef Pick(ulong runSeed, int day, int slotOrder, MoveMode mode, SlotType slot,
+                             int settleStreak, ChainState chains)
+            => Pick(runSeed, day, slotOrder, mode, slot, settleStreak, chains, null);
 
         // slotOrder는 하루 안에서의 순서(0부터) / position within the day, 0-based
         public EventDef Pick(ulong runSeed, int day, int slotOrder, MoveMode mode, SlotType slot,
-                             int settleStreak, ChainState chains)
+                             int settleStreak, ChainState chains, BoostState boosts)
         {
             if (chains != null)
             {
@@ -64,8 +68,8 @@ namespace Roadnest.Core
             SlotCandidate[] list = _table.GetCandidates(mode, slot);
             SeededRandom rng = SeededRandom.Derive(runSeed, day, slotOrder, RngPurpose.EventPick);
 
-            EventDef picked = Roll(list, day, slotOrder, settleStreak, true, ref rng);
-            if (picked == null) picked = Roll(list, day, slotOrder, settleStreak, false, ref rng);
+            EventDef picked = Roll(list, day, slotOrder, settleStreak, true, boosts, ref rng);
+            if (picked == null) picked = Roll(list, day, slotOrder, settleStreak, false, boosts, ref rng);
             if (picked == null) return _table.Fallback;
 
             _usedToday[picked.Index] = true;
@@ -115,13 +119,22 @@ namespace Roadnest.Core
             return d.HasMode(mode) && d.IsInDayRange(day) && d.IsInSlotRange(slotOrder);
         }
 
-        EventDef Roll(SlotCandidate[] list, int day, int slotOrder, int streak, bool excludeUsed, ref SeededRandom rng)
+        // 기본 가중치에 태그 보정 배수를 곱한다 / effective weight times the tag boost multiplier
+        static long Weight(in SlotCandidate c, int day, int streak, BoostState boosts)
+        {
+            long w = EffectiveWeight(c.Weight, c.Def.Mods, day, streak);
+            if (boosts != null && boosts.Count > 0) w *= boosts.MultiplierFor(c.Def.TagIds, day);
+            return w;
+        }
+
+        EventDef Roll(SlotCandidate[] list, int day, int slotOrder, int streak, bool excludeUsed,
+                      BoostState boosts, ref SeededRandom rng)
         {
             long total = 0;
             for (int i = 0; i < list.Length; i++)
             {
                 if (!Eligible(list[i].Def, day, slotOrder, excludeUsed)) continue;
-                total += EffectiveWeight(list[i].Weight, list[i].Def.Mods, day, streak);
+                total += Weight(list[i], day, streak, boosts);
             }
             if (total <= 0) return null;
 
@@ -129,7 +142,7 @@ namespace Roadnest.Core
             for (int i = 0; i < list.Length; i++)
             {
                 if (!Eligible(list[i].Def, day, slotOrder, excludeUsed)) continue;
-                r -= EffectiveWeight(list[i].Weight, list[i].Def.Mods, day, streak);
+                r -= Weight(list[i], day, streak, boosts);
                 if (r < 0) return list[i].Def;
             }
             return null;

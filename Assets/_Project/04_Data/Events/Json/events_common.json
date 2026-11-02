@@ -1,0 +1,2687 @@
+{
+  "events": [
+    {
+      "id": "EVT_RAIN",
+      "titleKey": "evt-rain-title",
+      "textKey": "evt-rain-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RAIN_C1",
+          "textKey": "evt-rain-c1",
+          "iconKey": "collect",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 85,
+              "textKey": "evt-rain-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rain-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RAIN_C2",
+          "textKey": "evt-rain-c2",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-rain-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RAIN_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rain-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RADIO_STATIC",
+      "titleKey": "evt-radio-static-title",
+      "textKey": "evt-radio-static-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RADIO_STATIC_C1",
+          "textKey": "evt-radio-static-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-radio-static-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-radio-static-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RADIO_STATIC_C2",
+          "textKey": "evt-radio-static-c2",
+          "iconKey": "radio",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "radio",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "radio",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-radio-static-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 30
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-radio-static-c2-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_RADIO_STATIC_C3",
+          "textKey": "evt-radio-static-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-radio-static-c3-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WANDERING_MERCHANT",
+      "titleKey": "evt-wandering-merchant-title",
+      "textKey": "evt-wandering-merchant-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WANDERING_MERCHANT_C1",
+          "textKey": "evt-wandering-merchant-c1",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -30
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-wandering-merchant-c1-o1",
+              "next": "EVT_REGULAR_MERCHANT",
+              "nextType": "next_day",
+              "nextPercent": 25,
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WANDERING_MERCHANT_C2",
+          "textKey": "evt-wandering-merchant-c2",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -40
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-wandering-merchant-c2-o1",
+              "next": "EVT_REGULAR_MERCHANT",
+              "nextType": "next_day",
+              "nextPercent": 25,
+              "effects": [
+                {
+                  "stat": "fuel",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WANDERING_MERCHANT_C3",
+          "textKey": "evt-wandering-merchant-c3",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "scrap_metal",
+              "amount": -2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-wandering-merchant-c3-o1",
+              "next": "EVT_REGULAR_MERCHANT",
+              "nextType": "next_day",
+              "nextPercent": 25,
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_WANDERING_MERCHANT_C4",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-wandering-merchant-c4-o2",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SURVIVORS_PLEA",
+      "titleKey": "evt-survivors-plea-title",
+      "textKey": "evt-survivors-plea-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_SURVIVORS_PLEA_C1",
+          "textKey": "evt-survivors-plea-c1",
+          "iconKey": "help",
+          "cost": [
+            {
+              "stat": "water",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-survivors-plea-c1-o1",
+              "next": "EVT_RECOVERED_SURVIVOR",
+              "nextType": "next_day",
+              "nextPercent": 40,
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 20
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-survivors-plea-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_SURVIVORS_PLEA_C2",
+          "textKey": "evt-survivors-plea-c2",
+          "iconKey": "help",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "bandage",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "bandage",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-survivors-plea-c2-o1",
+              "next": "EVT_RECOVERED_SURVIVOR",
+              "nextType": "next_day",
+              "nextPercent": 40,
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 40
+                },
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SURVIVORS_PLEA_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-survivors-plea-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SCRATCHING",
+      "titleKey": "evt-scratching-title",
+      "textKey": "evt-scratching-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_SCRATCHING_C1",
+          "textKey": "evt-scratching-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-scratching-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-scratching-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SCRATCHING_C2",
+          "textKey": "evt-scratching-c2",
+          "iconKey": "scout",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 45,
+              "textKey": "evt-scratching-c2-o1",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-scratching-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SCRATCHING_C3",
+          "textKey": "evt-scratching-c3",
+          "iconKey": "flare",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flare",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flare",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-scratching-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_STRANGE_SMELL",
+      "titleKey": "evt-strange-smell-title",
+      "textKey": "evt-strange-smell-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_STRANGE_SMELL_C1",
+          "textKey": "evt-strange-smell-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-strange-smell-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strange-smell-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGE_SMELL_C2",
+          "textKey": "evt-strange-smell-c2",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-strange-smell-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-strange-smell-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STRANGE_SMELL_C3",
+          "textKey": "evt-strange-smell-c3",
+          "iconKey": "clean",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "alcohol",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "alcohol",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-strange-smell-c3-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_MOLDY_FOOD",
+      "titleKey": "evt-moldy-food-title",
+      "textKey": "evt-moldy-food-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_MOLDY_FOOD_C1",
+          "textKey": "evt-moldy-food-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-moldy-food-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-moldy-food-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MOLDY_FOOD_C2",
+          "textKey": "evt-moldy-food-c2",
+          "iconKey": "trash",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-moldy-food-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MOLDY_FOOD_C3",
+          "textKey": "evt-moldy-food-c3",
+          "iconKey": "clean",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "alcohol",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "alcohol",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-moldy-food-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_LEAKY_CANTEEN",
+      "titleKey": "evt-leaky-canteen-title",
+      "textKey": "evt-leaky-canteen-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_LEAKY_CANTEEN_C1",
+          "textKey": "evt-leaky-canteen-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-leaky-canteen-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-canteen-c1-o2",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LEAKY_CANTEEN_C2",
+          "textKey": "evt-leaky-canteen-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "cloth_scrap",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-canteen-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_LEAKY_CANTEEN_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-leaky-canteen-c3-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_OLD_BROADCAST",
+      "titleKey": "evt-old-broadcast-title",
+      "textKey": "evt-old-broadcast-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_OLD_BROADCAST_C1",
+          "textKey": "evt-old-broadcast-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-old-broadcast-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_BROADCAST_C2",
+          "textKey": "evt-old-broadcast-c2",
+          "iconKey": "trade",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-old-broadcast-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-broadcast-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_BROADCAST_C3",
+          "textKey": "evt-old-broadcast-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-broadcast-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_BARKING_DOG",
+      "titleKey": "evt-barking-dog-title",
+      "textKey": "evt-barking-dog-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_BARKING_DOG_C1",
+          "textKey": "evt-barking-dog-c1",
+          "iconKey": "feed",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-barking-dog-c1-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_BARKING_DOG_C2",
+          "textKey": "evt-barking-dog-c2",
+          "iconKey": "chase",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-barking-dog-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-barking-dog-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BARKING_DOG_C3",
+          "textKey": "evt-barking-dog-c3",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-barking-dog-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-barking-dog-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_OLD_BOARD_GAME",
+      "titleKey": "evt-old-board-game-title",
+      "textKey": "evt-old-board-game-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_OLD_BOARD_GAME_C1",
+          "textKey": "evt-old-board-game-c1",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-old-board-game-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_BOARD_GAME_C2",
+          "textKey": "evt-old-board-game-c2",
+          "iconKey": "gamble",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -10
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-old-board-game-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 30
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-board-game-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_OLD_BOARD_GAME_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-old-board-game-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_FLICKERING_BULB",
+      "titleKey": "evt-flickering-bulb-title",
+      "textKey": "evt-flickering-bulb-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_FLICKERING_BULB_C1",
+          "textKey": "evt-flickering-bulb-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-flickering-bulb-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-flickering-bulb-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_FLICKERING_BULB_C2",
+          "textKey": "evt-flickering-bulb-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "repair_tool",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "repair_tool",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-flickering-bulb-c2-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_FLICKERING_BULB_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-flickering-bulb-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-flickering-bulb-c3-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_TANGLED_CARGO",
+      "titleKey": "evt-tangled-cargo-title",
+      "textKey": "evt-tangled-cargo-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_TANGLED_CARGO_C1",
+          "textKey": "evt-tangled-cargo-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-tangled-cargo-c1-o1",
+              "effects": [
+                {
+                  "stat": "cloth_scrap",
+                  "amount": 1
+                },
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-tangled-cargo-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_TANGLED_CARGO_C2",
+          "textKey": "evt-tangled-cargo-c2",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-tangled-cargo-c2-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_HAIL",
+      "titleKey": "evt-hail-title",
+      "textKey": "evt-hail-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_HAIL_C1",
+          "textKey": "evt-hail-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 50,
+              "textKey": "evt-hail-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-hail-c1-o2",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_HAIL_C2",
+          "textKey": "evt-hail-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "steel_plate",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "steel_plate",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-hail-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_HAIL_C3",
+          "textKey": "evt-hail-c3",
+          "iconKey": "endure",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-hail-c3-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_THICK_FOG",
+      "titleKey": "evt-thick-fog-title",
+      "textKey": "evt-thick-fog-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_THICK_FOG_C1",
+          "textKey": "evt-thick-fog-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-thick-fog-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-thick-fog-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_THICK_FOG_C2",
+          "textKey": "evt-thick-fog-c2",
+          "iconKey": "scout",
+          "cost": [
+            {
+              "stat": "binoculars",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-thick-fog-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_THICK_FOG_C3",
+          "textKey": "evt-thick-fog-c3",
+          "iconKey": "flare",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flare",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flare",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-thick-fog-c3-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                },
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-thick-fog-c3-o2",
+              "boostTag": "rust_wheels_raid",
+              "boostMul": 2,
+              "boostDays": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_WORN_NOTE",
+      "titleKey": "evt-worn-note-title",
+      "textKey": "evt-worn-note-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_WORN_NOTE_C1",
+          "textKey": "evt-worn-note-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-worn-note-c1-o1",
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-worn-note-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_WORN_NOTE_C2",
+          "textKey": "evt-worn-note-c2",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-worn-note-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DISTANT_SMOKE",
+      "titleKey": "evt-distant-smoke-title",
+      "textKey": "evt-distant-smoke-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DISTANT_SMOKE_C1",
+          "textKey": "evt-distant-smoke-c1",
+          "iconKey": "explore",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 45,
+              "textKey": "evt-distant-smoke-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                },
+                {
+                  "stat": "water",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-smoke-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -12
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_SMOKE_C2",
+          "textKey": "evt-distant-smoke-c2",
+          "iconKey": "scout",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "binoculars",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "binoculars",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-smoke-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 20
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_SMOKE_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-smoke-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RATS",
+      "titleKey": "evt-rats-title",
+      "textKey": "evt-rats-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RATS_C1",
+          "textKey": "evt-rats-c1",
+          "iconKey": "chase",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-rats-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rats-c1-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RATS_C2",
+          "textKey": "evt-rats-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "cloth_scrap",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-rats-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_RATS_C3",
+          "textKey": "evt-rats-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-rats-c3-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_DISTANT_VOICE",
+      "titleKey": "evt-distant-voice-title",
+      "textKey": "evt-distant-voice-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_DISTANT_VOICE_C1",
+          "textKey": "evt-distant-voice-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-distant-voice-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 10
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-voice-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_VOICE_C2",
+          "textKey": "evt-distant-voice-c2",
+          "iconKey": "megaphone",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "megaphone",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "megaphone",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-distant-voice-c2-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 40
+                },
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-voice-c2-o2",
+              "boostTag": "strangers_raid",
+              "boostMul": 2,
+              "boostDays": 2
+            }
+          ]
+        },
+        {
+          "id": "EVT_DISTANT_VOICE_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-distant-voice-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_BUSKER",
+      "titleKey": "evt-busker-title",
+      "textKey": "evt-busker-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_BUSKER_C1",
+          "textKey": "evt-busker-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-busker-c1-o1",
+              "next": "EVT_SLOW_SONG",
+              "nextType": "next_day",
+              "nextPercent": 40,
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 4
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-busker-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BUSKER_C2",
+          "textKey": "evt-busker-c2",
+          "iconKey": "help",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -10
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-busker-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_BUSKER_C3",
+          "textKey": "evt-busker-c3",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-busker-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-busker-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_STOPPED_CLOCK",
+      "titleKey": "evt-stopped-clock-title",
+      "textKey": "evt-stopped-clock-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_STOPPED_CLOCK_C1",
+          "textKey": "evt-stopped-clock-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 30,
+              "textKey": "evt-stopped-clock-c1-o1",
+              "effects": [
+                {
+                  "stat": "gold",
+                  "amount": 20
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-stopped-clock-c1-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_STOPPED_CLOCK_C2",
+          "textKey": "evt-stopped-clock-c2",
+          "iconKey": "break",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-stopped-clock-c2-o1",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_STOPPED_CLOCK_C3",
+          "textKey": "evt-stopped-clock-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-stopped-clock-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_UNLABELED_CAN",
+      "titleKey": "evt-unlabeled-can-title",
+      "textKey": "evt-unlabeled-can-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_UNLABELED_CAN_C1",
+          "textKey": "evt-unlabeled-can-c1",
+          "iconKey": "gamble",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-unlabeled-can-c1-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 2
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-unlabeled-can-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_UNLABELED_CAN_C2",
+          "textKey": "evt-unlabeled-can-c2",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-unlabeled-can-c2-o2",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_SHADOW",
+      "titleKey": "evt-shadow-title",
+      "textKey": "evt-shadow-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Danger",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_SHADOW_C1",
+          "textKey": "evt-shadow-c1",
+          "iconKey": "hide",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-shadow-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-shadow-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SHADOW_C2",
+          "textKey": "evt-shadow-c2",
+          "iconKey": "scout",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 35,
+              "textKey": "evt-shadow-c2-o1",
+              "effects": [
+                {
+                  "stat": "scrap_metal",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-shadow-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -15
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_SHADOW_C3",
+          "textKey": "evt-shadow-c3",
+          "iconKey": "light",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "flashlight",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "flashlight",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-shadow-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_MAP_SELLER",
+      "titleKey": "evt-map-seller-title",
+      "textKey": "evt-map-seller-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "ResourceExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_MAP_SELLER_C1",
+          "textKey": "evt-map-seller-c1",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "gold",
+              "amount": -20
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-map-seller-c1-o1",
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MAP_SELLER_C2",
+          "textKey": "evt-map-seller-c2",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "scrap_metal",
+              "amount": -2
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-map-seller-c2-o1",
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MAP_SELLER_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-map-seller-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_RUMOR",
+      "titleKey": "evt-rumor-title",
+      "textKey": "evt-rumor-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_RUMOR_C1",
+          "textKey": "evt-rumor-c1",
+          "iconKey": "listen",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-rumor-c1-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rumor-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUMOR_C2",
+          "textKey": "evt-rumor-c2",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-rumor-c2-o1",
+              "next": "EVT_NORTHERN_TRAVELER",
+              "nextType": "next_day",
+              "nextPercent": 50,
+              "effects": [
+                {
+                  "stat": "map_fragment",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rumor-c2-o2"
+            }
+          ]
+        },
+        {
+          "id": "EVT_RUMOR_C3",
+          "textKey": "evt-rumor-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-rumor-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_MOSQUITOES",
+      "titleKey": "evt-mosquitoes-title",
+      "textKey": "evt-mosquitoes-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_MOSQUITOES_C1",
+          "textKey": "evt-mosquitoes-c1",
+          "iconKey": "endure",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mosquitoes-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_MOSQUITOES_C2",
+          "textKey": "evt-mosquitoes-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "cloth_scrap",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mosquitoes-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_MOSQUITOES_C3",
+          "textKey": "evt-mosquitoes-c3",
+          "iconKey": "trade",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-mosquitoes-c3-o1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_THUNDER",
+      "titleKey": "evt-thunder-title",
+      "textKey": "evt-thunder-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Major",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_THUNDER_C1",
+          "textKey": "evt-thunder-c1",
+          "iconKey": "repair",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-thunder-c1-o1",
+              "effects": [
+                {
+                  "stat": "durability",
+                  "amount": 5
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-thunder-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_THUNDER_C2",
+          "textKey": "evt-thunder-c2",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-thunder-c2-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_THUNDER_C3",
+          "textKey": "common-ignore",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-thunder-c3-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_HEATWAVE",
+      "titleKey": "evt-heatwave-title",
+      "textKey": "evt-heatwave-text",
+      "trigger": "sudden",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "Danger",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_HEATWAVE_C1",
+          "textKey": "evt-heatwave-c1",
+          "iconKey": "endure",
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-heatwave-c1-o1",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_HEATWAVE_C2",
+          "textKey": "evt-heatwave-c2",
+          "iconKey": "repair",
+          "special": true,
+          "hidden": true,
+          "requirements": [
+            {
+              "stat": "cloth_scrap",
+              "op": "gte",
+              "value": 1
+            }
+          ],
+          "cost": [
+            {
+              "stat": "cloth_scrap",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-heatwave-c2-o1"
+            }
+          ]
+        },
+        {
+          "id": "EVT_HEATWAVE_C3",
+          "textKey": "evt-heatwave-c3",
+          "iconKey": "rest",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 60,
+              "textKey": "evt-heatwave-c3-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-heatwave-c3-o2",
+              "effects": [
+                {
+                  "stat": "water",
+                  "amount": -1
+                },
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_CAMPFIRE",
+      "titleKey": "evt-campfire-title",
+      "textKey": "evt-campfire-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        },
+        {
+          "slot": "NearbyExplore",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_CAMPFIRE_C1",
+          "textKey": "evt-campfire-c1",
+          "iconKey": "rest",
+          "cost": [
+            {
+              "stat": "fuel",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "evt-campfire-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-campfire-c1-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_CAMPFIRE_C2",
+          "textKey": "evt-campfire-c2",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 70,
+              "textKey": "evt-campfire-c2-o1"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-campfire-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EVT_LONE_BIRD",
+      "titleKey": "evt-lone-bird-title",
+      "textKey": "evt-lone-bird-text",
+      "trigger": "telegraphed",
+      "modes": [ "depart", "settle" ],
+      "slots": [
+        {
+          "slot": "Minor",
+          "weight": 10
+        }
+      ],
+      "choices": [
+        {
+          "id": "EVT_LONE_BIRD_C1",
+          "textKey": "evt-lone-bird-c1",
+          "iconKey": "feed",
+          "cost": [
+            {
+              "stat": "food",
+              "amount": -1
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "rest",
+              "textKey": "evt-lone-bird-c1-o1",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LONE_BIRD_C2",
+          "textKey": "evt-lone-bird-c2",
+          "iconKey": "gamble",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 40,
+              "textKey": "evt-lone-bird-c2-o1",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": 1
+                }
+              ]
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-lone-bird-c2-o2",
+              "effects": [
+                {
+                  "stat": "hp_one",
+                  "amount": -3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "EVT_LONE_BIRD_C3",
+          "textKey": "evt-lone-bird-c3",
+          "iconKey": "pass",
+          "outcomes": [
+            {
+              "kind": "fixed",
+              "percent": 80,
+              "textKey": "common-nothing"
+            },
+            {
+              "kind": "rest",
+              "textKey": "evt-lone-bird-c3-o2",
+              "effects": [
+                {
+                  "stat": "food",
+                  "amount": -1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -31,6 +31,8 @@ namespace Roadnest.Core
     /// </summary>
     public static class ChoiceResolver
     {
+        const int NotPicked = -2;
+
         // hidden은 조건을 만족해야 등장, 비용 부족은 보이되 선택 불가
         // hidden appears only when requirements are met; unaffordable stays visible but disabled
         public static ChoiceStatus GetStatus(RunState run, ChoiceDef choice)
@@ -58,15 +60,35 @@ namespace Roadnest.Core
             OutcomeDef outcome = outcomes[idx];
             Effect[] fx = outcome.Effects;
             int a0 = 0, a1 = 0, a2 = 0;
+            int hpTarget = NotPicked;   // hp_one은 한 결과 안에서 같은 1명에게 몰린다 / hp_one effects in one outcome share a target
             for (int i = 0; i < fx.Length; i++)
             {
-                int got = run.Apply(fx[i]);
-                int shown = fx[i].Amount > 0 ? got : fx[i].Amount;
+                Effect e = fx[i];
+                int shown = e.Amount;
+                if (e.Stat == StatType.HpOne)
+                {
+                    if (hpTarget == NotPicked) hpTarget = PickHpTarget(run, runSeed, day, slotOrder);
+                    if (hpTarget >= 0) run.ChangeHp(hpTarget, e.Amount);
+                }
+                else
+                {
+                    int got = run.Apply(e);
+                    if (e.Amount > 0) shown = got;
+                }
+
                 if (i == 0) a0 = shown;
                 else if (i == 1) a1 = shown;
                 else a2 = shown;
             }
             return new ChoiceResult(idx, outcome, a0, a1, a2);
+        }
+
+        // 살아 있는 캐릭터 중 무작위 1명, 없으면 -1 / random living character, -1 if none
+        static int PickHpTarget(RunState run, ulong runSeed, int day, int slotOrder)
+        {
+            if (run.AliveCount == 0) return -1;
+            SeededRandom r = SeededRandom.Derive(runSeed, day, slotOrder, RngPurpose.HpTarget);
+            return run.NthAlive(r.Range(0, run.AliveCount));
         }
     }
 }

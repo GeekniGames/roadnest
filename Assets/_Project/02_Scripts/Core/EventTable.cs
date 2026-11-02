@@ -64,6 +64,63 @@ namespace Roadnest.Core
             return Build(dto, errors);
         }
 
+        // 파일 여러 개를 하나로 합쳐 검증한다. 합치는 건 시작할 때 한 번뿐
+        // Merges several files into one table and validates it. Runs once at boot
+        public static EventTable FromJsons(string[] jsons, string[] names, List<string> errors)
+        {
+            int errorStart = errors.Count;
+            var merged = new EventTableDto();
+            var events = new List<EventDto>();
+            var owner = new Dictionary<string, string>();   // id -> 파일 이름 / id -> file name
+
+            for (int f = 0; f < jsons.Length; f++)
+            {
+                string file = names[f];
+                if (string.IsNullOrEmpty(jsons[f]))
+                {
+                    errors.Add(file + ": JSON이 비어 있음 / JSON is empty");
+                    continue;
+                }
+
+                EventTableDto dto;
+                try { dto = JsonUtility.FromJson<EventTableDto>(jsons[f]); }
+                catch (ArgumentException ex)
+                {
+                    errors.Add(file + ": JSON 형식 오류 / invalid JSON: " + ex.Message);
+                    continue;
+                }
+
+                if (!string.IsNullOrEmpty(dto.fallback))
+                {
+                    if (!string.IsNullOrEmpty(merged.fallback)) errors.Add(file + ": fallback이 이미 정의됨 / fallback already defined");
+                    else merged.fallback = dto.fallback;
+                }
+                if (dto.daySlots != null && dto.daySlots.Length > 0)
+                {
+                    if (merged.daySlots != null) errors.Add(file + ": daySlots가 이미 정의됨 / daySlots already defined");
+                    else merged.daySlots = dto.daySlots;
+                }
+                if (dto.version > merged.version) merged.version = dto.version;
+
+                int n = Len(dto.events);
+                for (int i = 0; i < n; i++)
+                {
+                    EventDto e = dto.events[i];
+                    if (e != null && !string.IsNullOrEmpty(e.id))
+                    {
+                        if (owner.TryGetValue(e.id, out string other))
+                            errors.Add(file + ": id '" + e.id + "'가 " + other + "에도 있음 / id also in " + other);
+                        else owner.Add(e.id, file);
+                    }
+                    events.Add(e);
+                }
+            }
+
+            if (errors.Count > errorStart) return null;
+            merged.events = events.ToArray();
+            return Build(merged, errors);
+        }
+
         public static EventTable Build(EventTableDto dto, List<string> errors)
         {
             int errorStart = errors.Count;
@@ -82,7 +139,17 @@ namespace Roadnest.Core
                 if (!string.IsNullOrEmpty(pid) && !indexById.ContainsKey(pid)) indexById.Add(pid, indexById.Count);
             }
 
+            // 태그 번호를 먼저 매겨 두면 boostTag가 뒤에 나오는 이벤트의 태그도 찾는다
+            // number tags first so boostTag can find tags of events defined later
             var tagIds = new Dictionary<string, int>();
+            for (int i = 0; i < dto.events.Length; i++)
+            {
+                string[] tg = dto.events[i].tags;
+                int tn = Len(tg);
+                for (int t = 0; t < tn; t++)
+                    if (!string.IsNullOrEmpty(tg[t]) && !tagIds.ContainsKey(tg[t])) tagIds.Add(tg[t], tagIds.Count);
+            }
+
             var byId = new Dictionary<string, EventDef>();
             var defs = new List<EventDef>(dto.events.Length);
             var buckets = new List<SlotCandidate>[ModeCount * SlotCount];
@@ -117,6 +184,7 @@ namespace Roadnest.Core
 
             SlotType[][] daySlots = ParseDaySlots(dto.daySlots, errors);
             ValidateChains(defs, daySlots, errors);
+            ValidateBoosts(defs, tagIds.Count, errors);
             if (errors.Count > errorStart) return null;
 
             var candidates = new SlotCandidate[buckets.Length][];
@@ -223,7 +291,7 @@ namespace Roadnest.Core
             int free = 0;
             for (int c = 0; c < choiceCount; c++)
             {
-                ChoiceDef ch = BuildChoice(e.choices[c], id, c, indexById, errors);
+                ChoiceDef ch = BuildChoice(e.choices[c], id, c, indexById, tagIds, errors);
                 choices[c] = ch;
                 if (ch.Special) { special++; continue; }
                 normal++;
@@ -266,7 +334,7 @@ namespace Roadnest.Core
         }
 
         static ChoiceDef BuildChoice(ChoiceDto c, string eventId, int index,
-                                     Dictionary<string, int> indexById, List<string> errors)
+                                     Dictionary<string, int> indexById, Dictionary<string, int> tagIds, List<string> errors)
         {
             string where = eventId + ".choices[" + index + "]";
             if (string.IsNullOrEmpty(c.id)) errors.Add(where + ": id 없음 / missing id");
@@ -278,16 +346,19 @@ namespace Roadnest.Core
                 errors.Add(where + ".cost: 비용은 최대 " + EventLimits.MaxCostEffects + "개 / at most " + EventLimits.MaxCostEffects + " cost effect");
             for (int i = 0; i < cost.Length; i++)
             {
+                if (cost[i].Stat == StatType.HpOne)
+                    errors.Add(where + ".cost[" + i + "]: hp_one은 비용에 쓸 수 없음 / hp_one is not allowed in cost");
                 for (int j = 0; j < i; j++)
                     if (cost[i].Stat == cost[j].Stat)
                         errors.Add(where + ".cost[" + i + "]: 같은 stat 중복 / duplicate stat in cost");
             }
 
-            OutcomeDef[] outcomes = BuildOutcomes(c.outcomes, where, indexById, errors);
+            OutcomeDef[] outcomes = BuildOutcomes(c.outcomes, where, indexById, tagIds, errors);
             return new ChoiceDef(c.id, c.textKey, c.iconKey, c.hidden, reqs, cost, outcomes, c.special);
         }
 
-        static OutcomeDef[] BuildOutcomes(OutcomeDto[] src, string where, Dictionary<string, int> indexById, List<string> errors)
+        static OutcomeDef[] BuildOutcomes(OutcomeDto[] src, string where, Dictionary<string, int> indexById,
+                                          Dictionary<string, int> tagIds, List<string> errors)
         {
             int n = Len(src);
             if (n == 0)
@@ -341,10 +412,42 @@ namespace Roadnest.Core
                 ChainLinkType linkType;
                 int linkIndex, linkPercent, linkWeight;
                 ParseLink(src[i], w, indexById, errors, out linkType, out linkIndex, out linkPercent, out linkWeight);
+
+                int boostTag, boostMul, boostDays;
+                ParseBoost(src[i], w, tagIds, errors, out boostTag, out boostMul, out boostDays);
+
                 result[i] = new OutcomeDef(kinds[i], pct, cumulative, src[i].textKey, fx,
-                                           linkType, linkIndex, linkPercent, linkWeight);
+                                           linkType, linkIndex, linkPercent, linkWeight,
+                                           boostTag, boostMul, boostDays);
             }
             return result;
+        }
+
+        static void ParseBoost(OutcomeDto o, string where, Dictionary<string, int> tagIds, List<string> errors,
+                       out int tagId, out int mul, out int days)
+        {
+            tagId = -1; mul = 0; days = 0;
+
+            if (string.IsNullOrEmpty(o.boostTag))
+            {
+                if (o.boostMul != 0 || o.boostDays != 0)
+                    errors.Add(where + ": boostTag 없이 보정 설정이 있음 / boost settings without boostTag");
+                return;
+            }
+
+            if (!tagIds.TryGetValue(o.boostTag, out tagId))
+            {
+                tagId = -1;
+                errors.Add(where + ": boostTag '" + o.boostTag + "'를 쓰는 이벤트가 없음 / no event uses this boostTag");
+                return;
+            }
+
+            mul = o.boostMul;
+            days = o.boostDays;
+            if (mul < 2 || mul > EventLimits.MaxBoostMul)
+                errors.Add(where + ": boostMul은 2~" + EventLimits.MaxBoostMul + " / boostMul must be 2-" + EventLimits.MaxBoostMul);
+            if (days < 1 || days > EventLimits.MaxBoostDays)
+                errors.Add(where + ": boostDays는 1~" + EventLimits.MaxBoostDays + " / boostDays must be 1-" + EventLimits.MaxBoostDays);
         }
 
         static void ParseLink(OutcomeDto o, string where, Dictionary<string, int> indexById, List<string> errors,
@@ -387,6 +490,30 @@ namespace Roadnest.Core
             }
             else if (o.nextWeight != 0)
                 errors.Add(where + ": same_day에는 nextWeight를 쓰지 않음 / nextWeight is for next_day only");
+        }
+
+        // 보정 태그 종류가 한도를 넘지 않는지 / distinct boost tags stay within the limit
+        static void ValidateBoosts(List<EventDef> defs, int tagCount, List<string> errors)
+        {
+            var seen = new bool[tagCount];
+            int distinct = 0;
+            for (int i = 0; i < defs.Count; i++)
+            {
+                ChoiceDef[] cs = defs[i].Choices;
+                for (int c = 0; c < cs.Length; c++)
+                {
+                    OutcomeDef[] os = cs[c].Outcomes;
+                    for (int k = 0; k < os.Length; k++)
+                    {
+                        int t = os[k].BoostTagId;
+                        if (t < 0 || seen[t]) continue;
+                        seen[t] = true;
+                        distinct++;
+                    }
+                }
+            }
+            if (distinct > EventLimits.MaxBoosts)
+                errors.Add("보정 태그가 너무 많음 (" + distinct + ") / too many boost tags, max " + EventLimits.MaxBoosts);
         }
 
         // 연계 전체 검증: 대상, 모드, 순환, 단계 수, 하루 5슬롯 초과
@@ -534,6 +661,8 @@ namespace Roadnest.Core
                     errors.Add(where + ".requirements[" + i + "]: 알 수 없는 stat '" + src[i].stat + "' / unknown stat");
                 if (stat == StatType.HpAll)
                     errors.Add(where + ".requirements[" + i + "]: hp_all은 조건에 쓸 수 없음 / hp_all is not allowed in requirements");
+                if (stat == StatType.HpOne)
+                    errors.Add(where + ".requirements[" + i + "]: hp_one은 조건에 쓸 수 없음 / hp_one is not allowed in requirements");
                 if (!TryParseOp(src[i].op, out op))
                     errors.Add(where + ".requirements[" + i + "]: 알 수 없는 op '" + src[i].op + "' / unknown op");
                 arr[i] = new Requirement(stat, op, src[i].value);

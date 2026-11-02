@@ -15,5 +15,8 @@ namespace Roadnest.Core
         public const int MaxChainStages = 4;        // 연계 최대 단계 / max chain stages
         public const int MaxPendingChains = 32;     // 다른날 대기 최대 수 / max next-day pending
         public const int MaxChainWeight = 1000;
+        public const int MaxBoosts = 8;             // 동시에 쓰는 보정 태그 수 / distinct boost tags
+        public const int MaxBoostMul = 10;          // 보정 최대 배수 / max boost multiplier
+        public const int MaxBoostDays = 7;          // 보정 최대 일수 / max boost days
     }
 }

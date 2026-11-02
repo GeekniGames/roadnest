@@ -20,14 +20,16 @@ namespace Roadnest.Core
         WoodScrap, SteelPlate, MachinePart, ScrapMetal,
         ClothScrap, Alcohol,
         PurificationTablet, Flare, SmokeGrenade, Radio, MapFragment,
-        Gun, FireExtinguisher, Binoculars, Megaphone
+        Gun, FireExtinguisher, Binoculars, Megaphone,
+        Gold,   // 인벤토리 밖 별도 재화 / separate currency outside the inventory
+        HpOne   // 살아 있는 1명의 HP, 결과에서만 사용 / HP of one living character, outcomes only
     }
 
     public enum CompareOp : byte { Gte, Gt, Lte, Lt, Eq }
 
     public enum ProbKind : byte { Fixed, Rest }
 
-    public enum RngPurpose : byte { EventPick = 1, Outcome = 2, Misc = 3, ChainSameDay = 4, ChainNextDay = 5 }
+    public enum RngPurpose : byte { EventPick = 1, Outcome = 2, Misc = 3, ChainSameDay = 4, ChainNextDay = 5, HpTarget = 6 }
 
     public enum ChainLinkType : byte { None, SameDay, NextDay }
 

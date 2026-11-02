@@ -1,0 +1,9 @@
+Key,English(en),Korean(ko)
+common-pass,"Move on","지나친다"
+common-nothing,"Nothing happened.","아무 일도 없었다."
+evt-quiet-day-title,"A Quiet Day","조용한 하루"
+evt-quiet-day-text,"Nothing happened today. Only the wind.","오늘은 아무 일도 일어나지 않았다. 바람 소리만 들린다."
+evt-quiet-day-c1,"Tinker with the car","차를 정비한다"
+evt-quiet-day-c1-o1,"You tightened loose bolts. The engine runs better.","느슨한 나사를 조였다. 엔진이 한결 낫다."
+evt-quiet-day-c2,"Just rest","가만히 쉰다"
+evt-quiet-day-c2-o1,"Nothing happened. That was the greatest luxury.","아무 일도 없었다. 그게 가장 큰 사치였다."
